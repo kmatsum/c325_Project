@@ -64,6 +64,7 @@ public class TitleScreen extends javax.swing.JFrame {
 
         btnNext.setLabel("Next");
         btnNext.setName(""); // NOI18N
+        btnNext.setNextFocusableComponent(txtUserIDLogin);
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -77,11 +78,15 @@ public class TitleScreen extends javax.swing.JFrame {
             }
         });
 
+        txtFirstName.setFocusCycleRoot(true);
+        txtFirstName.setNextFocusableComponent(txtLastName);
         txtFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFirstNameActionPerformed(evt);
             }
         });
+
+        txtLastName.setNextFocusableComponent(txtUserIDCreate);
 
         txtUserIDCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +100,10 @@ public class TitleScreen extends javax.swing.JFrame {
 
         jLabel7.setText("UserID");
 
+        txtUserIDLogin.setNextFocusableComponent(btnLogin);
+
         btnLogin.setText("Log In");
+        btnLogin.setNextFocusableComponent(btnCancel);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -285,6 +293,8 @@ public class TitleScreen extends javax.swing.JFrame {
             try {
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("userLog.dat"));
                 if (!file.exists()) {
+                    //delete file if it exists...remove this later on
+                    file.delete();
                     file.createNewFile();
                 }
 
