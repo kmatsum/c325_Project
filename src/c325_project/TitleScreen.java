@@ -5,6 +5,8 @@
  */
 package c325_project;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Kazus
@@ -43,6 +45,7 @@ public class TitleScreen extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TitleScreen1");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("createProfile"); // NOI18N
 
@@ -187,6 +190,14 @@ public class TitleScreen extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+
+        //if the user clicks next, create a new user with their input
+        if (evt.getSource() == btnNext) {
+            User user1 = new User();
+            user1.setfirstName(this.txtFirstName.getText());
+            user1.setlastName(this.txtLastName.getText());
+            user1.setuserID(this.txtUserIDCreate.getText());
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void txtUserIDCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDCreateActionPerformed
@@ -199,6 +210,10 @@ public class TitleScreen extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        if (evt.getSource() == btnCancel) {
+            this.dispose();
+        }
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
@@ -209,14 +224,6 @@ public class TitleScreen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     //method to run the form
-    public static void TitleScreen() {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TitleScreen().setVisible(true);
-            }
-        });
-    }
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -250,7 +257,7 @@ public class TitleScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
+    public javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
@@ -260,9 +267,10 @@ public class TitleScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtUserIDCreate;
-    private javax.swing.JTextField txtUserIDLogin;
+    public javax.swing.JTextField txtFirstName;
+    public javax.swing.JTextField txtLastName;
+    public javax.swing.JTextField txtUserIDCreate;
+    public javax.swing.JTextField txtUserIDLogin;
     // End of variables declaration//GEN-END:variables
+
 }
