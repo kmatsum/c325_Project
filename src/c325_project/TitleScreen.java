@@ -5,7 +5,9 @@
  */
 package c325_project;
 
-import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -16,6 +18,8 @@ public class TitleScreen extends javax.swing.JFrame {
     /**
      * Creates new form GUI
      */
+    File file = new File("userLog.dat");
+
     public TitleScreen() {
         initComponents();
     }
@@ -197,6 +201,8 @@ public class TitleScreen extends javax.swing.JFrame {
             user1.setfirstName(this.txtFirstName.getText());
             user1.setlastName(this.txtLastName.getText());
             user1.setuserID(this.txtUserIDCreate.getText());
+            this.WriteObjectToFile(user1);
+
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -273,4 +279,26 @@ public class TitleScreen extends javax.swing.JFrame {
     public javax.swing.JTextField txtUserIDLogin;
     // End of variables declaration//GEN-END:variables
 
+    //method to write users to file
+    public void WriteObjectToFile(Object user) {
+        try {
+            try {
+                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("userLog.dat"));
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+
+                out.writeObject(user);
+                out.close();
+                System.out.println("The user was succesfully written to a file");
+
+            } catch (Exception exc1) {
+                exc1.printStackTrace();
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }
