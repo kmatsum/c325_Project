@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package c325_project;
 
 /**
@@ -18,9 +17,10 @@ public class main {
     public static void main(String[] args) {
         // TODO code application logic here
         //Testing the Git
+
+        MainScreen MainScreenWindow = new MainScreen();
+        MainScreenWindow.setVisible(true);
         
-        TitleScreen title1 = new TitleScreen();
-        title1.TitleScreen();
     }
-    
+
 }
