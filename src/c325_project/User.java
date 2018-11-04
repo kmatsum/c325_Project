@@ -5,11 +5,13 @@
  */
 package c325_project;
 
+import java.io.Serializable;
+
 /**
  *
  * @author gitte
  */
-public class User {
+public class User implements Serializable {
 
     //gets and sets
     private String userID;
