@@ -1,4 +1,3 @@
-
 package c325_project;
 
 public class Account {
@@ -8,7 +7,6 @@ public class Account {
     Double balance;
     String type;
 
-    
     //GET AND SETS =============================================================
     public String getacctName() {
         return acctName;
