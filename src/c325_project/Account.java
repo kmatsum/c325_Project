@@ -11,10 +11,13 @@ package c325_project;
  */
 public class Account {
 
+    //VARIABLES ================================================================
     String acctName;
     Double balance;
     String type;
 
+    
+    //GET AND SETS =============================================================
     public String getacctName() {
         return acctName;
     }
