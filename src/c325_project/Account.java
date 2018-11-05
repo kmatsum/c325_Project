@@ -15,7 +15,7 @@ public class Account {
     }
 
     public void setacctName(String xacctName) {
-        xacctName = acctName;
+        acctName = xacctName;
     }
 
     public Double getBalance() {
@@ -23,7 +23,7 @@ public class Account {
     }
 
     public void setBalance(Double xbalance) {
-        xbalance = balance;
+        balance = xbalance;
     }
 
     public String getType() {
@@ -31,6 +31,6 @@ public class Account {
     }
 
     public void setType(String xtype) {
-        xtype = type;
+        type = xtype;
     }
 }
