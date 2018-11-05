@@ -2,11 +2,11 @@ package c325_project;
 
 public class Tangible {
 
-    //VARIABLES=================================================================
+    //VARIABLES ===============================================================
     private int Quantity;
     private String Brand;
 
-    //GETS AND SETS============================================================
+    //GETS AND SETS ===========================================================
     public int getQuantity() {
         return Quantity;
     }
