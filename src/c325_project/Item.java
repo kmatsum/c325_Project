@@ -22,7 +22,7 @@ public class Item {
     }
 
     public void setName(String xName) {
-        xName = Name;
+       Name = xName;
     }
 
     public double getPrice() {
@@ -30,7 +30,7 @@ public class Item {
     }
 
     public void setPrice(double xPrice) {
-        xPrice = Price;
+        Price = xPrice;
     }
 
     public String getCategory() {
@@ -38,6 +38,6 @@ public class Item {
     }
 
     public void setacctName(String xCategory) {
-        xCategory = Category;
+        Category = xCategory;
     }
 }
