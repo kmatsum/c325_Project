@@ -18,7 +18,8 @@ public class BudgetPlan {
 
     public double getbudgetPlan() {
         return homeExpenses;
-        
+    }
+    
     private double transportation;
 
     public void setuserID(double tp) {
