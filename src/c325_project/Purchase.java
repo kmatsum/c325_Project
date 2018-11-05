@@ -27,7 +27,7 @@ public class Purchase {
     }
 
     public void setAmount(double xAmount) {
-        xAmount = Amount;
+        Amount = xAmount;
     }
 
     public double getTax() {
@@ -35,7 +35,7 @@ public class Purchase {
     }
 
     public void setTax(double xTax) {
-        xTax = Tax;
+        Tax = xTax;
     }
 
     public String getDescription() {
@@ -43,7 +43,7 @@ public class Purchase {
     }
 
     public void setDescription(String xDescription) {
-        xDescription = Description;
+        Description = xDescription;
     }
 
     public String getLocation() {
@@ -51,7 +51,7 @@ public class Purchase {
     }
 
     public void setLocation(String xLocation) {
-        xLocation = location;
+        location = xLocation;
     }
 
     public Date getDateTime() {
@@ -59,7 +59,7 @@ public class Purchase {
     }
 
     public void setacctName(Date xdateTime) {
-        xdateTime = dateTime;
+        dateTime = xdateTime;
     }
 
     public String getType() {
@@ -67,7 +67,7 @@ public class Purchase {
     }
 
     public void setacctName(String xType) {
-        xType = type;
+        type = xType;
     }
 
 }
