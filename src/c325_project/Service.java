@@ -1,26 +1,25 @@
 package c325_project;
 
 public class Service {
-    //GETS AND SETS ============================================================
+
+    //VARIABLES ================================================================
     private boolean recurring;
     private String company;
-    
-    public void setrecurring(boolean rc)
-    {
+
+    //GETS AND SETS ============================================================
+    public void setrecurring(boolean rc) {
         recurring = rc;
     }
-    public boolean getrecurring()
-    {
+
+    public boolean getrecurring() {
         return recurring;
     }
-    
-    public void setcompany(String co)
-    {
+
+    public void setcompany(String co) {
         company = co;
     }
-    
-    public String getcompany()
-    {
+
+    public String getcompany() {
         return company;
     }
 }

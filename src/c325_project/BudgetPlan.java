@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c325_project;
 
-/**
- *
- * @author Paul Mueller
- */
 public class BudgetPlan {
 
-    //GET AND SETS =============================================================
+    //VARIABLES ================================================================
     private double homeExpenses;
+    private double transportation;
+    private double health;
+    private double charity;
+    private double dailyLiving;
+    private double entertainment;
+    private double financial;
 
+    //GETS AND SETS ============================================================
     public void setbudgetPlan(double he) {
         homeExpenses = he;
     }
@@ -21,8 +19,6 @@ public class BudgetPlan {
     public double getbudgetPlan() {
         return homeExpenses;
     }
-
-    private double transportation;
 
     public void settransportation(double tp) {
         transportation = tp;
@@ -32,8 +28,6 @@ public class BudgetPlan {
         return transportation;
     }
 
-    private double health;
-
     public void sethealth(double ha) {
         health = ha;
     }
@@ -41,8 +35,6 @@ public class BudgetPlan {
     public double gethealth() {
         return health;
     }
-
-    private double charity;
 
     public void setcharity(double ch) {
         charity = ch;
@@ -52,8 +44,6 @@ public class BudgetPlan {
         return charity;
     }
 
-    private double dailyLiving;
-
     public void setdailyLiving(double dl) {
         dailyLiving = dl;
     }
@@ -62,8 +52,6 @@ public class BudgetPlan {
         return dailyLiving;
     }
 
-    private double entertainment;
-
     public void setentertainment(double et) {
         entertainment = et;
     }
@@ -71,8 +59,6 @@ public class BudgetPlan {
     public double getentertainment() {
         return entertainment;
     }
-
-    private double financial;
 
     public void setfinancial(double fn) {
         financial = fn;
