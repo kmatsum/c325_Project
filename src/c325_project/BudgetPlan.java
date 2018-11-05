@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c325_project;
+
 
 /**
  *
@@ -13,9 +9,16 @@ public class BudgetPlan extends User {
     
     BudgetPlan(User user){};
 
-    //GET AND SETS =============================================================
+    //VARIABLES ================================================================
     private double homeExpenses;
+    private double transportation;
+    private double health;
+    private double charity;
+    private double dailyLiving;
+    private double entertainment;
+    private double financial;
 
+    //GETS AND SETS ============================================================
     public void setbudgetPlan(double he) {
         homeExpenses = he;
     }
@@ -23,8 +26,6 @@ public class BudgetPlan extends User {
     public double getbudgetPlan() {
         return homeExpenses;
     }
-
-    private double transportation;
 
     public void settransportation(double tp) {
         transportation = tp;
@@ -34,8 +35,6 @@ public class BudgetPlan extends User {
         return transportation;
     }
 
-    private double health;
-
     public void sethealth(double ha) {
         health = ha;
     }
@@ -43,8 +42,6 @@ public class BudgetPlan extends User {
     public double gethealth() {
         return health;
     }
-
-    private double charity;
 
     public void setcharity(double ch) {
         charity = ch;
@@ -54,8 +51,6 @@ public class BudgetPlan extends User {
         return charity;
     }
 
-    private double dailyLiving;
-
     public void setdailyLiving(double dl) {
         dailyLiving = dl;
     }
@@ -64,8 +59,6 @@ public class BudgetPlan extends User {
         return dailyLiving;
     }
 
-    private double entertainment;
-
     public void setentertainment(double et) {
         entertainment = et;
     }
@@ -73,8 +66,6 @@ public class BudgetPlan extends User {
     public double getentertainment() {
         return entertainment;
     }
-
-    private double financial;
 
     public void setfinancial(double fn) {
         financial = fn;

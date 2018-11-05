@@ -1,4 +1,3 @@
-
 package c325_project;
 
 public class Account {
@@ -8,14 +7,13 @@ public class Account {
     Double balance;
     String type;
 
-    
     //GET AND SETS =============================================================
     public String getacctName() {
         return acctName;
     }
 
     public void setacctName(String xacctName) {
-        xacctName = acctName;
+        acctName = xacctName;
     }
 
     public Double getBalance() {
@@ -23,7 +21,7 @@ public class Account {
     }
 
     public void setBalance(Double xbalance) {
-        xbalance = balance;
+        balance = xbalance;
     }
 
     public String getType() {
@@ -31,6 +29,6 @@ public class Account {
     }
 
     public void setType(String xtype) {
-        xtype = type;
+        type = xtype;
     }
 }

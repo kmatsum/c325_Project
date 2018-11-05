@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c325_project;
 
 import java.util.Date;
 
-/**
- *
- * @author Jon
- */
 public class Purchase {
 
     //VARIABLES=================================================================
@@ -27,7 +18,7 @@ public class Purchase {
     }
 
     public void setAmount(double xAmount) {
-        xAmount = Amount;
+        Amount = xAmount;
     }
 
     public double getTax() {
@@ -35,7 +26,7 @@ public class Purchase {
     }
 
     public void setTax(double xTax) {
-        xTax = Tax;
+        Tax = xTax;
     }
 
     public String getDescription() {
@@ -43,7 +34,7 @@ public class Purchase {
     }
 
     public void setDescription(String xDescription) {
-        xDescription = Description;
+        Description = xDescription;
     }
 
     public String getLocation() {
@@ -51,23 +42,23 @@ public class Purchase {
     }
 
     public void setLocation(String xLocation) {
-        xLocation = location;
+        location = xLocation;
     }
 
     public Date getDateTime() {
         return dateTime;
     }
 
-    public void setacctName(Date xdateTime) {
-        xdateTime = dateTime;
+    public void setDateTime(Date xdateTime) {
+        dateTime = xdateTime;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setacctName(String xType) {
-        xType = type;
+    public void setType(String xType) {
+        type = xType;
     }
 
 }
