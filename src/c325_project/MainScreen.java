@@ -211,6 +211,10 @@ public class MainScreen extends javax.swing.JFrame {
             user1.setuserID(this.txtUserIDCreate.getText());
             this.WriteObjectToFile(user1);
 
+            CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
+            this.dispose();
+            BudgetScreen.setVisible(true);
+
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
