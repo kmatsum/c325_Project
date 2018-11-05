@@ -37,7 +37,7 @@ public class Item {
         return Category;
     }
 
-    public void setacctName(String xCategory) {
+    public void setCategory(String xCategory) {
         Category = xCategory;
     }
 }
