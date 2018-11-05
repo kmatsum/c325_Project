@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c325_project;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-/**
- *
- * @author Kazus
- */
 public class MainScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUI
-     */
+    //CREATES FORM GUI =========================================================
     File UserObjects = new File("userLog.dat");
 
     public MainScreen() {
@@ -200,6 +189,7 @@ public class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //METHOD ACTION PERFORMED ==================================================
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
 
@@ -291,7 +281,7 @@ public class MainScreen extends javax.swing.JFrame {
     public javax.swing.JTextField txtUserIDLogin;
     // End of variables declaration//GEN-END:variables
 
-    //method to write users to file
+    //METHOD - WRITE OBJECT TO FILE ============================================
     public void WriteObjectToFile(Object user) {
         try {
             try {
