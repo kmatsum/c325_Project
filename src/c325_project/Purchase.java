@@ -58,7 +58,7 @@ public class Purchase {
         return dateTime;
     }
 
-    public void setacctName(Date xdateTime) {
+    public void setDateTime(Date xdateTime) {
         dateTime = xdateTime;
     }
 
@@ -66,7 +66,7 @@ public class Purchase {
         return type;
     }
 
-    public void setacctName(String xType) {
+    public void setType(String xType) {
         type = xType;
     }
 
