@@ -9,7 +9,9 @@ package c325_project;
  *
  * @author Paul Mueller
  */
-public class BudgetPlan {
+public class BudgetPlan extends User {
+    
+    BudgetPlan(User user){};
 
     //GET AND SETS =============================================================
     private double homeExpenses;
