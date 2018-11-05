@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package c325_project;
 
 /**
@@ -15,6 +14,16 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     /**
      * Creates new form CreateBudgetScreen
      */
+    //ints to keep track of total
+    int Total;
+    int HomeExpenses;
+    int Transportation;
+    int Health;
+    int Charity;
+    int DailyLiving;
+    int Entertainment;
+    int Financial;
+
     public CreateBudgetScreen() {
         initComponents();
     }
@@ -29,6 +38,9 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel9 = new javax.swing.JLabel();
+        dialogNot100 = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        btnOK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -59,6 +71,42 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
 
         jLabel9.setText("jLabel9");
+
+        dialogNot100.setPreferredSize(new java.awt.Dimension(180, 100));
+        dialogNot100.setResizable(false);
+        dialogNot100.setSize(new java.awt.Dimension(180, 100));
+
+        jLabel5.setText("Your total does not equal 100!");
+
+        btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogNot100Layout = new javax.swing.GroupLayout(dialogNot100.getContentPane());
+        dialogNot100.getContentPane().setLayout(dialogNot100Layout);
+        dialogNot100Layout.setHorizontalGroup(
+            dialogNot100Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogNot100Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogNot100Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOK)
+                .addContainerGap())
+        );
+        dialogNot100Layout.setVerticalGroup(
+            dialogNot100Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogNot100Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(btnOK)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,6 +171,11 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         txtFinancial.setText("20");
 
         btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("Reset");
         btnReset.setName(""); // NOI18N
@@ -272,7 +325,52 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
+
+        if (evt.getSource() == btnReset) {
+            txtHomeExpenses.setText("20");
+            txtTransportation.setText("5");
+            txtHealth.setText("20");
+            txtCharity.setText("10");
+            txtDailyLiving.setText("15");
+            txtEntertainment.setText("10");
+            txtFinancial.setText("20");
+        }
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+
+        if (evt.getSource() == btnNext) {
+
+            HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
+            Transportation = Integer.parseInt(txtTransportation.getText());
+            Health = Integer.parseInt(txtHealth.getText());
+            Charity = Integer.parseInt(txtCharity.getText());
+            DailyLiving = Integer.parseInt(txtDailyLiving.getText());
+            Entertainment = Integer.parseInt(txtEntertainment.getText());
+            Financial = Integer.parseInt(txtFinancial.getText());
+
+            Total = HomeExpenses + Transportation + Health + Charity + DailyLiving + Entertainment + Financial;
+
+            if (Total != 100) {
+                dialogNot100.setVisible(true);
+
+            }
+
+//            txtHomeExpenses.setText("20");
+//            txtTransportation.setText("5");
+//            txtHealth.setText("20");
+//            txtCharity.setText("10");
+//            txtDailyLiving.setText("15");
+//            txtEntertainment.setText("10");
+//            txtFinancial.setText("20");
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+        // TODO add your handling code here:
+        dialogNot100.setVisible(false);
+    }//GEN-LAST:event_btnOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,16 +400,20 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CreateBudgetScreen().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new CreateBudgetScreen().setVisible(true);
+//            }
+//        });
+        CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
+        BudgetScreen.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnOK;
     private javax.swing.JButton btnReset;
+    private javax.swing.JDialog dialogNot100;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -328,6 +430,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
