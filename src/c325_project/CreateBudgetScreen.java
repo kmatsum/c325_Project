@@ -75,6 +75,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         dialogNot100.setPreferredSize(new java.awt.Dimension(180, 100));
         dialogNot100.setResizable(false);
         dialogNot100.setSize(new java.awt.Dimension(180, 100));
+        dialogNot100.setType(java.awt.Window.Type.POPUP);
 
         jLabel5.setText("Your total does not equal 100!");
 
@@ -354,16 +355,10 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
             if (Total != 100) {
                 dialogNot100.setVisible(true);
+            } else {
+                BudgetPlan budget = new BudgetPlan(main.user1);
 
             }
-
-//            txtHomeExpenses.setText("20");
-//            txtTransportation.setText("5");
-//            txtHealth.setText("20");
-//            txtCharity.setText("10");
-//            txtDailyLiving.setText("15");
-//            txtEntertainment.setText("10");
-//            txtFinancial.setText("20");
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
