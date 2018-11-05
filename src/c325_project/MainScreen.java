@@ -275,7 +275,7 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
@@ -285,10 +285,10 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    public javax.swing.JTextField txtFirstName;
-    public javax.swing.JTextField txtLastName;
-    public javax.swing.JTextField txtUserIDCreate;
-    public javax.swing.JTextField txtUserIDLogin;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtUserIDCreate;
+    private javax.swing.JTextField txtUserIDLogin;
     // End of variables declaration//GEN-END:variables
 
     //method to write users to file
