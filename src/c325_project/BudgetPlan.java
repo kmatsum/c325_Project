@@ -1,6 +1,13 @@
 package c325_project;
 
-public class BudgetPlan {
+
+/**
+ *
+ * @author Paul Mueller
+ */
+public class BudgetPlan extends User {
+    
+    BudgetPlan(User user){};
 
     //VARIABLES ================================================================
     private double homeExpenses;
