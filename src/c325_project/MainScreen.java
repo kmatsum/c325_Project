@@ -1,8 +1,6 @@
 package c325_project;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 
 public class MainScreen extends javax.swing.JFrame {
 
@@ -198,8 +196,6 @@ public class MainScreen extends javax.swing.JFrame {
             main.currentUser.setFirstName(this.txtFirstName.getText());
             main.currentUser.setLastName(this.txtLastName.getText());
             main.currentUser.setUserID(this.txtUserIDCreate.getText());
-            File currentUserFile = new File(main.currentUser.getUserID() + ".dat");
-            this.WriteObjectToFile(main.currentUser, currentUserFile);
 
             CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
             this.dispose();
@@ -229,9 +225,7 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFirstNameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     //method to run the form
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -281,29 +275,4 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JTextField txtUserIDCreate;
     private javax.swing.JTextField txtUserIDLogin;
     // End of variables declaration//GEN-END:variables
-
-    //METHOD - WRITE OBJECT TO FILE ============================================
-    public void WriteObjectToFile(Object user, File xFile) {
-        try {
-            try {
-                FileOutputStream fileIn = new FileOutputStream(xFile);
-                ObjectOutputStream out = new ObjectOutputStream(fileIn);
-//                if (!UserObjects.exists()) {
-//                    //delete file if it exists...remove this later on
-//                    UserObjects.delete();
-//                    UserObjects.createNewFile();
-//                }
-
-                out.writeObject(user);
-                out.close();
-                System.out.println("The user was succesfully written to a file");
-
-            } catch (Exception exc1) {
-                exc1.printStackTrace();
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 }

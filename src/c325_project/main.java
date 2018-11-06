@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 public class main {
 
     public static User currentUser = new User();
+    public static File currentUserFile;
 
     
     //GLOBAL METHODS ===========================================================
@@ -40,12 +41,6 @@ public class main {
         try {
             FileOutputStream fileIn = new FileOutputStream(xFile);
             ObjectOutputStream out = new ObjectOutputStream(fileIn);
-            
-//                if (!UserObjects.exists()) {
-//                    //delete file if it exists...remove this later on
-//                    UserObjects.delete();
-//                    UserObjects.createNewFile();
-//                }
 
             out.writeObject(user);
             out.close();
