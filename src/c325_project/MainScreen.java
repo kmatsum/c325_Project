@@ -198,7 +198,8 @@ public class MainScreen extends javax.swing.JFrame {
             main.currentUser.setFirstName(this.txtFirstName.getText());
             main.currentUser.setLastName(this.txtLastName.getText());
             main.currentUser.setUserID(this.txtUserIDCreate.getText());
-            this.WriteObjectToFile(main.currentUser);
+            File currentUserFile = new File(main.currentUser.getUserID() + ".dat");
+            this.WriteObjectToFile(main.currentUser, currentUserFile);
 
             CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
             this.dispose();
@@ -213,6 +214,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -281,15 +283,16 @@ public class MainScreen extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //METHOD - WRITE OBJECT TO FILE ============================================
-    public void WriteObjectToFile(Object user) {
+    public void WriteObjectToFile(Object user, File xFile) {
         try {
             try {
-                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("userLog.dat"));
-                if (!UserObjects.exists()) {
-                    //delete file if it exists...remove this later on
-                    UserObjects.delete();
-                    UserObjects.createNewFile();
-                }
+                FileOutputStream fileIn = new FileOutputStream(xFile);
+                ObjectOutputStream out = new ObjectOutputStream(fileIn);
+//                if (!UserObjects.exists()) {
+//                    //delete file if it exists...remove this later on
+//                    UserObjects.delete();
+//                    UserObjects.createNewFile();
+//                }
 
                 out.writeObject(user);
                 out.close();
@@ -302,6 +305,5 @@ public class MainScreen extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
 }
