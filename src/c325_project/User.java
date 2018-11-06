@@ -8,30 +8,39 @@ public class User implements Serializable {
     private String userID;
     private String lastName;
     private String firstName;
+    private BudgetPlan budget = new BudgetPlan();
 
     //GETS AND SETS ============================================================
-    public void setuserID(String id) {
+    public void setUserID(String id) {
         userID = id;
     }
 
-    public String getuserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setfirstName(String fn) {
+    public void setFirstName(String fn) {
         firstName = fn;
     }
 
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setlastName(String ln) {
+    public void setLastName(String ln) {
         lastName = ln;
     }
 
-    public String getlastName() {
+    public String getLastName() {
         return lastName;
+    }
+
+    public void setBudgetPlan(BudgetPlan b) {
+        budget = b;
+    }
+
+    public BudgetPlan getBudgetPlan() {
+        return budget;
     }
 
 }
