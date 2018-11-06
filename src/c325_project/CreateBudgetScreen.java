@@ -31,7 +31,18 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         dialogNot100 = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
-        btnOK = new javax.swing.JButton();
+        btnOKPercentages = new javax.swing.JButton();
+        dialogSavingsWrong = new javax.swing.JDialog();
+        jLabel27 = new javax.swing.JLabel();
+        btnOKSavings = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        dialogCheckingWrong = new javax.swing.JDialog();
+        jLabel30 = new javax.swing.JLabel();
+        btnOKChecking = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        dialogPercentageWrong = new javax.swing.JDialog();
+        jLabel28 = new javax.swing.JLabel();
+        btnOKPercentages1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,20 +71,28 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         txtFinancial = new javax.swing.JTextField();
         btnNext = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txtChecking = new javax.swing.JTextField();
+        txtSavings = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
 
         jLabel9.setText("jLabel9");
 
-        dialogNot100.setPreferredSize(new java.awt.Dimension(180, 100));
+        dialogNot100.setPreferredSize(new java.awt.Dimension(200, 100));
         dialogNot100.setResizable(false);
-        dialogNot100.setSize(new java.awt.Dimension(180, 100));
+        dialogNot100.setSize(new java.awt.Dimension(200, 100));
         dialogNot100.setType(java.awt.Window.Type.POPUP);
 
         jLabel5.setText("Your total does not equal 100!");
 
-        btnOK.setText("OK");
-        btnOK.addActionListener(new java.awt.event.ActionListener() {
+        btnOKPercentages.setText("OK");
+        btnOKPercentages.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOKActionPerformed(evt);
+                btnOKPercentagesActionPerformed(evt);
             }
         });
 
@@ -84,10 +103,10 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             .addGroup(dialogNot100Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogNot100Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOK)
+                .addComponent(btnOKPercentages)
                 .addContainerGap())
         );
         dialogNot100Layout.setVerticalGroup(
@@ -96,18 +115,150 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(btnOK)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(btnOKPercentages)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        dialogSavingsWrong.setPreferredSize(new java.awt.Dimension(200, 100));
+        dialogSavingsWrong.setResizable(false);
+        dialogSavingsWrong.setSize(new java.awt.Dimension(200, 100));
+        dialogSavingsWrong.setType(java.awt.Window.Type.POPUP);
+
+        jLabel27.setText("Your value for SAVINGS is");
+
+        btnOKSavings.setText("OK");
+        btnOKSavings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKSavingsActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("not valid.");
+
+        javax.swing.GroupLayout dialogSavingsWrongLayout = new javax.swing.GroupLayout(dialogSavingsWrong.getContentPane());
+        dialogSavingsWrong.getContentPane().setLayout(dialogSavingsWrongLayout);
+        dialogSavingsWrongLayout.setHorizontalGroup(
+            dialogSavingsWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogSavingsWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogSavingsWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogSavingsWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(0, 46, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSavingsWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOKSavings)))
+                .addContainerGap())
+        );
+        dialogSavingsWrongLayout.setVerticalGroup(
+            dialogSavingsWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogSavingsWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27)
+                .addGroup(dialogSavingsWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogSavingsWrongLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOKSavings))
+                    .addGroup(dialogSavingsWrongLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel29)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        dialogCheckingWrong.setPreferredSize(new java.awt.Dimension(200, 100));
+        dialogCheckingWrong.setResizable(false);
+        dialogCheckingWrong.setSize(new java.awt.Dimension(200, 100));
+        dialogCheckingWrong.setType(java.awt.Window.Type.POPUP);
+
+        jLabel30.setText("Your value for CHECKING is");
+
+        btnOKChecking.setText("OK");
+        btnOKChecking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKCheckingActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("not valid.");
+
+        javax.swing.GroupLayout dialogCheckingWrongLayout = new javax.swing.GroupLayout(dialogCheckingWrong.getContentPane());
+        dialogCheckingWrong.getContentPane().setLayout(dialogCheckingWrongLayout);
+        dialogCheckingWrongLayout.setHorizontalGroup(
+            dialogCheckingWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCheckingWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogCheckingWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogCheckingWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addGap(0, 42, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCheckingWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOKChecking)))
+                .addContainerGap())
+        );
+        dialogCheckingWrongLayout.setVerticalGroup(
+            dialogCheckingWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCheckingWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addGroup(dialogCheckingWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogCheckingWrongLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOKChecking))
+                    .addGroup(dialogCheckingWrongLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel31)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        dialogPercentageWrong.setPreferredSize(new java.awt.Dimension(200, 100));
+        dialogPercentageWrong.setResizable(false);
+        dialogPercentageWrong.setSize(new java.awt.Dimension(200, 100));
+        dialogPercentageWrong.setType(java.awt.Window.Type.POPUP);
+
+        jLabel28.setText("All percentages must be integers.");
+
+        btnOKPercentages1.setText("OK");
+        btnOKPercentages1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKPercentages1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogPercentageWrongLayout = new javax.swing.GroupLayout(dialogPercentageWrong.getContentPane());
+        dialogPercentageWrong.getContentPane().setLayout(dialogPercentageWrongLayout);
+        dialogPercentageWrongLayout.setHorizontalGroup(
+            dialogPercentageWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPercentageWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogPercentageWrongLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOKPercentages1)
+                .addContainerGap())
+        );
+        dialogPercentageWrongLayout.setVerticalGroup(
+            dialogPercentageWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPercentageWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28)
+                .addGap(18, 18, 18)
+                .addComponent(btnOKPercentages1)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Create your budget plan!");
 
-        jLabel2.setText("Choose what percentage you would like to spend in each 7 categories.");
+        jLabel2.setText("Choose what percentage you would like to spend in each 7");
 
-        jLabel3.setText("The total must equal 100.");
+        jLabel3.setText("categories. The total must equal 100.");
 
         jLabel4.setText("Total:");
 
@@ -177,78 +328,103 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Next, enter the starting balances of your two bank accounts,");
+
+        jLabel22.setText("checking and savings.");
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel23.setText("Checking");
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel24.setText("Savings");
+
+        txtChecking.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtChecking.setText("0.00");
+
+        txtSavings.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtSavings.setText("0.00");
+
+        jLabel25.setText("$");
+
+        jLabel26.setText("$");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtTransportation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(20, 20, 20)
-                                .addComponent(txtHomeExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCharity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnReset)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnNext))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel14)
+                                            .addGap(20, 20, 20)
+                                            .addComponent(txtHomeExpenses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel17)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCharity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel16)
+                                                .addComponent(jLabel15))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtTransportation)
+                                                .addComponent(txtHealth))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8)
-                                        .addGap(201, 201, 201))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel10))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel20)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel21))
-                                        .addGap(30, 30, 30)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtFinancial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txtDailyLiving, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtEntertainment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel12))
-                                .addGap(0, 16, Short.MAX_VALUE)))
-                        .addGap(27, 27, 27))
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel10))
+                                    .addGap(49, 49, 49)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel20)
+                                                .addComponent(jLabel19)
+                                                .addComponent(jLabel21))
+                                            .addGap(10, 10, 10)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txtFinancial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(txtDailyLiving, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtEntertainment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel18)
+                                                .addComponent(jLabel13)
+                                                .addComponent(jLabel12)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lblTotal))
+                                        .addComponent(btnReset)))
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel22))
+                            .addComponent(btnNext))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTotal)
-                .addGap(45, 45, 45))
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtChecking, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel26)
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(txtSavings, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(123, 123, 123))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +435,11 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(36, 36, 36)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -280,8 +460,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel17)
-                            .addComponent(txtCharity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCharity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -297,14 +476,24 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                             .addComponent(jLabel18)
                             .addComponent(jLabel21)
                             .addComponent(txtFinancial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(lblTotal))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNext)
-                            .addComponent(btnReset))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReset)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtChecking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSavings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26))
+                .addGap(30, 30, 30)
+                .addComponent(btnNext)
                 .addContainerGap())
         );
 
@@ -333,8 +522,19 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (evt.getSource() == btnNext) {
+            //CHECK PERCENTAGE INPUT
+            if (main.intIsParsable(txtHomeExpenses.getText()) == false
+                    | main.intIsParsable(txtTransportation.getText()) == false
+                    | main.intIsParsable(txtHealth.getText()) == false
+                    | main.intIsParsable(txtCharity.getText()) == false
+                    | main.intIsParsable(txtDailyLiving.getText()) == false
+                    | main.intIsParsable(txtEntertainment.getText()) == false
+                    | main.intIsParsable(txtFinancial.getText()) == false) {
+                dialogPercentageWrong.setVisible(true);
+                return;
+            }
 
-            //PARSE USER INPUT
+            //PARSE PERCENTAGE INPUT
             HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
             Transportation = Integer.parseInt(txtTransportation.getText());
             Health = Integer.parseInt(txtHealth.getText());
@@ -348,32 +548,72 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             //CHECK TOTAL TO BE 100
             if (Total != 100) {
                 dialogNot100.setVisible(true);
-
-                //IF TOTAL IS GOOD, THEN SET ALL ATTRIBUTES TO A TEMP VARIABLE
-            } else {
-                BudgetPlan tempBudget = new BudgetPlan();
-                tempBudget.setHomeExpenses(HomeExpenses);
-                tempBudget.setTransportation(Transportation);
-                tempBudget.setHealth(Health);
-                tempBudget.setDailyLiving(DailyLiving);
-                tempBudget.setEntertainment(Entertainment);
-                tempBudget.setFinancial(Financial);
-
-                //SEND TEMP VARIABLE TO USER
-                main.currentUser.setBudgetPlan(tempBudget);
-
-                //GO TO NEXT SCREEN
-                BudgetScreen loggedBudgetScreen = new BudgetScreen();
-                this.dispose();
-                loggedBudgetScreen.setVisible(true);
+                return;
             }
+
+            //CHECK CHECKING AND SAVINGS INPUT
+            if (main.doubleIsParsable(txtChecking.getText()) == false | main.doubleIsParsable(txtSavings.getText()) == false) {
+                if (main.doubleIsParsable(txtSavings.getText()) == false) {
+                    dialogSavingsWrong.setVisible(true);
+                }
+
+                if (main.doubleIsParsable(txtChecking.getText()) == false) {
+                    dialogCheckingWrong.setVisible(true);
+                }
+                return;
+            }
+
+            //SET ALL BUDGET ATTRIBUTES TO A TEMP VARIABLE
+            BudgetPlan tempBudget = new BudgetPlan();
+            tempBudget.setHomeExpenses(HomeExpenses);
+            tempBudget.setTransportation(Transportation);
+            tempBudget.setHealth(Health);
+            tempBudget.setDailyLiving(DailyLiving);
+            tempBudget.setEntertainment(Entertainment);
+            tempBudget.setFinancial(Financial);
+
+            //SEND TEMP BUDGET VARIABLE TO USER
+            main.currentUser.setBudgetPlan(tempBudget);
+
+            //SET ALL ACCOUNT ATTRIBUTES TO TEMP VARIALBES
+            Account tempChecking = new Account();
+            tempChecking.setacctName("Checking");
+            tempChecking.setBalance(Double.parseDouble(txtChecking.getText()));
+            Account tempSavings = new Account();
+            tempSavings.setacctName("Savings");
+            tempSavings.setBalance(Double.parseDouble(txtSavings.getText()));
+
+            //SEND TEMP ACCOUNT VARIABLES TO USER
+            main.currentUser.setCheckingAccount(tempChecking);
+            main.currentUser.setSavingsAccount(tempSavings);
+
+            //GO TO NEXT SCREEN
+            BudgetScreen loggedBudgetScreen = new BudgetScreen();
+            this.dispose();
+            loggedBudgetScreen.setVisible(true);
+
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+    private void btnOKPercentagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentagesActionPerformed
         // TODO add your handling code here:
         dialogNot100.setVisible(false);
-    }//GEN-LAST:event_btnOKActionPerformed
+    }//GEN-LAST:event_btnOKPercentagesActionPerformed
+
+    private void btnOKSavingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKSavingsActionPerformed
+        // TODO add your handling code here:
+        dialogSavingsWrong.setVisible(false);
+    }//GEN-LAST:event_btnOKSavingsActionPerformed
+
+    private void btnOKCheckingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKCheckingActionPerformed
+        // TODO add your handling code here:
+        dialogCheckingWrong.setVisible(false);
+    }//GEN-LAST:event_btnOKCheckingActionPerformed
+
+    private void btnOKPercentages1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentages1ActionPerformed
+        // TODO add your handling code here:
+        dialogPercentageWrong.setVisible(false);
+    }//GEN-LAST:event_btnOKPercentages1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,9 +654,15 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnOK;
+    private javax.swing.JButton btnOKChecking;
+    private javax.swing.JButton btnOKPercentages;
+    private javax.swing.JButton btnOKPercentages1;
+    private javax.swing.JButton btnOKSavings;
     private javax.swing.JButton btnReset;
+    private javax.swing.JDialog dialogCheckingWrong;
     private javax.swing.JDialog dialogNot100;
+    private javax.swing.JDialog dialogPercentageWrong;
+    private javax.swing.JDialog dialogSavingsWrong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,19 +677,32 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtCharity;
+    private javax.swing.JTextField txtChecking;
     private javax.swing.JTextField txtDailyLiving;
     private javax.swing.JTextField txtEntertainment;
     private javax.swing.JTextField txtFinancial;
     private javax.swing.JTextField txtHealth;
     private javax.swing.JTextField txtHomeExpenses;
+    private javax.swing.JTextField txtSavings;
     private javax.swing.JTextField txtTransportation;
     // End of variables declaration//GEN-END:variables
 }

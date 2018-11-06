@@ -1,11 +1,8 @@
 package c325_project;
 
+import java.io.Serializable;
 
-/**
- *
- * @author Paul Mueller
- */
-public class BudgetPlan {
+public class BudgetPlan implements Serializable {
 
     //VARIABLES ================================================================
     private double homeExpenses;
