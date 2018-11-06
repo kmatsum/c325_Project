@@ -347,7 +347,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             if (Total != 100) {
                 dialogNot100.setVisible(true);
             } else {
-                BudgetPlan budget = new BudgetPlan(main.user1);
+                BudgetPlan budget = new BudgetPlan();
 
             }
         }

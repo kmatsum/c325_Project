@@ -5,9 +5,7 @@ package c325_project;
  *
  * @author Paul Mueller
  */
-public class BudgetPlan extends User {
-    
-    BudgetPlan(User user){};
+public class BudgetPlan {
 
     //VARIABLES ================================================================
     private double homeExpenses;
@@ -19,59 +17,59 @@ public class BudgetPlan extends User {
     private double financial;
 
     //GETS AND SETS ============================================================
-    public void setbudgetPlan(double he) {
+    public void sethomeExpenses(double he) {
         homeExpenses = he;
     }
 
-    public double getbudgetPlan() {
+    public double gethomeExpenses() {
         return homeExpenses;
     }
 
-    public void settransportation(double tp) {
+    public void setTransportation(double tp) {
         transportation = tp;
     }
 
-    public double gettransportation() {
+    public double getTransportation() {
         return transportation;
     }
 
-    public void sethealth(double ha) {
+    public void setHealth(double ha) {
         health = ha;
     }
 
-    public double gethealth() {
+    public double getHealth() {
         return health;
     }
 
-    public void setcharity(double ch) {
+    public void setCharity(double ch) {
         charity = ch;
     }
 
-    public double getcharity() {
+    public double getCharity() {
         return charity;
     }
 
-    public void setdailyLiving(double dl) {
+    public void setDailyLiving(double dl) {
         dailyLiving = dl;
     }
 
-    public double getdailyLiving() {
+    public double getDailyLiving() {
         return dailyLiving;
     }
 
-    public void setentertainment(double et) {
+    public void setEntertainment(double et) {
         entertainment = et;
     }
 
-    public double getentertainment() {
+    public double getEntertainment() {
         return entertainment;
     }
 
-    public void setfinancial(double fn) {
+    public void setFinancial(double fn) {
         financial = fn;
     }
 
-    public double getfinancial() {
+    public double getFinancial() {
         return financial;
     }
 }
