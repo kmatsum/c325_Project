@@ -334,6 +334,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
         if (evt.getSource() == btnNext) {
 
+            //PARSE USER INPUT
             HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
             Transportation = Integer.parseInt(txtTransportation.getText());
             Health = Integer.parseInt(txtHealth.getText());
@@ -344,11 +345,27 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
             Total = HomeExpenses + Transportation + Health + Charity + DailyLiving + Entertainment + Financial;
 
+            //CHECK TOTAL TO BE 100
             if (Total != 100) {
                 dialogNot100.setVisible(true);
-            } else {
-                BudgetPlan budget = new BudgetPlan();
 
+                //IF TOTAL IS GOOD, THEN SET ALL ATTRIBUTES TO A TEMP VARIABLE
+            } else {
+                BudgetPlan tempBudget = new BudgetPlan();
+                tempBudget.setHomeExpenses(HomeExpenses);
+                tempBudget.setTransportation(Transportation);
+                tempBudget.setHealth(Health);
+                tempBudget.setDailyLiving(DailyLiving);
+                tempBudget.setEntertainment(Entertainment);
+                tempBudget.setFinancial(Financial);
+
+                //SEND TEMP VARIABLE TO USER
+                main.currentUser.setBudgetPlan(tempBudget);
+
+                //GO TO NEXT SCREEN
+                BudgetScreen loggedBudgetScreen = new BudgetScreen();
+                this.dispose();
+                loggedBudgetScreen.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnNextActionPerformed

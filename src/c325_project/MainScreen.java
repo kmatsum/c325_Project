@@ -195,10 +195,10 @@ public class MainScreen extends javax.swing.JFrame {
 
         //if the user clicks next, create a new user with their input
         if (evt.getSource() == btnNext) {
-            main.user1.setFirstName(this.txtFirstName.getText());
-            main.user1.setLastName(this.txtLastName.getText());
-            main.user1.setUserID(this.txtUserIDCreate.getText());
-            this.WriteObjectToFile(main.user1);
+            main.currentUser.setFirstName(this.txtFirstName.getText());
+            main.currentUser.setLastName(this.txtLastName.getText());
+            main.currentUser.setUserID(this.txtUserIDCreate.getText());
+            this.WriteObjectToFile(main.currentUser);
 
             CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
             this.dispose();
