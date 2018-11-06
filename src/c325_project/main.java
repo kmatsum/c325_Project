@@ -1,31 +1,61 @@
 package c325_project;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class main {
 
     public static User currentUser = new User();
+    public static File currentUserFile;
 
-    //method to use to check user input for doubles
+    
+    //GLOBAL METHODS ===========================================================
+    
+    //CHECK USER INPUT - DOUBLE
     public static boolean doubleIsParsable(String input) {
         boolean parsable = true;
         try {
             Double.parseDouble(input);
         } catch (Exception e) {
+            e.printStackTrace();
             parsable = false;
         }
         return parsable;
     }
 
-    //method to use to check user input for ints
+    //CHECK USER INPUT - INT
     public static boolean intIsParsable(String input) {
         boolean parsable = true;
         try {
             Integer.parseInt(input);
         } catch (Exception e) {
+            e.printStackTrace();
             parsable = false;
         }
         return parsable;
     }
 
+    public static void WriteObjectToFile(Object user, File xFile) {
+    try {
+        try {
+            FileOutputStream fileIn = new FileOutputStream(xFile);
+            ObjectOutputStream out = new ObjectOutputStream(fileIn);
+
+            out.writeObject(user);
+            out.close();
+            System.out.println("The user was succesfully written to a file");
+
+        } catch (Exception exc1) {
+            exc1.printStackTrace();
+        }
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+}
+    
+    //MAIN PROJECT METHOD ======================================================
     public static void main(String[] args) {
 
         //OPENING FIRST FORM ===================================================
