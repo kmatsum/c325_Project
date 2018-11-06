@@ -82,7 +82,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
         jLabel9.setText("jLabel9");
 
-        dialogNot100.setPreferredSize(new java.awt.Dimension(200, 100));
         dialogNot100.setResizable(false);
         dialogNot100.setSize(new java.awt.Dimension(200, 100));
         dialogNot100.setType(java.awt.Window.Type.POPUP);
@@ -119,7 +118,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        dialogSavingsWrong.setPreferredSize(new java.awt.Dimension(200, 100));
         dialogSavingsWrong.setResizable(false);
         dialogSavingsWrong.setSize(new java.awt.Dimension(200, 100));
         dialogSavingsWrong.setType(java.awt.Window.Type.POPUP);
@@ -166,7 +164,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        dialogCheckingWrong.setPreferredSize(new java.awt.Dimension(200, 100));
         dialogCheckingWrong.setResizable(false);
         dialogCheckingWrong.setSize(new java.awt.Dimension(200, 100));
         dialogCheckingWrong.setType(java.awt.Window.Type.POPUP);
@@ -213,7 +210,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        dialogPercentageWrong.setPreferredSize(new java.awt.Dimension(200, 100));
         dialogPercentageWrong.setResizable(false);
         dialogPercentageWrong.setSize(new java.awt.Dimension(200, 100));
         dialogPercentageWrong.setType(java.awt.Window.Type.POPUP);
@@ -483,7 +479,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -575,12 +571,12 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             //SEND TEMP BUDGET VARIABLE TO USER
             main.currentUser.setBudgetPlan(tempBudget);
 
-            //SET ALL ACCOUNT ATTRIBUTES TO TEMP VARIALBES
-            Account tempChecking = new Account();
-            tempChecking.setacctName("Checking");
+            //SET ALL BANK ACCOUNT ATTRIBUTES TO TEMP VARIALBES
+            BankAccount tempChecking = new BankAccount();
+            tempChecking.setAccountName("Checking");
             tempChecking.setBalance(Double.parseDouble(txtChecking.getText()));
-            Account tempSavings = new Account();
-            tempSavings.setacctName("Savings");
+            BankAccount tempSavings = new BankAccount();
+            tempSavings.setAccountName("Savings");
             tempSavings.setBalance(Double.parseDouble(txtSavings.getText()));
 
             //SEND TEMP ACCOUNT VARIABLES TO USER

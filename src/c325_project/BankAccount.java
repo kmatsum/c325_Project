@@ -2,18 +2,18 @@ package c325_project;
 
 import java.io.Serializable;
 
-public class Account implements Serializable {
+public class BankAccount implements Serializable {
 
     //VARIABLES ================================================================
     String accountName;
     Double balance;
 
     //GET AND SETS =============================================================
-    public String getacctName() {
+    public String getAccountName() {
         return accountName;
     }
 
-    public void setacctName(String xacctName) {
+    public void setAccountName(String xacctName) {
         accountName = xacctName;
     }
 
