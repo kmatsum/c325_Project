@@ -17,11 +17,11 @@ public class BudgetPlan {
     private double financial;
 
     //GETS AND SETS ============================================================
-    public void sethomeExpenses(double he) {
+    public void setHomeExpenses(double he) {
         homeExpenses = he;
     }
 
-    public double gethomeExpenses() {
+    public double getHomeExpenses() {
         return homeExpenses;
     }
 

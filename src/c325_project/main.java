@@ -2,7 +2,7 @@ package c325_project;
 
 public class main {
 
-    public static User user1 = new User();
+    public static User currentUser = new User();
 
     public static void main(String[] args) {
 
