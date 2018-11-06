@@ -1,19 +1,20 @@
 package c325_project;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
 
     //VARIABLES ================================================================
-    String acctName;
+    String accountName;
     Double balance;
-    String type;
 
     //GET AND SETS =============================================================
     public String getacctName() {
-        return acctName;
+        return accountName;
     }
 
     public void setacctName(String xacctName) {
-        acctName = xacctName;
+        accountName = xacctName;
     }
 
     public Double getBalance() {
@@ -22,13 +23,5 @@ public class Account {
 
     public void setBalance(Double xbalance) {
         balance = xbalance;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String xtype) {
-        type = xtype;
     }
 }

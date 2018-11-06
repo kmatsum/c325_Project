@@ -9,6 +9,8 @@ public class User implements Serializable {
     private String lastName;
     private String firstName;
     private BudgetPlan budget = new BudgetPlan();
+    private Account checking = new Account();
+    private Account savings = new Account();
 
     //GETS AND SETS ============================================================
     public void setUserID(String id) {
@@ -41,6 +43,22 @@ public class User implements Serializable {
 
     public BudgetPlan getBudgetPlan() {
         return budget;
+    }
+
+    public void setCheckingAccount(Account a) {
+        checking = a;
+    }
+
+    public Account getCheckingAccount() {
+        return checking;
+    }
+
+    public void setSavingsAccount(Account a) {
+        savings = a;
+    }
+
+    public Account getSavingsAccount() {
+        return savings;
     }
 
 }
