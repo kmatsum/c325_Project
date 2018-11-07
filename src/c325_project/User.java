@@ -13,6 +13,7 @@ public class User implements Serializable {
     private BankAccount savings = new BankAccount();
 
     //GETS AND SETS ============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public void setUserID(String id) {
         userID = id;
     }
@@ -60,5 +61,5 @@ public class User implements Serializable {
     public BankAccount getSavingsAccount() {
         return savings;
     }
-
+    // </editor-fold>
 }

@@ -13,6 +13,7 @@ public class Purchase {
     private String type;
 
     //GETS AND SETS=============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public double getAmount() {
         return Amount;
     }
@@ -60,5 +61,5 @@ public class Purchase {
     public void setType(String xType) {
         type = xType;
     }
-
+    // </editor-fold>
 }

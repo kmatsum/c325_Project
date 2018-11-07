@@ -16,8 +16,7 @@ public class EmailAPI {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
 
@@ -28,14 +27,13 @@ public class EmailAPI {
                         return new PasswordAuthentication("cnit325groupproject@gmail.com", "Hakunamatata317!");
                     }
                 });
-        
+
         //Send email with attributes previously defined
         try {
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("cnit325groupproject@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(Recipient));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(Recipient));
             message.setSubject(Subject);
             message.setText(emailMessage);
 
