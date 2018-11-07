@@ -14,6 +14,7 @@ public class BudgetPlan implements Serializable {
     private double financial;
 
     //GETS AND SETS ============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public void setHomeExpenses(double he) {
         homeExpenses = he;
     }
@@ -69,4 +70,5 @@ public class BudgetPlan implements Serializable {
     public double getFinancial() {
         return financial;
     }
+    // </editor-fold>
 }

@@ -9,6 +9,7 @@ public class BankAccount implements Serializable {
     Double balance;
 
     //GET AND SETS =============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public String getAccountName() {
         return accountName;
     }
@@ -24,4 +25,5 @@ public class BankAccount implements Serializable {
     public void setBalance(Double xbalance) {
         balance = xbalance;
     }
+    // </editor-fold>
 }

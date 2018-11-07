@@ -8,6 +8,7 @@ public class Item {
     private String Category;
 
     //GETS AND SETS ============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public String getName() {
         return Name;
     }
@@ -31,4 +32,5 @@ public class Item {
     public void setCategory(String xCategory) {
         Category = xCategory;
     }
+    // </editor-fold>
 }
