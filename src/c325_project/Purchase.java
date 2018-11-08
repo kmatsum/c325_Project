@@ -10,6 +10,7 @@ public class Purchase {
     private Date dateTime;
     private String Name;
     private String Category;
+    private String type;
 
     //GETS AND SETS=============================================================
     // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
@@ -51,6 +52,14 @@ public class Purchase {
 
     public void setCategory(String xCategory) {
         Category = xCategory;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String xType) {
+        type = xType;
     }
     // </editor-fold>
 }
