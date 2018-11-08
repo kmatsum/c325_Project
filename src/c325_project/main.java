@@ -1,18 +1,15 @@
 package c325_project;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class main {
 
     //VARIABLES ================================================================
     public static User currentUser = new User();
     public static File currentUserFile;
-    
+
     //TO DO
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
-
 //GLOBAL METHODS ===============================================================
     //CHECK USER INPUT - DOUBLE ================================================
     public static boolean doubleIsParsable(String input) {
@@ -42,8 +39,8 @@ public class main {
     public static void WriteObjectToFile(Object user, File xFile) {
         try {
             try {
-                FileOutputStream fileIn = new FileOutputStream(xFile);
-                ObjectOutputStream out = new ObjectOutputStream(fileIn);
+                FileOutputStream fileOut = new FileOutputStream(xFile);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
                 out.writeObject(user);
                 out.close();
@@ -55,6 +52,31 @@ public class main {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public static Object ReadObjectFromFile(File xFile) {
+        try {
+            try {
+                FileInputStream fileIn = new FileInputStream(xFile);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+
+                Object obj = in.readObject();
+
+                System.out.println("The Object has been read from the file");
+
+                in.close();
+
+                return obj;
+
+            } catch (Exception exc1) {
+                exc1.printStackTrace();
+                return null;
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
 
