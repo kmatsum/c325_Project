@@ -6,11 +6,10 @@ public class Purchase {
 
     //VARIABLES=================================================================
     private double Amount;
-    private double Tax;
     private String Description;
-    private String location;
     private Date dateTime;
-    private String type;
+    private String Name;
+    private String Category;
 
     //GETS AND SETS=============================================================
     // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
@@ -22,28 +21,12 @@ public class Purchase {
         Amount = xAmount;
     }
 
-    public double getTax() {
-        return Tax;
-    }
-
-    public void setTax(double xTax) {
-        Tax = xTax;
-    }
-
     public String getDescription() {
         return Description;
     }
 
     public void setDescription(String xDescription) {
         Description = xDescription;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String xLocation) {
-        location = xLocation;
     }
 
     public Date getDateTime() {
@@ -54,12 +37,20 @@ public class Purchase {
         dateTime = xdateTime;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return Name;
     }
 
-    public void setType(String xType) {
-        type = xType;
+    public void setName(String xName) {
+        Name = xName;
+    }
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String xCategory) {
+        Category = xCategory;
     }
     // </editor-fold>
 }

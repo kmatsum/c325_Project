@@ -6,7 +6,7 @@ public class BankAccount implements Serializable {
 
     //VARIABLES ================================================================
     String accountName;
-    Double balance;
+    Double balance = 0.00;
 
     //GET AND SETS =============================================================
     // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">

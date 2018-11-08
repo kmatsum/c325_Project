@@ -9,6 +9,9 @@ public class main {
     //VARIABLES ================================================================
     public static User currentUser = new User();
     public static File currentUserFile;
+    
+    //TO DO
+    //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
 //GLOBAL METHODS ===============================================================
     //CHECK USER INPUT - DOUBLE ================================================

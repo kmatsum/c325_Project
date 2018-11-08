@@ -51,7 +51,6 @@ public class BudgetScreen extends javax.swing.JFrame {
         lblAmount = new javax.swing.JLabel();
 
         dialogSavings.setMinimumSize(new java.awt.Dimension(354, 170));
-        dialogSavings.setPreferredSize(new java.awt.Dimension(354, 170));
         dialogSavings.setResizable(false);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -111,7 +110,6 @@ public class BudgetScreen extends javax.swing.JFrame {
         );
 
         dialogChecking.setMinimumSize(new java.awt.Dimension(354, 170));
-        dialogChecking.setPreferredSize(new java.awt.Dimension(354, 170));
         dialogChecking.setResizable(false);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -185,6 +183,11 @@ public class BudgetScreen extends javax.swing.JFrame {
         });
 
         btnEnter.setText("Enter Purchase");
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Welcome");
 
@@ -210,17 +213,22 @@ public class BudgetScreen extends javax.swing.JFrame {
         jLabel7.setText("Sort by");
 
         cboxSort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Date", "Category", "Price" }));
+        cboxSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxSortActionPerformed(evt);
+            }
+        });
 
         tblPurchases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Date", "Name", "Amount", "Category", "Description", "Location", "Items"
+                "Date", "Name", "Amount", "Category", "Description"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -366,7 +374,7 @@ public class BudgetScreen extends javax.swing.JFrame {
 
     //LOG OUT BUTTON ===========================================================
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
-        
+
         if (evt.getSource() == btnLog) {
             this.dispose();
         }
@@ -419,6 +427,18 @@ public class BudgetScreen extends javax.swing.JFrame {
         cboxBankAccount.setSelectedIndex(0);
         dialogChecking.setVisible(false);
     }//GEN-LAST:event_btnCheckingBalanceOKActionPerformed
+
+    //ENTER PURCHASE BUTTON ====================================================
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+
+        EnterPurchase purchase = new EnterPurchase();
+        this.dispose();
+        purchase.setVisible(true);
+    }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void cboxSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxSortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxSortActionPerformed
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {
