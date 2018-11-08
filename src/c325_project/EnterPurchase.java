@@ -5,6 +5,7 @@
  */
 package c325_project;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -289,7 +290,7 @@ public class EnterPurchase extends javax.swing.JFrame {
                 Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
                 purchase.setDateTime(purchaseDate);
 
-            } catch (Exception e) {
+            } catch (ParseException e) {
                 dialogDateWrong.setVisible(true);
                 e.printStackTrace();
                 return;
@@ -336,7 +337,6 @@ public class EnterPurchase extends javax.swing.JFrame {
             BudgetScreen loggedBudgetScreen = new BudgetScreen();
             this.dispose();
             loggedBudgetScreen.setVisible(true);
-
         }
     }//GEN-LAST:event_btnEnterActionPerformed
 
