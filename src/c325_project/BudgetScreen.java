@@ -50,6 +50,10 @@ public class BudgetScreen extends javax.swing.JFrame {
         btnFix = new javax.swing.JButton();
         lblAmount = new javax.swing.JLabel();
 
+        dialogSavings.setMinimumSize(new java.awt.Dimension(354, 170));
+        dialogSavings.setPreferredSize(new java.awt.Dimension(354, 170));
+        dialogSavings.setResizable(false);
+
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Fix your SAVINGS account balance");
 
@@ -73,7 +77,10 @@ public class BudgetScreen extends javax.swing.JFrame {
             .addGroup(dialogSavingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSavingsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSavingsBalanceOK))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                     .addGroup(dialogSavingsLayout.createSequentialGroup()
                         .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -81,11 +88,8 @@ public class BudgetScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSavingsBalance)
-                            .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSavingsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSavingsBalanceOK)
+                            .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         dialogSavingsLayout.setVerticalGroup(
@@ -101,10 +105,14 @@ public class BudgetScreen extends javax.swing.JFrame {
                 .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSavingsBalanceOK)
-                .addContainerGap())
+                .addContainerGap(39, Short.MAX_VALUE))
         );
+
+        dialogChecking.setMinimumSize(new java.awt.Dimension(354, 170));
+        dialogChecking.setPreferredSize(new java.awt.Dimension(354, 170));
+        dialogChecking.setResizable(false);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Fix your CHECKING account balance");
@@ -129,7 +137,7 @@ public class BudgetScreen extends javax.swing.JFrame {
             .addGroup(dialogCheckingLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dialogCheckingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(dialogCheckingLayout.createSequentialGroup()
                         .addGroup(dialogCheckingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -137,11 +145,11 @@ public class BudgetScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(dialogCheckingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCheckingBalance)
-                            .addComponent(txtNewCheckingBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCheckingLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCheckingBalanceOK)
+                            .addComponent(txtNewCheckingBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 147, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCheckingLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCheckingBalanceOK)))
                 .addContainerGap())
         );
         dialogCheckingLayout.setVerticalGroup(
@@ -157,15 +165,15 @@ public class BudgetScreen extends javax.swing.JFrame {
                 .addGroup(dialogCheckingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtNewCheckingBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCheckingBalanceOK)
-                .addContainerGap())
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        lblUsername.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUsername.setText("username");
 
