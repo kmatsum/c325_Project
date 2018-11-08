@@ -1,5 +1,7 @@
 package c325_project;
 
+import java.io.*;
+
 public class MainScreen extends javax.swing.JFrame {
 
     //MainScreen CONSTRUCTOR ===================================================
@@ -80,6 +82,11 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel7.setText("UserID");
 
         txtUserIDLogin.setNextFocusableComponent(btnLogin);
+        txtUserIDLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserIDLoginActionPerformed(evt);
+            }
+        });
 
         btnLogin.setText("Log In");
         btnLogin.setNextFocusableComponent(btnCancel);
@@ -188,9 +195,9 @@ public class MainScreen extends javax.swing.JFrame {
             main.currentUser.setLastName(this.txtLastName.getText());
             main.currentUser.setUserID(this.txtUserIDCreate.getText());
 
-            CreateBudgetScreen BudgetScreen = new CreateBudgetScreen();
+            CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             this.dispose();
-            BudgetScreen.setVisible(true);
+            CreateBudgetScreen.setVisible(true);
 
         }
     }//GEN-LAST:event_btnNextActionPerformed
@@ -199,9 +206,32 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserIDCreateActionPerformed
 
+    //LOGIN BUTTON =============================================================
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        try {
+            //Grab Username from txtBox
+            String userID = txtUserIDLogin.getText();
+            //Setup Filepaths using the username provided
+            main.currentUserFile = new File(userID + ".dat");
+            //Read Object and save into a temporary Object
+            Object tempObj = main.ReadObjectFromFile(main.currentUserFile);
+            //Checking the null of temp object
+            if (tempObj == null) {
+                System.out.println("Object was null");
+                return;
+            }
 
+            //Cast the tempObject into the current user
+            main.currentUser = (User) tempObj;
+
+            //Show next Screen
+            BudgetScreen BudgetScreen = new BudgetScreen();
+            this.dispose();
+            BudgetScreen.setVisible(true);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     //CANCEL BUTTON ============================================================
@@ -216,6 +246,10 @@ public class MainScreen extends javax.swing.JFrame {
     private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFirstNameActionPerformed
+
+    private void txtUserIDLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserIDLoginActionPerformed
 
     //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
@@ -240,7 +274,7 @@ public class MainScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

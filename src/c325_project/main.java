@@ -1,8 +1,6 @@
 package c325_project;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class main {
 
@@ -11,10 +9,9 @@ public class main {
     public static File currentUserFile;
     public static Purchase[] purchaseArray = new Purchase[100];
     public static int purchaseCount = 0;
-    
+  
     //TO DO
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
-
 //GLOBAL METHODS ===============================================================
     //CHECK USER INPUT - DOUBLE ================================================
     public static boolean doubleIsParsable(String input) {
@@ -44,9 +41,11 @@ public class main {
     public static void WriteObjectToFile(Object user, File xFile) {
         try {
             try {
-                FileOutputStream fileIn = new FileOutputStream(xFile);
-                ObjectOutputStream out = new ObjectOutputStream(fileIn);
+                //Output Stream Setup
+                FileOutputStream fileOut = new FileOutputStream(xFile);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
+                //Write the Object onto the Output Stream
                 out.writeObject(user);
                 out.close();
                 System.out.println("The user was succesfully written to a file");
@@ -57,6 +56,37 @@ public class main {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    //READ OBJECT FROM SPECIFIED FILE ==========================================
+    public static Object ReadObjectFromFile(File xFile) {
+        try {
+            try {
+                //Input Stream Setup
+                FileInputStream fileIn = new FileInputStream(xFile);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+
+                //Save the read object
+                Object obj = in.readObject();
+
+                //Debug code
+                System.out.println("The Object has been read from the file");
+
+                //Close the Input Stream
+                in.close();
+
+                //Return Information
+                return obj;
+
+            } catch (Exception exc1) {
+                exc1.printStackTrace();
+                return null;
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
 
