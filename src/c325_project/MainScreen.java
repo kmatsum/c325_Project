@@ -30,7 +30,7 @@ public class MainScreen extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("TitleScreen1");
+        setTitle("Register / Login");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("createProfile"); // NOI18N
 
@@ -239,6 +239,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         if (evt.getSource() == btnCancel) {
             this.dispose();
+            System.exit(0);
         }
 
     }//GEN-LAST:event_btnCancelActionPerformed

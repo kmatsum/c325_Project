@@ -169,6 +169,7 @@ public class BudgetScreen extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Budget Planner");
         setResizable(false);
 
         lblUsername.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
@@ -376,7 +377,13 @@ public class BudgetScreen extends javax.swing.JFrame {
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
 
         if (evt.getSource() == btnLog) {
+            //Save User Information
+            main.WriteObjectToFile(main.currentUser, main.currentUserFile);
+            
+            //Go to next screen
+            MainScreen MainScreen = new MainScreen();
             this.dispose();
+            MainScreen.setVisible(true);
         }
     }//GEN-LAST:event_btnLogActionPerformed
 

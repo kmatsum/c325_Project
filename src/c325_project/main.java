@@ -63,6 +63,9 @@ public class main {
     public static Object ReadObjectFromFile(File xFile) {
         try {
             try {
+                //Check if FileExists
+                
+                
                 //Input Stream Setup
                 FileInputStream fileIn = new FileInputStream(xFile);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
