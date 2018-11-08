@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package c325_project;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -28,6 +30,14 @@ public class EnterPurchase extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        dialogAmountWrong = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        btnAmountOK = new javax.swing.JButton();
+        dialogDateWrong = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        btnDateOK = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
@@ -43,6 +53,90 @@ public class EnterPurchase extends javax.swing.JFrame {
         cboxCategory = new javax.swing.JComboBox();
         btnEnter = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnChecking = new javax.swing.JRadioButton();
+        btnSavings = new javax.swing.JRadioButton();
+
+        dialogAmountWrong.setResizable(false);
+        dialogAmountWrong.setSize(new java.awt.Dimension(200, 100));
+        dialogAmountWrong.setType(java.awt.Window.Type.POPUP);
+
+        jLabel8.setText("Your amount must be a valid double.");
+
+        btnAmountOK.setText("OK");
+        btnAmountOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmountOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogAmountWrongLayout = new javax.swing.GroupLayout(dialogAmountWrong.getContentPane());
+        dialogAmountWrong.getContentPane().setLayout(dialogAmountWrongLayout);
+        dialogAmountWrongLayout.setHorizontalGroup(
+            dialogAmountWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAmountWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAmountWrongLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAmountOK)
+                .addContainerGap())
+        );
+        dialogAmountWrongLayout.setVerticalGroup(
+            dialogAmountWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAmountWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAmountOK)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        dialogDateWrong.setResizable(false);
+        dialogDateWrong.setSize(new java.awt.Dimension(200, 100));
+        dialogDateWrong.setType(java.awt.Window.Type.POPUP);
+
+        jLabel9.setText("Your date must be entered with");
+
+        btnDateOK.setText("OK");
+        btnDateOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDateOKActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("exact formatting as shown.");
+
+        javax.swing.GroupLayout dialogDateWrongLayout = new javax.swing.GroupLayout(dialogDateWrong.getContentPane());
+        dialogDateWrong.getContentPane().setLayout(dialogDateWrongLayout);
+        dialogDateWrongLayout.setHorizontalGroup(
+            dialogDateWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogDateWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogDateWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogDateWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 82, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogDateWrongLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDateOK)))
+                .addContainerGap())
+        );
+        dialogDateWrongLayout.setVerticalGroup(
+            dialogDateWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogDateWrongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dialogDateWrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogDateWrongLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDateOK))
+                    .addGroup(dialogDateWrongLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel10)))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,8 +164,25 @@ public class EnterPurchase extends javax.swing.JFrame {
         cboxCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Home Expenses", "Transportation", "Health", "Charity", "Daily Living", "Entertainment", "Financial" }));
 
         btnEnter.setText("Enter");
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(btnChecking);
+        btnChecking.setSelected(true);
+        btnChecking.setText("Checking");
+
+        buttonGroup1.add(btnSavings);
+        btnSavings.setText("Savings");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,32 +197,33 @@ public class EnterPurchase extends javax.swing.JFrame {
                         .addComponent(btnCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cboxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 106, Short.MAX_VALUE)))
+                                .addComponent(jLabel3)
+                                .addGap(22, 22, 22)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cboxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnChecking)
+                            .addComponent(btnSavings))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -138,13 +250,18 @@ public class EnterPurchase extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnChecking, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSavings)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEnter)
                     .addComponent(btnCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -152,6 +269,97 @@ public class EnterPurchase extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //ENTER BUTTON =============================================================
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        if (evt.getSource() == btnEnter) {
+
+            //create balance and purchase object
+            Purchase purchase = new Purchase();
+            double newBalance;
+
+            //check amount validity
+            if (main.doubleIsParsable(txtAmount.getText()) == false) {
+                dialogAmountWrong.setVisible(true);
+                return;
+            }
+
+            //check date validity, if valid, then add to purchase
+            try {
+                Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
+                purchase.setDateTime(purchaseDate);
+
+            } catch (Exception e) {
+                dialogDateWrong.setVisible(true);
+                e.printStackTrace();
+                return;
+            }
+
+            //set the rest of the purchase variables
+            purchase.setAmount(Double.parseDouble(txtAmount.getText()));
+            purchase.setCategory(cboxCategory.getSelectedItem().toString());
+            purchase.setDescription(txtDescription.getText());
+            purchase.setName(txtName.getText());
+
+            if (btnChecking.isSelected() == true) {
+                purchase.setType("Checking");
+            }
+
+            if (btnSavings.isSelected() == true) {
+                purchase.setType("Savings");
+            }
+
+            //add purchase to purchase array, increase index
+            main.purchaseArray[main.purchaseCount] = purchase;
+            main.purchaseCount += 1;
+
+            //update balances of checking or savings
+            if (btnChecking.isSelected() == true) {
+
+                //subtract entered amount from current balance to get new balance
+                newBalance = main.currentUser.getCheckingAccount().getBalance() - Double.parseDouble(txtAmount.getText());
+
+                //set new balance
+                main.currentUser.getCheckingAccount().setBalance(newBalance);
+            }
+
+            if (btnSavings.isSelected() == true) {
+
+                //subtract entered amount from current balance to get new balance
+                newBalance = main.currentUser.getSavingsAccount().getBalance() - Double.parseDouble(txtAmount.getText());
+
+                //set new balance
+                main.currentUser.getSavingsAccount().setBalance(newBalance);
+            }
+
+            //go back to budget screen
+            BudgetScreen loggedBudgetScreen = new BudgetScreen();
+            this.dispose();
+            loggedBudgetScreen.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnEnterActionPerformed
+
+    //CANCEL BUTTON ============================================================
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        if (evt.getSource() == btnCancel) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    //DIALOG AMOUNT WRONG OK BUTTON ============================================
+    private void btnAmountOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmountOKActionPerformed
+        if (evt.getSource() == btnAmountOK) {
+            dialogAmountWrong.setVisible(false);
+        }
+    }//GEN-LAST:event_btnAmountOKActionPerformed
+
+    //DIALOG DATE WRONG OK BUTTON ==============================================
+    private void btnDateOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOKActionPerformed
+        if (evt.getSource() == btnDateOK) {
+            dialogDateWrong.setVisible(false);
+        }
+    }//GEN-LAST:event_btnDateOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,16 +397,26 @@ public class EnterPurchase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAmountOK;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JRadioButton btnChecking;
+    private javax.swing.JButton btnDateOK;
     private javax.swing.JButton btnEnter;
+    private javax.swing.JRadioButton btnSavings;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cboxCategory;
+    private javax.swing.JDialog dialogAmountWrong;
+    private javax.swing.JDialog dialogDateWrong;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JFormattedTextField txtDate;
