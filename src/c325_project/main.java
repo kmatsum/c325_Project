@@ -39,9 +39,11 @@ public class main {
     public static void WriteObjectToFile(Object user, File xFile) {
         try {
             try {
+                //Output Stream Setup
                 FileOutputStream fileOut = new FileOutputStream(xFile);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
+                //Write the Object onto the Output Stream
                 out.writeObject(user);
                 out.close();
                 System.out.println("The user was succesfully written to a file");
@@ -55,18 +57,24 @@ public class main {
         }
     }
 
+    //READ OBJECT FROM SPECIFIED FILE ==========================================
     public static Object ReadObjectFromFile(File xFile) {
         try {
             try {
+                //Input Stream Setup
                 FileInputStream fileIn = new FileInputStream(xFile);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
 
+                //Save the read object
                 Object obj = in.readObject();
 
+                //Debug code
                 System.out.println("The Object has been read from the file");
 
+                //Close the Input Stream
                 in.close();
 
+                //Return Information
                 return obj;
 
             } catch (Exception exc1) {

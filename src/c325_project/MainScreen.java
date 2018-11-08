@@ -206,27 +206,29 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserIDCreateActionPerformed
 
+    //LOGIN BUTTON =============================================================
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        try 
-        {
-        String userID = txtUserIDLogin.getText();
-        
-        main.currentUserFile = new File(userID + ".dat");
-        
-        Object tempObj = main.ReadObjectFromFile(main.currentUserFile);
-        
-        if ( tempObj == null)
-        {
-            System.out.println("Object was null");
-            return;
-        }
-        
-        main.currentUser = (User)tempObj;
+        try {
+            //Grab Username from txtBox
+            String userID = txtUserIDLogin.getText();
+            //Setup Filepaths using the username provided
+            main.currentUserFile = new File(userID + ".dat");
+            //Read Object and save into a temporary Object
+            Object tempObj = main.ReadObjectFromFile(main.currentUserFile);
+            //Checking the null of temp object
+            if (tempObj == null) {
+                System.out.println("Object was null");
+                return;
+            }
 
-        BudgetScreen BudgetScreen = new BudgetScreen();
-        this.dispose();
-        BudgetScreen.setVisible(true);
+            //Cast the tempObject into the current user
+            main.currentUser = (User) tempObj;
+
+            //Show next Screen
+            BudgetScreen BudgetScreen = new BudgetScreen();
+            this.dispose();
+            BudgetScreen.setVisible(true);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -272,7 +274,7 @@ public class MainScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
