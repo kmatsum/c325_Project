@@ -9,7 +9,7 @@ public class main {
     public static File currentUserFile;
     public static Purchase[] purchaseArray = new Purchase[100];
     public static int purchaseCount = 0;
-  
+
     //TO DO
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
 //GLOBAL METHODS ===============================================================
@@ -63,6 +63,8 @@ public class main {
     public static Object ReadObjectFromFile(File xFile) {
         try {
             try {
+                //Check if FileExists
+
                 //Input Stream Setup
                 FileInputStream fileIn = new FileInputStream(xFile);
                 ObjectInputStream in = new ObjectInputStream(fileIn);

@@ -243,6 +243,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Create Budget Plan");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
