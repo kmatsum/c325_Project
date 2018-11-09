@@ -61,7 +61,11 @@ public class main {
     public static Object ReadObjectFromFile(File xFile) {
         try {
             try {
-                //Check if FileExists
+                if (!xFile.exists())
+                {
+                    System.out.println("File does not exist");
+                    return null;
+                }
 
                 //Input Stream Setup
                 FileInputStream fileIn = new FileInputStream(xFile);
