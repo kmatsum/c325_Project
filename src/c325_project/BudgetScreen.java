@@ -438,6 +438,7 @@ public class BudgetScreen extends javax.swing.JFrame {
     //ENTER PURCHASE BUTTON ====================================================
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
+        //Open the EnterPurchase Window
         EnterPurchase purchase = new EnterPurchase();
         this.dispose();
         purchase.setVisible(true);

@@ -493,6 +493,8 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //CODE =====================================================================
+
     private void txtHomeExpensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHomeExpensesActionPerformed
         //txtHomeExpenses Event Handling
     }//GEN-LAST:event_txtHomeExpensesActionPerformed
