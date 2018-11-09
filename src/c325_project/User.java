@@ -1,6 +1,7 @@
 package c325_project;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
 
@@ -11,6 +12,7 @@ public class User implements Serializable {
     private BudgetPlan budget = new BudgetPlan();
     private BankAccount checking = new BankAccount();
     private BankAccount savings = new BankAccount();
+    private ArrayList<Purchase> PurchasesArray = new ArrayList<>();
 
     //GETS AND SETS ============================================================
     // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
@@ -60,6 +62,10 @@ public class User implements Serializable {
 
     public BankAccount getSavingsAccount() {
         return savings;
+    }
+    
+    public ArrayList<Purchase> getPurchaseArrayList() {
+        return PurchasesArray;
     }
     // </editor-fold>
 }

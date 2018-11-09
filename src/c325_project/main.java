@@ -7,10 +7,8 @@ public class main {
     //VARIABLES ================================================================
     public static User currentUser = new User();
     public static File currentUserFile;
-    public static Purchase[] purchaseArray = new Purchase[100];
-    public static int purchaseCount = 0;
 
-    //TO DO
+    //TODO Add Formatting Implementation
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
 //GLOBAL METHODS ===============================================================
     //CHECK USER INPUT - DOUBLE ================================================

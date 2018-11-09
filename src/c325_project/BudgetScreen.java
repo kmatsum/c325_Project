@@ -5,8 +5,17 @@ public class BudgetScreen extends javax.swing.JFrame {
     //BudgetScreen CONSTRUCTOR =================================================
     public BudgetScreen() {
         initComponents();
+        
+        //Set Username Label
         lblUsername.setText(main.currentUser.getUserID());
+        //Set Account Amount Display
         lblAmount.setText(main.currentUser.getCheckingAccount().getBalance().toString());
+        
+        //SystemOutput the ArrayList DEBUG
+        for (int index = 0; index < main.currentUser.getPurchaseArrayList().size(); index++) {
+            
+        System.out.println(main.currentUser.getPurchaseArrayList().get(index).getName());
+        }
     }
 
     //GENERATED CODE ===========================================================
