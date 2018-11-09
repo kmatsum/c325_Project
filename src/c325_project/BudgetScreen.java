@@ -214,11 +214,6 @@ public class BudgetScreen extends javax.swing.JFrame {
         jLabel7.setText("Sort by");
 
         cboxSort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Date", "Category", "Price" }));
-        cboxSort.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxSortActionPerformed(evt);
-            }
-        });
 
         tblPurchases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -443,10 +438,6 @@ public class BudgetScreen extends javax.swing.JFrame {
         this.dispose();
         purchase.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
-
-    private void cboxSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxSortActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboxSortActionPerformed
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {

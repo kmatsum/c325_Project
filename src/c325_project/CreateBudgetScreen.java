@@ -287,11 +287,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         jLabel21.setText("Financial");
 
         txtHomeExpenses.setText("20");
-        txtHomeExpenses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHomeExpensesActionPerformed(evt);
-            }
-        });
 
         txtTransportation.setText("5");
 
@@ -492,12 +487,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //CODE =====================================================================
-
-    private void txtHomeExpensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHomeExpensesActionPerformed
-        //txtHomeExpenses Event Handling
-    }//GEN-LAST:event_txtHomeExpensesActionPerformed
 
     //RESET BUTTON =============================================================
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed

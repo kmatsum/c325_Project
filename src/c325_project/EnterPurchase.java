@@ -331,12 +331,14 @@ public class EnterPurchase extends javax.swing.JFrame {
 
     //DIALOG AMOUNT WRONG OK BUTTON ============================================
     private void btnAmountOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmountOKActionPerformed
+
         //Close the Dialog Window
         dialogAmountWrong.dispose();
     }//GEN-LAST:event_btnAmountOKActionPerformed
 
     //DIALOG DATE WRONG OK BUTTON ==============================================
     private void btnDateOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOKActionPerformed
+
         //Close the Dialog Window
         dialogDateWrong.dispose();
     }//GEN-LAST:event_btnDateOKActionPerformed

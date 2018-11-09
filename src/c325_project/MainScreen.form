@@ -189,9 +189,6 @@
           <ComponentRef name="txtLastName"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFirstNameActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLastName">
       <Properties>
@@ -201,9 +198,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUserIDCreate">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserIDCreateActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -226,9 +220,6 @@
           <ComponentRef name="btnLogin"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserIDLoginActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLogin">
       <Properties>

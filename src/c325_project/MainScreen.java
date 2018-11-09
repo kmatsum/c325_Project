@@ -61,19 +61,8 @@ public class MainScreen extends javax.swing.JFrame {
 
         txtFirstName.setFocusCycleRoot(true);
         txtFirstName.setNextFocusableComponent(txtLastName);
-        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFirstNameActionPerformed(evt);
-            }
-        });
 
         txtLastName.setNextFocusableComponent(txtUserIDCreate);
-
-        txtUserIDCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserIDCreateActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Create Account");
 
@@ -82,11 +71,6 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel7.setText("UserID");
 
         txtUserIDLogin.setNextFocusableComponent(btnLogin);
-        txtUserIDLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserIDLoginActionPerformed(evt);
-            }
-        });
 
         btnLogin.setText("Log In");
         btnLogin.setNextFocusableComponent(btnCancel);
@@ -202,10 +186,6 @@ public class MainScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void txtUserIDCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDCreateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserIDCreateActionPerformed
-
     //LOGIN BUTTON =============================================================
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try {
@@ -243,14 +223,6 @@ public class MainScreen extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameActionPerformed
-
-    private void txtUserIDLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserIDLoginActionPerformed
 
     //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
