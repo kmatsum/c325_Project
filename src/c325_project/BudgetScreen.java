@@ -423,7 +423,7 @@ public class BudgetScreen extends javax.swing.JFrame {
         //set balance, reset index, close dialog box
         main.currentUser.getSavingsAccount().setBalance(Double.parseDouble(txtNewSavingsBalance.getText()));
         cboxBankAccount.setSelectedIndex(1);
-        dialogSavings.setVisible(false);
+        dialogSavings.dispose();
     }//GEN-LAST:event_btnSavingsBalanceOKActionPerformed
 
     //CHECKING ACCOUNT BALANCE FIX DIALOG BOX ==================================
@@ -432,7 +432,7 @@ public class BudgetScreen extends javax.swing.JFrame {
         //set balance, reset index, close dialog box
         main.currentUser.getCheckingAccount().setBalance(Double.parseDouble(txtNewCheckingBalance.getText()));
         cboxBankAccount.setSelectedIndex(0);
-        dialogChecking.setVisible(false);
+        dialogChecking.dispose();
     }//GEN-LAST:event_btnCheckingBalanceOKActionPerformed
 
     //ENTER PURCHASE BUTTON ====================================================
