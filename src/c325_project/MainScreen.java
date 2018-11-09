@@ -14,6 +14,9 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogFileNotFoundLoginError = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        btnOK_dialogFileNotFoundLoginError = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -28,6 +31,41 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtUserIDLogin = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
+
+        dialogFileNotFoundLoginError.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogFileNotFoundLoginError.setTitle("File not found");
+        dialogFileNotFoundLoginError.setPreferredSize(new java.awt.Dimension(450, 150));
+        dialogFileNotFoundLoginError.setSize(new java.awt.Dimension(450, 150));
+
+        jLabel8.setText("The username provided does not exist! Please register a new account!");
+
+        btnOK_dialogFileNotFoundLoginError.setText("OK");
+        btnOK_dialogFileNotFoundLoginError.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOK_dialogFileNotFoundLoginErrorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogFileNotFoundLoginErrorLayout = new javax.swing.GroupLayout(dialogFileNotFoundLoginError.getContentPane());
+        dialogFileNotFoundLoginError.getContentPane().setLayout(dialogFileNotFoundLoginErrorLayout);
+        dialogFileNotFoundLoginErrorLayout.setHorizontalGroup(
+            dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogFileNotFoundLoginErrorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOK_dialogFileNotFoundLoginError)
+                    .addComponent(jLabel8))
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+        dialogFileNotFoundLoginErrorLayout.setVerticalGroup(
+            dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogFileNotFoundLoginErrorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(btnOK_dialogFileNotFoundLoginError)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Register / Login");
@@ -188,16 +226,23 @@ public class MainScreen extends javax.swing.JFrame {
 
     //LOGIN BUTTON =============================================================
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        
+        //Set the Variables needed in this method
+        String userID;
+        Object tempObj;
+        
+        //Try to read the user's file
         try {
             //Grab Username from txtBox
-            String userID = txtUserIDLogin.getText();
+            userID = txtUserIDLogin.getText();
             //Setup Filepaths using the username provided
             main.currentUserFile = new File(userID + ".dat");
             //Read Object and save into a temporary Object
-            Object tempObj = main.ReadObjectFromFile(main.currentUserFile);
+            tempObj = main.ReadObjectFromFile(main.currentUserFile);
+            
             //Checking the null of temp object
             if (tempObj == null) {
-                System.out.println("Object was null");
+                dialogFileNotFoundLoginError.setVisible(true);
                 return;
             }
 
@@ -223,6 +268,11 @@ public class MainScreen extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    //DIALOG BOX OK BUTTON =====================================================
+    private void btnOK_dialogFileNotFoundLoginErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOK_dialogFileNotFoundLoginErrorActionPerformed
+        dialogFileNotFoundLoginError.dispose();
+    }//GEN-LAST:event_btnOK_dialogFileNotFoundLoginErrorActionPerformed
 
     //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
@@ -262,6 +312,8 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnOK_dialogFileNotFoundLoginError;
+    private javax.swing.JDialog dialogFileNotFoundLoginError;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,6 +321,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtUserIDCreate;

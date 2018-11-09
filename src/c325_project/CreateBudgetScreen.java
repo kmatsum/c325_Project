@@ -588,23 +588,23 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     //DIALOG BOXES OK BUTTON ===================================================
     //<editor-fold defaultstate="collapsed" desc=" Dialog Box OK Button Event Handing ">
     private void btnOKPercentagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentagesActionPerformed
-        // TODO add your handling code here:
-        dialogNot100.setVisible(false);
+        
+        dialogNot100.dispose();
     }//GEN-LAST:event_btnOKPercentagesActionPerformed
 
     private void btnOKSavingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKSavingsActionPerformed
-        // TODO add your handling code here:
-        dialogSavingsWrong.setVisible(false);
+        
+        dialogSavingsWrong.dispose();
     }//GEN-LAST:event_btnOKSavingsActionPerformed
 
     private void btnOKCheckingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKCheckingActionPerformed
-        // TODO add your handling code here:
-        dialogCheckingWrong.setVisible(false);
+        
+        dialogCheckingWrong.dispose();
     }//GEN-LAST:event_btnOKCheckingActionPerformed
 
     private void btnOKPercentages1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentages1ActionPerformed
-        // TODO add your handling code here:
-        dialogPercentageWrong.setVisible(false);
+        
+        dialogPercentageWrong.dispose();
     }//GEN-LAST:event_btnOKPercentages1ActionPerformed
     //</editor-fold>
 

@@ -287,17 +287,16 @@ public class EnterPurchase extends javax.swing.JFrame {
         purchase.setDescription(txtDescription.getText());
         purchase.setName(txtName.getText());
 
+        //Set the Type of the Purchase Object
         if (btnChecking.isSelected() == true) {
             purchase.setType("Checking");
         }
-
         if (btnSavings.isSelected() == true) {
             purchase.setType("Savings");
         }
 
         //Add purchase to purchase array, increase index
-        main.purchaseArray[main.purchaseCount] = purchase;
-        main.purchaseCount += 1;
+        main.currentUser.getPurchaseArrayList().add(purchase);
 
         //Update balances of checking or savings
         if (btnChecking.isSelected() == true) {

@@ -1,8 +1,9 @@
 package c325_project;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Purchase {
+public class Purchase implements Serializable {
 
     //VARIABLES=================================================================
     private double Amount;
