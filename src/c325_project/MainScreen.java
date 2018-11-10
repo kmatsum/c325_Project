@@ -213,9 +213,14 @@ public class MainScreen extends javax.swing.JFrame {
 
         //Next button event source
         if (evt.getSource() == btnNext) {
-            main.currentUser.setFirstName(this.txtFirstName.getText());
-            main.currentUser.setLastName(this.txtLastName.getText());
-            main.currentUser.setUserID(this.txtUserIDCreate.getText());
+            
+            if (txtFirstName.getText() == "")
+            {
+                
+            }
+            main.currentUser.setFirstName(txtFirstName.getText());
+            main.currentUser.setLastName(txtLastName.getText());
+            main.currentUser.setUserID(txtUserIDCreate.getText());
 
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             this.dispose();
@@ -251,7 +256,7 @@ public class MainScreen extends javax.swing.JFrame {
 
             //Show next Screen
             BudgetScreen BudgetScreen = new BudgetScreen();
-            this.dispose();
+            dispose();
             BudgetScreen.setVisible(true);
 
         } catch (Exception ex) {
@@ -263,7 +268,7 @@ public class MainScreen extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
         if (evt.getSource() == btnCancel) {
-            this.dispose();
+            dispose();
             System.exit(0);
         }
 
