@@ -17,6 +17,9 @@ public class MainScreen extends javax.swing.JFrame {
         dialogFileNotFoundLoginError = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
         btnOK_dialogFileNotFoundLoginError = new javax.swing.JButton();
+        dialogCreateAccountError = new javax.swing.JDialog();
+        lblCreateAccountError = new javax.swing.JLabel();
+        btnOK_dialogCreateAccountError = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -55,7 +58,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnOK_dialogFileNotFoundLoginError)
                     .addComponent(jLabel8))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         dialogFileNotFoundLoginErrorLayout.setVerticalGroup(
             dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,7 +67,43 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(btnOK_dialogFileNotFoundLoginError)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+
+        dialogCreateAccountError.setTitle("Create Account Error");
+        dialogCreateAccountError.setPreferredSize(new java.awt.Dimension(450, 150));
+        dialogCreateAccountError.setSize(new java.awt.Dimension(450, 150));
+
+        lblCreateAccountError.setText("ERROR MESSAGE");
+
+        btnOK_dialogCreateAccountError.setText("OK");
+        btnOK_dialogCreateAccountError.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOK_dialogCreateAccountErrorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogCreateAccountErrorLayout = new javax.swing.GroupLayout(dialogCreateAccountError.getContentPane());
+        dialogCreateAccountError.getContentPane().setLayout(dialogCreateAccountErrorLayout);
+        dialogCreateAccountErrorLayout.setHorizontalGroup(
+            dialogCreateAccountErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCreateAccountErrorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCreateAccountError)
+                .addContainerGap(400, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCreateAccountErrorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOK_dialogCreateAccountError)
+                .addGap(43, 43, 43))
+        );
+        dialogCreateAccountErrorLayout.setVerticalGroup(
+            dialogCreateAccountErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCreateAccountErrorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCreateAccountError)
+                .addGap(18, 18, 18)
+                .addComponent(btnOK_dialogCreateAccountError)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -213,11 +252,24 @@ public class MainScreen extends javax.swing.JFrame {
 
         //Next button event source
         if (evt.getSource() == btnNext) {
-            
-            if (txtFirstName.getText() == "")
-            {
-                
+
+            if (txtFirstName.getText().equals("")) {
+                dialogCreateAccountError.setVisible(true);
+                lblCreateAccountError.setText("Please Enter your First Name!");
+                System.out.println("First Name Textbox Empty");
+                return;
+            } else if (txtLastName.getText().equals("")) {
+                dialogCreateAccountError.setVisible(true);
+                lblCreateAccountError.setText("Please Enter your Last Name!");
+                System.out.println("Last Name Textbox Empty");
+                return;
+            } else if (txtUserIDCreate.getText().equals("")) {
+                dialogCreateAccountError.setVisible(true);
+                lblCreateAccountError.setText("Please Enter a username!");
+                System.out.println("Username Textbox Empty");
+                return;
             }
+
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
@@ -231,11 +283,11 @@ public class MainScreen extends javax.swing.JFrame {
 
     //LOGIN BUTTON =============================================================
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+
         //Set the Variables needed in this method
         String userID;
         Object tempObj;
-        
+
         //Try to read the user's file
         try {
             //Grab Username from txtBox
@@ -244,7 +296,7 @@ public class MainScreen extends javax.swing.JFrame {
             main.currentUserFile = new File(userID + ".dat");
             //Read Object and save into a temporary Object
             tempObj = main.ReadObjectFromFile(main.currentUserFile);
-            
+
             //Checking the null of temp object
             if (tempObj == null) {
                 dialogFileNotFoundLoginError.setVisible(true);
@@ -274,10 +326,15 @@ public class MainScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    //DIALOG BOX OK BUTTON =====================================================
+    //FILE NOT FOUND DIALOG BOX OK BUTTON ======================================
     private void btnOK_dialogFileNotFoundLoginErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOK_dialogFileNotFoundLoginErrorActionPerformed
         dialogFileNotFoundLoginError.dispose();
     }//GEN-LAST:event_btnOK_dialogFileNotFoundLoginErrorActionPerformed
+
+    //CREATE ACCOUNT DIALOG BOX OK BUTTON ======================================
+    private void btnOK_dialogCreateAccountErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOK_dialogCreateAccountErrorActionPerformed
+        dialogCreateAccountError.dispose();
+    }//GEN-LAST:event_btnOK_dialogCreateAccountErrorActionPerformed
 
     //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
@@ -317,7 +374,9 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnOK_dialogCreateAccountError;
     private javax.swing.JButton btnOK_dialogFileNotFoundLoginError;
+    private javax.swing.JDialog dialogCreateAccountError;
     private javax.swing.JDialog dialogFileNotFoundLoginError;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -327,6 +386,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblCreateAccountError;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtUserIDCreate;
