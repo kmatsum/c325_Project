@@ -1,6 +1,7 @@
 package c325_project;
 
 import java.io.*;
+import java.sql.*;
 
 public class MainScreen extends javax.swing.JFrame {
 
@@ -269,15 +270,29 @@ public class MainScreen extends javax.swing.JFrame {
                 System.out.println("Username Textbox Empty");
                 return;
             }
-            
+
             //check to make sure no user already exists with that username
-            String userCheck;
-            
+            try (Connection conn = DriverManager.getConnection(Database.url);
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery("SELECT USER_ID FROM USERS;");) {
+
+                // loop through the result set
+                while (rs.next()) {
+                    if (rs.getString("USER_ID").equals(txtUserIDCreate.getText())) {
+                        dialogCreateAccountError.setVisible(true);
+                        lblCreateAccountError.setVisible(true);
+                        lblCreateAccountError.setText("Username already exists!");
+                        return;
+                    }
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
 
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
-            
+
             //create string of values
             String values = "'" + main.currentUser.getUserID() + "', '" + main.currentUser.getFirstName() + "', '" + main.currentUser.getLastName() + "'";
             main.database.GenericStatement("INSERT INTO USERS VALUES (" + values + ");");

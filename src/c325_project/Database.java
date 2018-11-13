@@ -3,9 +3,9 @@ package c325_project;
 import java.sql.*;
 
 public class Database {
-
+    
     //define URL 
-    String url = "jdbc:sqlite:database/cnit325.db";
+    public static String url = "jdbc:sqlite:database/cnit325.db";
 
     //define DDL
     String tableUSERS = "create table IF NOT EXISTS USERS (\n"
@@ -115,7 +115,7 @@ public class Database {
     public Database() {
 
         //connect or make database
-        try (Connection conn = DriverManager.getConnection(url)) {
+        try (Connection conn = DriverManager.getConnection(Database.url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
                 System.out.println("The driver name is " + meta.getDriverName());
@@ -146,7 +146,7 @@ public class Database {
 
     //method to take String insert statment to execute
     public void InsertStatement(String table, String values) {
-        try (Connection conn = DriverManager.getConnection(url)) {
+        try (Connection conn = DriverManager.getConnection(Database.url)) {
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO " + table + " VALUES (" + values + ")");
             System.out.println(table + " table was updated.");
@@ -158,13 +158,27 @@ public class Database {
 
     //generic method to take String input to execute statement
     public void GenericStatement(String statement) {
-        try (Connection conn = DriverManager.getConnection(url)) {
+        try (Connection conn = DriverManager.getConnection(Database.url)) {
             Statement stmt = conn.createStatement();
             stmt.execute(statement);
             System.out.println(statement + " was executed.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
+        }
+    }
+
+    public void SelectStatement(String statement) {
+        try (Connection conn = DriverManager.getConnection(Database.url);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(statement)) {
+
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getString("USER_ID"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
