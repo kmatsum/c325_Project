@@ -3,7 +3,7 @@ package c325_project;
 import java.sql.*;
 
 public class Database {
-    
+
     //define URL 
     public static String url = "jdbc:sqlite:database/cnit325.db";
 
