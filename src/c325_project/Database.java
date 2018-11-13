@@ -165,12 +165,6 @@ public class Database {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
-
-            //duplicate user?
-            if (e.getMessage().equals("[SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: USERS.USER_ID)"))
-            {
-                System.out.println("User " + main.currentUser.getUserID() + " already exists. Please login.");
-            }
         }
     }
 }

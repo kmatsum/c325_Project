@@ -269,10 +269,18 @@ public class MainScreen extends javax.swing.JFrame {
                 System.out.println("Username Textbox Empty");
                 return;
             }
+            
+            //check to make sure no user already exists with that username
+            String userCheck;
+            
 
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
+            
+            //create string of values
+            String values = "'" + main.currentUser.getUserID() + "', '" + main.currentUser.getFirstName() + "', '" + main.currentUser.getLastName() + "'";
+            main.database.GenericStatement("INSERT INTO USERS VALUES (" + values + ");");
 
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             this.dispose();
