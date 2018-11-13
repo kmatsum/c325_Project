@@ -167,18 +167,4 @@ public class Database {
             System.out.println("The following statement failed: " + statement);
         }
     }
-
-    public void SelectStatement(String statement) {
-        try (Connection conn = DriverManager.getConnection(Database.url);
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(statement)) {
-
-            // loop through the result set
-            while (rs.next()) {
-                System.out.println(rs.getString("USER_ID"));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }
