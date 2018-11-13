@@ -272,7 +272,7 @@ public class MainScreen extends javax.swing.JFrame {
             }
 
             //check to make sure no user already exists with that username
-            try (Connection conn = DriverManager.getConnection(Database.url);
+            try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery("SELECT USER_ID FROM USERS;");) {
 

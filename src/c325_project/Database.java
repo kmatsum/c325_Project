@@ -4,10 +4,11 @@ import java.sql.*;
 
 public class Database {
 
-    //define URL 
-    public static String url = "jdbc:sqlite:database/cnit325.db";
+    //DEFINE DATABASE FILE PATH ================================================
+    public static String DatabaseFilePath = "jdbc:sqlite:database/cnit325.db";
 
-    //define DDL
+    //DEFINE DATABASE ==========================================================
+    // <editor-fold defaultstate="collapsed" desc=" Datebase Definition Code ">
     String tableUSERS = "create table IF NOT EXISTS USERS (\n"
             + "USER_ID VARCHAR2(20) PRIMARY KEY not null,\n"
             + "FIRST_NAME VARCHAR2(20), \n"
@@ -111,21 +112,23 @@ public class Database {
             + "PERISHABLE NUMBER(1),\n"
             + "CONSTRAINT FK_DAILY_LIVING_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
             + "USERS (USER_ID));";
+    // </editor-fold>
 
+    //CONSTRUCTOR ==============================================================
     public Database() {
 
-        //connect or make database
-        try (Connection conn = DriverManager.getConnection(Database.url)) {
+        //Test connection to database
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
                 System.out.println("The driver name is " + meta.getDriverName());
                 System.out.println("Database already existed or was created.");
             }
 
-            //create statement
+            //Create Statement Variable
             Statement stmt = conn.createStatement();
 
-            //create all tables
+            //Create all needed tables
             stmt.execute(tableUSERS);
             stmt.execute(tableBANK_ACCOUNTS);
             stmt.execute(tableBUDGET_PLANS);
@@ -137,28 +140,31 @@ public class Database {
             stmt.execute(tableTRANSPORTATION_PURCHASES);
             stmt.execute(tableDAILY_LIVING_PURCHASES);
 
+            //Debug Code
             System.out.println("All tables already existed or were created.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    //method to take String insert statment to execute
+    //TAKE STRING INPUT AND INSERT INTO TABLE ==================================
     public void InsertStatement(String table, String values) {
-        try (Connection conn = DriverManager.getConnection(Database.url)) {
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath)) {
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO " + table + " VALUES (" + values + ")");
             System.out.println("Statement executed successfully: INSERT INTO " + table + " VALUES (" + values + ")");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
             System.out.println("The following statement failed: INSERT INTO " + table + " VALUES (" + values + ")");
         }
     }
 
-    //generic method to take String input to execute statement
+    //TAKE STRING INPUT AS A SQL QUERY STATEMENT ===============================
     public void GenericStatement(String statement) {
-        try (Connection conn = DriverManager.getConnection(Database.url)) {
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath)) {
             Statement stmt = conn.createStatement();
             stmt.execute(statement);
             System.out.println("Statement executed successfully: " + statement);
