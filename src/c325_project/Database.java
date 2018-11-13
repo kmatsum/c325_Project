@@ -161,7 +161,7 @@ public class Database {
         try (Connection conn = DriverManager.getConnection(Database.url)) {
             Statement stmt = conn.createStatement();
             stmt.execute(statement);
-            System.out.println(statement + " was executed.");
+            System.out.println("Statement executed successfully: " + statement);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
