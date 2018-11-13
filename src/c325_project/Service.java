@@ -7,6 +7,7 @@ public class Service {
     private String company;
 
     //GETS AND SETS ============================================================
+    // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public void setrecurring(boolean rc) {
         recurring = rc;
     }
@@ -22,4 +23,5 @@ public class Service {
     public String getcompany() {
         return company;
     }
+    // </editor-fold>
 }

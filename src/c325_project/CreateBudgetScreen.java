@@ -1,10 +1,10 @@
 package c325_project;
 
-import java.io.File;
+import java.io.*;
 
 public class CreateBudgetScreen extends javax.swing.JFrame {
 
-    //ints to keep track of total
+    //VARIABLES ================================================================
     int Total;
     int HomeExpenses;
     int Transportation;
@@ -14,14 +14,12 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
     int Entertainment;
     int Financial;
 
-    /**
-     * Creates new form CreateBudgetScreen
-     */
+    //CreateBudgetScreen CONSTRUCTOR ===========================================
     public CreateBudgetScreen() {
         initComponents();
     }
 
-
+    //GENERATED CODE ===========================================================
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -245,6 +243,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Create Budget Plan");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -288,11 +287,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         jLabel21.setText("Financial");
 
         txtHomeExpenses.setText("20");
-        txtHomeExpenses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHomeExpensesActionPerformed(evt);
-            }
-        });
 
         txtTransportation.setText("5");
 
@@ -494,13 +488,8 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtHomeExpensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHomeExpensesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHomeExpensesActionPerformed
-
     //RESET BUTTON =============================================================
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
 
         if (evt.getSource() == btnReset) {
             txtHomeExpenses.setText("20");
@@ -513,13 +502,11 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResetActionPerformed
 
-    
     //NEXT BUTTON ==============================================================
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
 
         if (evt.getSource() == btnNext) {
-            //CHECK PERCENTAGE INPUT
+            //Check Percentage Input
             if (main.intIsParsable(txtHomeExpenses.getText()) == false
                     | main.intIsParsable(txtTransportation.getText()) == false
                     | main.intIsParsable(txtHealth.getText()) == false
@@ -531,7 +518,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 return;
             }
 
-            //PARSE PERCENTAGE INPUT
+            //Parse Percentage Input
             HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
             Transportation = Integer.parseInt(txtTransportation.getText());
             Health = Integer.parseInt(txtHealth.getText());
@@ -542,13 +529,13 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
             Total = HomeExpenses + Transportation + Health + Charity + DailyLiving + Entertainment + Financial;
 
-            //CHECK TOTAL TO BE 100
+            //Check total to be 100
             if (Total != 100) {
                 dialogNot100.setVisible(true);
                 return;
             }
 
-            //CHECK CHECKING AND SAVINGS INPUT
+            //Check Ckecking and Savings Account Input
             if (main.doubleIsParsable(txtChecking.getText()) == false | main.doubleIsParsable(txtSavings.getText()) == false) {
                 if (main.doubleIsParsable(txtSavings.getText()) == false) {
                     dialogSavingsWrong.setVisible(true);
@@ -560,7 +547,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 return;
             }
 
-            //SET ALL BUDGET ATTRIBUTES TO A TEMP VARIABLE
+            //Set all variables into a temporary object
             BudgetPlan tempBudget = new BudgetPlan();
             tempBudget.setHomeExpenses(HomeExpenses);
             tempBudget.setTransportation(Transportation);
@@ -569,10 +556,10 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             tempBudget.setEntertainment(Entertainment);
             tempBudget.setFinancial(Financial);
 
-            //SEND TEMP BUDGET VARIABLE TO USER
+            //Send temp object into CurrentUser
             main.currentUser.setBudgetPlan(tempBudget);
 
-            //SET ALL BANK ACCOUNT ATTRIBUTES TO TEMP VARIALBES
+            //Set all bank account attributes to temp object
             BankAccount tempChecking = new BankAccount();
             tempChecking.setAccountName("Checking");
             tempChecking.setBalance(Double.parseDouble(txtChecking.getText()));
@@ -580,17 +567,17 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             tempSavings.setAccountName("Savings");
             tempSavings.setBalance(Double.parseDouble(txtSavings.getText()));
 
-            //SEND TEMP ACCOUNT VARIABLES TO USER
+            //Send temp account object
             main.currentUser.setCheckingAccount(tempChecking);
             main.currentUser.setSavingsAccount(tempSavings);
 
             //Creating a new file based on the Username
             main.currentUserFile = new File(main.currentUser.getUserID() + ".dat");
-            
+
             //Write the user Information into the file
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
 
-            //GO TO NEXT SCREEN
+            //Go to next screen
             BudgetScreen loggedBudgetScreen = new BudgetScreen();
             this.dispose();
             loggedBudgetScreen.setVisible(true);
@@ -598,30 +585,30 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
-    
     //DIALOG BOXES OK BUTTON ===================================================
     //<editor-fold defaultstate="collapsed" desc=" Dialog Box OK Button Event Handing ">
     private void btnOKPercentagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentagesActionPerformed
-        // TODO add your handling code here:
-        dialogNot100.setVisible(false);
+        
+        dialogNot100.dispose();
     }//GEN-LAST:event_btnOKPercentagesActionPerformed
 
     private void btnOKSavingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKSavingsActionPerformed
-        // TODO add your handling code here:
-        dialogSavingsWrong.setVisible(false);
+        
+        dialogSavingsWrong.dispose();
     }//GEN-LAST:event_btnOKSavingsActionPerformed
 
     private void btnOKCheckingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKCheckingActionPerformed
-        // TODO add your handling code here:
-        dialogCheckingWrong.setVisible(false);
+        
+        dialogCheckingWrong.dispose();
     }//GEN-LAST:event_btnOKCheckingActionPerformed
 
     private void btnOKPercentages1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentages1ActionPerformed
-        // TODO add your handling code here:
-        dialogPercentageWrong.setVisible(false);
+        
+        dialogPercentageWrong.dispose();
     }//GEN-LAST:event_btnOKPercentages1ActionPerformed
-        //</editor-fold>
-    
+    //</editor-fold>
+
+    //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -645,7 +632,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CreateBudgetScreen().setVisible(true);
