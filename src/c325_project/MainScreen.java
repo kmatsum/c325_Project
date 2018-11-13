@@ -295,7 +295,7 @@ public class MainScreen extends javax.swing.JFrame {
 
             //create string of values
             String values = "'" + main.currentUser.getUserID() + "', '" + main.currentUser.getFirstName() + "', '" + main.currentUser.getLastName() + "'";
-            main.database.GenericStatement("INSERT INTO USERS VALUES (" + values + ");");
+            main.database.InsertStatement("USERS", values);
 
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             this.dispose();

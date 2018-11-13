@@ -149,7 +149,7 @@ public class Database {
         try (Connection conn = DriverManager.getConnection(Database.url)) {
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO " + table + " VALUES (" + values + ")");
-            System.out.println(table + " table was updated.");
+            System.out.println("Statement executed successfully: INSERT INTO " + table + " VALUES (" + values + ")");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: INSERT INTO " + table + " VALUES (" + values + ")");
