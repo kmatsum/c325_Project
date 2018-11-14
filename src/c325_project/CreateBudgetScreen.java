@@ -588,13 +588,13 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             //Instantiate Database (Creates Database in this case)
             main.database = new Database();
 
-            //save budget plan to database
+            //Save budget plan to database
             main.database.InsertStatement("BUDGET_PLANS", txtHomeExpenses.getText() + ", " + txtTransportation.getText()
                     + ", " + txtHealth.getText() + ", " + txtCharity.getText() + ", "
                     + txtDailyLiving.getText() + ", " + txtEntertainment.getText()
                     + ", " + txtFinancial.getText());
 
-            //save account balances to database
+            //Save account balances to database
             main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtSavings.getText());
             main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
