@@ -1,7 +1,6 @@
 package c325_project;
 
 import java.io.*;
-import java.sql.*;
 
 public class MainScreen extends javax.swing.JFrame {
 
@@ -271,15 +270,24 @@ public class MainScreen extends javax.swing.JFrame {
                 return;
             }
 
+            //Setup File Path to use to test if the user already exists
+            File existTest = new File("./users/" + txtUserIDCreate.getText());
+            //Check if the username already exists
+            if (existTest.exists()) {
+                dialogCreateAccountError.setVisible(true);
+                lblCreateAccountError.setText("That username already exists!");
+                System.out.println("Username already exists");
+                return;
+            }
+
+            //Set the Current User's variables
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
-
-            //instantiate database
-            main.database = new Database();
-
+            
+            //Dispose this current window and move on to the next Window
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
-            this.dispose();
+            dispose();
             CreateBudgetScreen.setVisible(true);
 
         }
@@ -297,7 +305,8 @@ public class MainScreen extends javax.swing.JFrame {
             //Grab Username from txtBox
             userID = txtUserIDLogin.getText();
             //Setup Filepaths using the username provided
-            main.currentUserFile = new File(userID + ".dat");
+            main.currentUserFile = new File("./users/" + userID + "/" + userID + ".dat");
+
             //Read Object and save into a temporary Object
             tempObj = main.ReadObjectFromFile(main.currentUserFile);
 
@@ -310,7 +319,7 @@ public class MainScreen extends javax.swing.JFrame {
             //Cast the tempObject into the current user
             main.currentUser = (User) tempObj;
 
-            //instantiate database
+            //Instantiate Database
             main.database = new Database();
 
             //Show next Screen

@@ -5,7 +5,7 @@ import java.sql.*;
 public class Database {
 
     //DEFINE DATABASE FILE PATH ================================================
-    public static String DatabaseFilePath = "jdbc:sqlite:database/" + main.currentUser.getUserID()+ ".db";
+    public static String DatabaseFilePath = "jdbc:sqlite:users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID()+ ".db";
 
     //DEFINE DATABASE ==========================================================
     // <editor-fold defaultstate="collapsed" desc=" Datebase Definition Code ">
