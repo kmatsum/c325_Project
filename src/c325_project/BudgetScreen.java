@@ -5,16 +5,15 @@ public class BudgetScreen extends javax.swing.JFrame {
     //BudgetScreen CONSTRUCTOR =================================================
     public BudgetScreen() {
         initComponents();
-        
+
         //Set Username Label
         lblUsername.setText(main.currentUser.getUserID());
         //Set Account Amount Display
         lblAmount.setText(main.currentUser.getCheckingAccount().getBalance().toString());
-        
+
         //SystemOutput the ArrayList DEBUG
         for (int index = 0; index < main.currentUser.getPurchaseArrayList().size(); index++) {
-            
-        System.out.println(main.currentUser.getPurchaseArrayList().get(index).getName());
+            System.out.println(main.currentUser.getPurchaseArrayList().get(index).getName());
         }
     }
 
@@ -374,7 +373,7 @@ public class BudgetScreen extends javax.swing.JFrame {
 
     //SEARCH BUTTOM ============================================================
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+        // TODO Budget Screen Search Button
     }//GEN-LAST:event_btnSearchActionPerformed
 
     //LOG OUT BUTTON ===========================================================
@@ -383,7 +382,7 @@ public class BudgetScreen extends javax.swing.JFrame {
         if (evt.getSource() == btnLog) {
             //Save User Information
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
-            
+
             //Go to next screen
             MainScreen MainScreen = new MainScreen();
             this.dispose();

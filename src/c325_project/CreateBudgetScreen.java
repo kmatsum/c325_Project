@@ -4,7 +4,7 @@ import java.io.*;
 
 public class CreateBudgetScreen extends javax.swing.JFrame {
 
-    //VARIABLES ================================================================
+    //VARIABLES =================================================================
     double Total;
     double HomeExpenses;
     double Transportation;
@@ -582,10 +582,21 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             main.currentUser.setSavingsAccount(tempSavings);
 
             //Creating a new file based on the Username
-            main.currentUserFile = new File(main.currentUser.getUserID() + ".dat");
+            File mkdirs = new File("./users/" + main.currentUser.getUserID());
+            if (mkdirs.mkdirs()) {
+                System.out.println("New Directory was created!");
+            } else {
+                System.out.println("New Directory was NOT created!");
+            }
+
+            //Use the new directory to find user data file
+            main.currentUserFile = new File("./users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID() + ".dat");
 
             //Write the user Information into the file
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
+
+            //Instantiate Database (Creates Database in this case)
+            main.database = new Database();
 
             //Go to next screen
             BudgetScreen loggedBudgetScreen = new BudgetScreen();

@@ -100,7 +100,5 @@ public class main {
         //OPENING FIRST FORM ===================================================
         MainScreen MainScreenWindow = new MainScreen();
         MainScreenWindow.setVisible(true);
-
     }
-
 }
