@@ -592,7 +592,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             BudgetScreen loggedBudgetScreen = new BudgetScreen();
             this.dispose();
             loggedBudgetScreen.setVisible(true);
-
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
