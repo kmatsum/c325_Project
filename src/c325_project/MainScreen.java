@@ -295,6 +295,7 @@ public class MainScreen extends javax.swing.JFrame {
             userID = txtUserIDLogin.getText();
             //Setup Filepaths using the username provided
             main.currentUserFile = new File("./users/" + userID + "/" + userID + ".dat");
+
             //Read Object and save into a temporary Object
             tempObj = main.ReadObjectFromFile(main.currentUserFile);
 
@@ -306,6 +307,9 @@ public class MainScreen extends javax.swing.JFrame {
 
             //Cast the tempObject into the current user
             main.currentUser = (User) tempObj;
+
+            //Instantiate Database
+            main.database = new Database();
 
             //Show next Screen
             BudgetScreen BudgetScreen = new BudgetScreen();
