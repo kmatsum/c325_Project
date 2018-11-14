@@ -7,7 +7,7 @@ public class main {
     //VARIABLES ================================================================
     public static User currentUser = new User();
     public static File currentUserFile;
-    public static Database database = new Database();
+    public static Database database;
 
     //TODO Add Formatting Implementation
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();

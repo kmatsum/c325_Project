@@ -271,31 +271,12 @@ public class MainScreen extends javax.swing.JFrame {
                 return;
             }
 
-            //check to make sure no user already exists with that username
-            try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
-                    Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery("SELECT USER_ID FROM USERS;");) {
-
-                // loop through the result set
-                while (rs.next()) {
-                    if (rs.getString("USER_ID").equals(txtUserIDCreate.getText())) {
-                        dialogCreateAccountError.setVisible(true);
-                        lblCreateAccountError.setVisible(true);
-                        lblCreateAccountError.setText("Username already exists!");
-                        return;
-                    }
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
 
-            //create string of values
-            String values = "'" + main.currentUser.getUserID() + "', '" + main.currentUser.getFirstName() + "', '" + main.currentUser.getLastName() + "'";
-            main.database.InsertStatement("USERS", values);
+            //instantiate database
+            main.database = new Database();
 
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             this.dispose();
@@ -328,6 +309,9 @@ public class MainScreen extends javax.swing.JFrame {
 
             //Cast the tempObject into the current user
             main.currentUser = (User) tempObj;
+
+            //instantiate database
+            main.database = new Database();
 
             //Show next Screen
             BudgetScreen BudgetScreen = new BudgetScreen();

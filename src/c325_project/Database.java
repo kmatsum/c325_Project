@@ -5,70 +5,49 @@ import java.sql.*;
 public class Database {
 
     //DEFINE DATABASE FILE PATH ================================================
-    public static String DatabaseFilePath = "jdbc:sqlite:database/cnit325.db";
+    public static String DatabaseFilePath = "jdbc:sqlite:database/" + main.currentUser.getUserID()+ ".db";
 
     //DEFINE DATABASE ==========================================================
     // <editor-fold defaultstate="collapsed" desc=" Datebase Definition Code ">
-    String tableUSERS = "create table IF NOT EXISTS USERS (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY not null,\n"
-            + "FIRST_NAME VARCHAR2(20), \n"
-            + "LAST_NAME VARCHAR2(20));";
-
     String tableBANK_ACCOUNTS = "create table IF NOT EXISTS BANK_ACCOUNTS (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "ACCOUNT_NAME VARCHAR2(20),\n"
-            + "BALANCE DECIMAL(2),\n"
-            + "CONSTRAINT FK_BANK_ACCOUNTS FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "BALANCE DECIMAL(2));";
 
     String tableBUDGET_PLANS = "create table IF NOT EXISTS BUDGET_PLANS (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "HOME_EXPENSES DECIMAL(2,2),\n"
             + "TRANSPORTATION DECIMAL(2,2),\n"
             + "HEALTH DECIMAL(2,2),\n"
             + "CHARITY DECIMAL(2,2),\n"
             + "DAILY_LIVING DECIMAL(2,2),\n"
             + "ENTERTAINMENT DECIMAL(2,2),\n"
-            + "FINANCIAL DECIMAL(2,2),\n"
-            + "CONSTRAINT FK_BUDGET_PLANS FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID)); ";
+            + "FINANCIAL DECIMAL(2,2));";
 
     String tableHOME_EXP_PURCHASES = "create table IF NOT EXISTS HOME_EXP_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
             + "INDOOR NUMBER(1),\n"
-            + "TANGIBLE NUMBER(1),\n"
-            + "CONSTRAINT FK_HOME_EXP_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "TANGIBLE NUMBER(1));";
 
     String tableCHARITY_PURCHASES = "create table IF NOT EXISTS CHARITY_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
-            + "GIFT NUMBER(1),\n"
-            + "CONSTRAINT FK_CHARITY_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "GIFT NUMBER(1));";
 
     String tableFINANCIAL_PURCHASES = "create table IF NOT EXISTS FINANCIAL_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
-            + "RECURRING NUMBER(1),\n"
-            + "CONSTRAINT FK_FINANCIAL_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "RECURRING NUMBER(1));";
 
     String tableHEALTH_PURCHASES = "create table IF NOT EXISTS HEALTH_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
@@ -76,42 +55,31 @@ public class Database {
             + "TYPE VARCHAR2(20),\n"
             + "PLANNED NUMBER(1),\n"
             + "APPOINTMENT NUMBER(1),\n"
-            + "TANGIBLE NUMBER(1),\n"
-            + "CONSTRAINT FK_HEALTH_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "TANGIBLE NUMBER(1));";
 
     String tableENTERTAINMENT_PURCHASES = "create table IF NOT EXISTS ENTERTAINMENT_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
-            + "TANGIBLE NUMBER(1),\n"
-            + "CONSTRAINT FK_ENTERTAINMENT_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "TANGIBLE NUMBER(1));";
 
     String tableTRANSPORTATION_PURCHASES = "create table IF NOT EXISTS TRANSPORTATION_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
-            + "INVESTMENT NUMBER(1),\n"
-            + "CONSTRAINT FK_TRANSPORTATION_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "INVESTMENT NUMBER(1));";
 
     String tableDAILY_LIVING_PURCHASES = "create table IF NOT EXISTS DAILY_LIVING_PURCHASES (\n"
-            + "USER_ID VARCHAR2(20) PRIMARY KEY,\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
             + "DATETIME DATE,\n"
             + "NAME VARCHAR2(20),\n"
             + "TYPE VARCHAR2(20),\n"
-            + "PERISHABLE NUMBER(1),\n"
-            + "CONSTRAINT FK_DAILY_LIVING_PURCHASES FOREIGN KEY (USER_ID) REFERENCES \n"
-            + "USERS (USER_ID));";
+            + "PERISHABLE NUMBER(1));";
     // </editor-fold>
 
     //CONSTRUCTOR ==============================================================
@@ -129,7 +97,6 @@ public class Database {
             Statement stmt = conn.createStatement();
 
             //Create all needed tables
-            stmt.execute(tableUSERS);
             stmt.execute(tableBANK_ACCOUNTS);
             stmt.execute(tableBUDGET_PLANS);
             stmt.execute(tableHOME_EXP_PURCHASES);
