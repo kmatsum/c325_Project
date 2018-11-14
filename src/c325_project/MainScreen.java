@@ -271,6 +271,16 @@ public class MainScreen extends javax.swing.JFrame {
                 return;
             }
 
+            //Setup File Path to use to test if the user already exists
+            File existTest = new File("./users/" + txtUserIDCreate.getText());
+            //Check if the username already exists
+            if (existTest.exists()) {
+                dialogCreateAccountError.setVisible(true);
+                lblCreateAccountError.setText("That username already exists!");
+                System.out.println("Username already exists");
+                return;
+            }
+
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
