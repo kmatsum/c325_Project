@@ -5,14 +5,14 @@ import java.io.*;
 public class CreateBudgetScreen extends javax.swing.JFrame {
 
     //VARIABLES =================================================================
-    int Total;
-    int HomeExpenses;
-    int Transportation;
-    int Health;
-    int Charity;
-    int DailyLiving;
-    int Entertainment;
-    int Financial;
+    double Total;
+    double HomeExpenses;
+    double Transportation;
+    double Health;
+    double Charity;
+    double DailyLiving;
+    double Entertainment;
+    double Financial;
 
     //CreateBudgetScreen CONSTRUCTOR ===========================================
     public CreateBudgetScreen() {
