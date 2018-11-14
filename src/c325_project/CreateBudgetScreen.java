@@ -535,12 +535,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 return;
             }
 
-            //save budget plan to database
-            main.database.InsertStatement("BUDGET_PLANS", txtHomeExpenses.getText() + ", " + txtTransportation.getText()
-                    + ", " + txtHealth.getText() + ", " + txtCharity.getText() + ", "
-                    + txtDailyLiving.getText() + ", " + txtEntertainment.getText()
-                    + ", " + txtFinancial.getText());
-
             //Check Ckecking and Savings Account Input
             if (main.doubleIsParsable(txtChecking.getText()) == false | main.doubleIsParsable(txtSavings.getText()) == false) {
                 if (main.doubleIsParsable(txtSavings.getText()) == false) {
@@ -552,10 +546,6 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 }
                 return;
             }
-
-            //save account balances to database
-            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtSavings.getText());
-            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
             //Set all variables into a temporary object
             BudgetPlan tempBudget = new BudgetPlan();
@@ -597,6 +587,16 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
             //Instantiate Database (Creates Database in this case)
             main.database = new Database();
+
+            //save budget plan to database
+            main.database.InsertStatement("BUDGET_PLANS", txtHomeExpenses.getText() + ", " + txtTransportation.getText()
+                    + ", " + txtHealth.getText() + ", " + txtCharity.getText() + ", "
+                    + txtDailyLiving.getText() + ", " + txtEntertainment.getText()
+                    + ", " + txtFinancial.getText());
+
+            //save account balances to database
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtSavings.getText());
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
             //Go to next screen
             BudgetScreen loggedBudgetScreen = new BudgetScreen();
