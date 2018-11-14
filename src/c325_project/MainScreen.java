@@ -1,7 +1,6 @@
 package c325_project;
 
 import java.io.*;
-import java.sql.*;
 
 public class MainScreen extends javax.swing.JFrame {
 
@@ -281,12 +280,14 @@ public class MainScreen extends javax.swing.JFrame {
                 return;
             }
 
+            //Set the Current User's variables
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
-
+            
+            //Dispose this current window and move on to the next Window
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
-            this.dispose();
+            dispose();
             CreateBudgetScreen.setVisible(true);
 
         }

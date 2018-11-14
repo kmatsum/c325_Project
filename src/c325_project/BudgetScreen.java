@@ -373,7 +373,7 @@ public class BudgetScreen extends javax.swing.JFrame {
 
     //SEARCH BUTTOM ============================================================
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+        // TODO Budget Screen Search Button
     }//GEN-LAST:event_btnSearchActionPerformed
 
     //LOG OUT BUTTON ===========================================================
