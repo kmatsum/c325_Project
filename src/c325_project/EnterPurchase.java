@@ -261,8 +261,8 @@ public class EnterPurchase extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
         //Create balance and purchase object
-        Purchase purchase = new Purchase();
         double newBalance;
+        Purchase purchase = new Purchase();
 
         //Validation Check
         //Check amount validity
@@ -294,7 +294,12 @@ public class EnterPurchase extends javax.swing.JFrame {
         if (btnSavings.isSelected() == true) {
             purchase.setType("Savings");
         }
-
+        
+        //cast purchase to make specific
+        if (cboxCategory.getSelectedItem() == "Home Expenses"){
+            //something
+        }
+        
         //Add purchase to purchase array, increase index
         main.currentUser.getPurchaseArrayList().add(purchase);
 
@@ -366,7 +371,7 @@ public class EnterPurchase extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        //Dispaly Form
+        //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EnterPurchase().setVisible(true);
