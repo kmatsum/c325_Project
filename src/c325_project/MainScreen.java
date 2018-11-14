@@ -289,7 +289,6 @@ public class MainScreen extends javax.swing.JFrame {
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             dispose();
             CreateBudgetScreen.setVisible(true);
-
         }
     }//GEN-LAST:event_btnNextActionPerformed
 

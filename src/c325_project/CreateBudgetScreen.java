@@ -519,13 +519,13 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             }
 
             //Parse Percentage Input
-            HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
-            Transportation = Integer.parseInt(txtTransportation.getText());
-            Health = Integer.parseInt(txtHealth.getText());
-            Charity = Integer.parseInt(txtCharity.getText());
-            DailyLiving = Integer.parseInt(txtDailyLiving.getText());
-            Entertainment = Integer.parseInt(txtEntertainment.getText());
-            Financial = Integer.parseInt(txtFinancial.getText());
+            HomeExpenses = Double.parseDouble(txtHomeExpenses.getText());
+            Transportation = Double.parseDouble(txtTransportation.getText());
+            Health = Double.parseDouble(txtHealth.getText());
+            Charity = Double.parseDouble(txtCharity.getText());
+            DailyLiving = Double.parseDouble(txtDailyLiving.getText());
+            Entertainment = Double.parseDouble(txtEntertainment.getText());
+            Financial = Double.parseDouble(txtFinancial.getText());
 
             Total = HomeExpenses + Transportation + Health + Charity + DailyLiving + Entertainment + Financial;
 
@@ -534,6 +534,12 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 dialogNot100.setVisible(true);
                 return;
             }
+
+            //save budget plan to database
+            main.database.InsertStatement("BUDGET_PLANS", txtHomeExpenses.getText() + ", " + txtTransportation.getText()
+                    + ", " + txtHealth.getText() + ", " + txtCharity.getText() + ", "
+                    + txtDailyLiving.getText() + ", " + txtEntertainment.getText()
+                    + ", " + txtFinancial.getText());
 
             //Check Ckecking and Savings Account Input
             if (main.doubleIsParsable(txtChecking.getText()) == false | main.doubleIsParsable(txtSavings.getText()) == false) {
@@ -546,6 +552,10 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
                 }
                 return;
             }
+
+            //save account balances to database
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtSavings.getText());
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
             //Set all variables into a temporary object
             BudgetPlan tempBudget = new BudgetPlan();
