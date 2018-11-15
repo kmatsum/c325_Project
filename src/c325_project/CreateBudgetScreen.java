@@ -599,7 +599,7 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
             //Go to next screen
-            BudgetScreen loggedBudgetScreen = new BudgetScreen();
+            PurchaseViewerScreen loggedBudgetScreen = new PurchaseViewerScreen();
             this.dispose();
             loggedBudgetScreen.setVisible(true);
         }

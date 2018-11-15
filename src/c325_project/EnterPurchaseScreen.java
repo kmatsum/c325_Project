@@ -4,10 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class EnterPurchase extends javax.swing.JFrame {
+public class EnterPurchaseScreen extends javax.swing.JFrame {
 
     //DEFAULT CONSTRUCTOR ======================================================
-    public EnterPurchase() {
+    public EnterPurchaseScreen() {
         initComponents();
     }
 
@@ -318,7 +318,7 @@ public class EnterPurchase extends javax.swing.JFrame {
         }
 
         //Go back to budget screen
-        BudgetScreen loggedBudgetScreen = new BudgetScreen();
+        PurchaseViewerScreen loggedBudgetScreen = new PurchaseViewerScreen();
         this.dispose();
         loggedBudgetScreen.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
@@ -327,7 +327,7 @@ public class EnterPurchase extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
         //Go back to budget screen
-        BudgetScreen loggedBudgetScreen = new BudgetScreen();
+        PurchaseViewerScreen loggedBudgetScreen = new PurchaseViewerScreen();
         this.dispose();
         loggedBudgetScreen.setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -360,20 +360,20 @@ public class EnterPurchase extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnterPurchase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnterPurchaseScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnterPurchase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnterPurchaseScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnterPurchase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnterPurchaseScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EnterPurchase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnterPurchaseScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EnterPurchase().setVisible(true);
+                new EnterPurchaseScreen().setVisible(true);
             }
         });
     }

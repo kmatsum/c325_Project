@@ -1,9 +1,9 @@
 package c325_project;
 
-public class BudgetScreen extends javax.swing.JFrame {
+public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //BudgetScreen CONSTRUCTOR =================================================
-    public BudgetScreen() {
+    public PurchaseViewerScreen() {
         initComponents();
 
         //Set Username Label
@@ -384,7 +384,7 @@ public class BudgetScreen extends javax.swing.JFrame {
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
 
             //Go to next screen
-            MainScreen MainScreen = new MainScreen();
+            LogInScreen MainScreen = new LogInScreen();
             this.dispose();
             MainScreen.setVisible(true);
         }
@@ -441,8 +441,8 @@ public class BudgetScreen extends javax.swing.JFrame {
     //ENTER PURCHASE BUTTON ====================================================
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
-        //Open the EnterPurchase Window
-        EnterPurchase purchase = new EnterPurchase();
+        //Open the EnterPurchaseScreen Window
+        EnterPurchaseScreen purchase = new EnterPurchaseScreen();
         this.dispose();
         purchase.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
@@ -461,20 +461,20 @@ public class BudgetScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BudgetScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PurchaseViewerScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BudgetScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PurchaseViewerScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BudgetScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PurchaseViewerScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BudgetScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PurchaseViewerScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BudgetScreen().setVisible(true);
+                new PurchaseViewerScreen().setVisible(true);
             }
         });
     }

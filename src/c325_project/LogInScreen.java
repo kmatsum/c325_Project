@@ -2,10 +2,10 @@ package c325_project;
 
 import java.io.*;
 
-public class MainScreen extends javax.swing.JFrame {
+public class LogInScreen extends javax.swing.JFrame {
 
     //MainScreen CONSTRUCTOR ===================================================
-    public MainScreen() {
+    public LogInScreen() {
         initComponents();
     }
 
@@ -37,7 +37,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         dialogFileNotFoundLoginError.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         dialogFileNotFoundLoginError.setTitle("File not found");
-        dialogFileNotFoundLoginError.setPreferredSize(new java.awt.Dimension(450, 150));
         dialogFileNotFoundLoginError.setSize(new java.awt.Dimension(450, 150));
 
         jLabel8.setText("The username provided does not exist! Please register a new account!");
@@ -58,7 +57,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnOK_dialogFileNotFoundLoginError)
                     .addComponent(jLabel8))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         dialogFileNotFoundLoginErrorLayout.setVerticalGroup(
             dialogFileNotFoundLoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,7 +70,6 @@ public class MainScreen extends javax.swing.JFrame {
         );
 
         dialogCreateAccountError.setTitle("Create Account Error");
-        dialogCreateAccountError.setPreferredSize(new java.awt.Dimension(450, 150));
         dialogCreateAccountError.setSize(new java.awt.Dimension(450, 150));
 
         lblCreateAccountError.setText("ERROR MESSAGE");
@@ -90,7 +88,7 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(dialogCreateAccountErrorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblCreateAccountError)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCreateAccountErrorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnOK_dialogCreateAccountError)
@@ -322,7 +320,7 @@ public class MainScreen extends javax.swing.JFrame {
             main.database = new Database();
 
             //Show next Screen
-            BudgetScreen BudgetScreen = new BudgetScreen();
+            PurchaseViewerScreen BudgetScreen = new PurchaseViewerScreen();
             dispose();
             BudgetScreen.setVisible(true);
 
@@ -365,20 +363,20 @@ public class MainScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogInScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainScreen().setVisible(true);
+                new LogInScreen().setVisible(true);
             }
         });
     }
