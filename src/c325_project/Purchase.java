@@ -6,29 +6,29 @@ import java.util.Date;
 public class Purchase implements Serializable {
 
     //VARIABLES=================================================================
-    private double Amount;
-    private String Description;
+    private double amount;
+    private String description;
     private Date dateTime;
-    private String Name;
-    private String Category;
-    private String type;
+    private String name;
+    private String category;
+    private String bank;
 
     //GETS AND SETS=============================================================
     // <editor-fold defaultstate="collapsed" desc=" Gets and Set Methods ">
     public double getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(double xAmount) {
-        Amount = xAmount;
+        amount = xAmount;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String xDescription) {
-        Description = xDescription;
+        description = xDescription;
     }
 
     public Date getDateTime() {
@@ -40,27 +40,27 @@ public class Purchase implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String xName) {
-        Name = xName;
+        name = xName;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String xCategory) {
-        Category = xCategory;
+        category = xCategory;
     }
 
-    public String getType() {
-        return type;
+    public String getBank() {
+        return bank;
     }
 
-    public void setType(String xType) {
-        type = xType;
+    public void setBank(String xBank) {
+        bank = xBank;
     }
     // </editor-fold>
 }

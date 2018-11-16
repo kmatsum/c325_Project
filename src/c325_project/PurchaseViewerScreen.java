@@ -423,8 +423,10 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     //SAVINGS ACCOUNT BALANCE FIX DIALOG BOX ===================================
     private void btnSavingsBalanceOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavingsBalanceOKActionPerformed
 
-        //set balance, reset index, close dialog box
+        //set balance, reset data for database, reset index, close dialog box
         main.currentUser.getSavingsAccount().setBalance(Double.parseDouble(txtNewSavingsBalance.getText()));
+        main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
+        main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtNewSavingsBalance.getText());
         cboxBankAccount.setSelectedIndex(1);
         dialogSavings.dispose();
     }//GEN-LAST:event_btnSavingsBalanceOKActionPerformed
@@ -434,6 +436,8 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
         //set balance, reset index, close dialog box
         main.currentUser.getCheckingAccount().setBalance(Double.parseDouble(txtNewCheckingBalance.getText()));
+        main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
+        main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtNewCheckingBalance.getText());
         cboxBankAccount.setSelectedIndex(0);
         dialogChecking.dispose();
     }//GEN-LAST:event_btnCheckingBalanceOKActionPerformed

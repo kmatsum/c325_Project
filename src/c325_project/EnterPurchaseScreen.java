@@ -270,7 +270,8 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             dialogAmountWrong.setVisible(true);
             return;
         }
-        //Check date validity, if valid, then add to purchase
+
+        //Check date validity, if valid, then add to purchase, else return
         try {
             Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
             purchase.setDateTime(purchaseDate);
@@ -286,21 +287,20 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         purchase.setDescription(txtDescription.getText());
         purchase.setName(txtName.getText());
 
-        //Set the Type of the Purchase Object
+        //Set the Bank of the Purchase Object
         if (btnChecking.isSelected() == true) {
-            purchase.setType("Checking");
+            purchase.setBank("Checking");
         }
         if (btnSavings.isSelected() == true) {
-            purchase.setType("Savings");
+            purchase.setBank("Savings");
         }
-        
-        //cast purchase to make specific
-        if (cboxCategory.getSelectedItem() == "Home Expenses"){
-            //something
-        }
-        
+
         //Add purchase to purchase array, increase index
         main.currentUser.getPurchaseArrayList().add(purchase);
+
+        //Add purchase to database
+        main.database.InsertStatement("PURCHASES", purchase.getAmount() + ", '" + purchase.getDescription() + "', "
+                + purchase.getDateTime() + ", '" + purchase.getName() + "', '" + purchase.getBank() + "', '" + purchase.getCategory() + "'");
 
         //Update balances of checking or savings
         if (btnChecking.isSelected() == true) {
@@ -308,6 +308,9 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             newBalance = main.currentUser.getCheckingAccount().getBalance() - Double.parseDouble(txtAmount.getText());
             //Set new balance
             main.currentUser.getCheckingAccount().setBalance(newBalance);
+            //update database
+            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + newBalance);
         }
 
         if (btnSavings.isSelected() == true) {
@@ -315,6 +318,9 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             newBalance = main.currentUser.getSavingsAccount().getBalance() - Double.parseDouble(txtAmount.getText());
             //Set new balance
             main.currentUser.getSavingsAccount().setBalance(newBalance);
+            //update database
+            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + newBalance);
         }
 
         //Go back to budget screen
