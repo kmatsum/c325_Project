@@ -264,7 +264,7 @@ public class EnterPurchase extends javax.swing.JFrame {
         Purchase purchase = new Purchase();
         double newBalance;
 
-        //Validation Check
+        //Validation Check ==========
         //Check amount validity
         if (main.doubleIsParsable(txtAmount.getText()) == false) {
             dialogAmountWrong.setVisible(true);
@@ -274,7 +274,6 @@ public class EnterPurchase extends javax.swing.JFrame {
         try {
             Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
             purchase.setDateTime(purchaseDate);
-
         } catch (ParseException e) {
             dialogDateWrong.setVisible(true);
             e.printStackTrace();

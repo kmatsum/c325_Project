@@ -20,7 +20,7 @@ public class TwitterAPI {
 
         TwitterFactory tf = new TwitterFactory(cb.build());
         twitter4j.Twitter twitter = tf.getInstance();
-
+      
         //Get Username and Status from Twitter
         List<Status> status = twitter.getHomeTimeline();
         for (Status st : status) {

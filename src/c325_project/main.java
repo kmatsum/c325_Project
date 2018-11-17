@@ -7,6 +7,7 @@ public class main {
     //VARIABLES ================================================================
     public static User currentUser = new User();
     public static File currentUserFile;
+    public static Database database;
 
     //TODO Add Formatting Implementation
     //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -61,8 +62,7 @@ public class main {
     public static Object ReadObjectFromFile(File xFile) {
         try {
             try {
-                if (!xFile.exists())
-                {
+                if (!xFile.exists()) {
                     System.out.println("File does not exist");
                     return null;
                 }
@@ -100,7 +100,5 @@ public class main {
         //OPENING FIRST FORM ===================================================
         MainScreen MainScreenWindow = new MainScreen();
         MainScreenWindow.setVisible(true);
-
     }
-
 }

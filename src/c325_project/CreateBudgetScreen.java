@@ -4,7 +4,7 @@ import java.io.*;
 
 public class CreateBudgetScreen extends javax.swing.JFrame {
 
-    //VARIABLES ================================================================
+    //VARIABLES =================================================================
     int Total;
     int HomeExpenses;
     int Transportation;
@@ -572,38 +572,48 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             main.currentUser.setSavingsAccount(tempSavings);
 
             //Creating a new file based on the Username
-            main.currentUserFile = new File(main.currentUser.getUserID() + ".dat");
+            File mkdirs = new File("./users/" + main.currentUser.getUserID());
+            if (mkdirs.mkdirs()) {
+                System.out.println("New Directory was created!");
+            } else {
+                System.out.println("New Directory was NOT created!");
+            }
+
+            //Use the new directory to find user data file
+            main.currentUserFile = new File("./users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID() + ".dat");
 
             //Write the user Information into the file
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
+
+            //Instantiate Database (Creates Database in this case)
+            main.database = new Database();
 
             //Go to next screen
             BudgetScreen loggedBudgetScreen = new BudgetScreen();
             this.dispose();
             loggedBudgetScreen.setVisible(true);
-
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
     //DIALOG BOXES OK BUTTON ===================================================
     //<editor-fold defaultstate="collapsed" desc=" Dialog Box OK Button Event Handing ">
     private void btnOKPercentagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentagesActionPerformed
-        
+
         dialogNot100.dispose();
     }//GEN-LAST:event_btnOKPercentagesActionPerformed
 
     private void btnOKSavingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKSavingsActionPerformed
-        
+
         dialogSavingsWrong.dispose();
     }//GEN-LAST:event_btnOKSavingsActionPerformed
 
     private void btnOKCheckingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKCheckingActionPerformed
-        
+
         dialogCheckingWrong.dispose();
     }//GEN-LAST:event_btnOKCheckingActionPerformed
 
     private void btnOKPercentages1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKPercentages1ActionPerformed
-        
+
         dialogPercentageWrong.dispose();
     }//GEN-LAST:event_btnOKPercentages1ActionPerformed
     //</editor-fold>
