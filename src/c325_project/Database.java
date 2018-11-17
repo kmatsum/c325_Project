@@ -25,7 +25,7 @@ public class Database {
     String tablePURCHASES = "create table IF NOT EXISTS PURCHASES (\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME VARCHAR2(30),\n"
+            + "DATETIME VARCHAR2(30),\n" //CHANGE LATER BACK TO DATE
             + "NAME VARCHAR2(20),\n"
             + "BANK VARCHAR2(20),\n"
             + "CATEGORY VARCHAR2(20));";
