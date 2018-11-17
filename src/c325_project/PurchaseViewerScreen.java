@@ -285,6 +285,11 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         btnSend.setText("Send Email");
 
         btnTips.setText("Financial TIps");
+        btnTips.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTipsActionPerformed(evt);
+            }
+        });
 
         btnLog.setText("Log Out");
         btnLog.addActionListener(new java.awt.event.ActionListener() {
@@ -427,6 +432,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         main.currentUser.getSavingsAccount().setBalance(Double.parseDouble(txtNewSavingsBalance.getText()));
         main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
         main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtNewSavingsBalance.getText());
+
         cboxBankAccount.setSelectedIndex(1);
         dialogSavings.dispose();
     }//GEN-LAST:event_btnSavingsBalanceOKActionPerformed
@@ -438,6 +444,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         main.currentUser.getCheckingAccount().setBalance(Double.parseDouble(txtNewCheckingBalance.getText()));
         main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
         main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtNewCheckingBalance.getText());
+
         cboxBankAccount.setSelectedIndex(0);
         dialogChecking.dispose();
     }//GEN-LAST:event_btnCheckingBalanceOKActionPerformed
@@ -447,9 +454,17 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
         //Open the EnterPurchaseScreen Window
         EnterPurchaseScreen purchase = new EnterPurchaseScreen();
-        this.dispose();
+        dispose();
         purchase.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void btnTipsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipsActionPerformed
+
+        //Open the TwitteAPI Window
+        TwitterAPIForm TwitterForm =  new TwitterAPIForm();
+        dispose();
+        TwitterForm.setVisible(true);
+    }//GEN-LAST:event_btnTipsActionPerformed
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {

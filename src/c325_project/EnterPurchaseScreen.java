@@ -261,8 +261,8 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
         //Create balance and purchase object
-        double newBalance;
         Purchase purchase = new Purchase();
+        double newBalance;
 
         //Validation Check ==========
         //Check amount validity
@@ -308,7 +308,8 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             newBalance = main.currentUser.getCheckingAccount().getBalance() - Double.parseDouble(txtAmount.getText());
             //Set new balance
             main.currentUser.getCheckingAccount().setBalance(newBalance);
-            //update database
+
+            //Update database
             main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
             main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + newBalance);
         }
@@ -318,24 +319,25 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             newBalance = main.currentUser.getSavingsAccount().getBalance() - Double.parseDouble(txtAmount.getText());
             //Set new balance
             main.currentUser.getSavingsAccount().setBalance(newBalance);
-            //update database
+            //Update database
             main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
             main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + newBalance);
         }
 
         //Go back to budget screen
-        PurchaseViewerScreen loggedBudgetScreen = new PurchaseViewerScreen();
-        this.dispose();
-        loggedBudgetScreen.setVisible(true);
+        PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
+        dispose();
+        PurchaseViewerWindow.setVisible(true);
+      
     }//GEN-LAST:event_btnEnterActionPerformed
 
     //CANCEL BUTTON ============================================================
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
         //Go back to budget screen
-        PurchaseViewerScreen loggedBudgetScreen = new PurchaseViewerScreen();
-        this.dispose();
-        loggedBudgetScreen.setVisible(true);
+        PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
+        dispose();
+        PurchaseViewerWindow.setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     //DIALOG AMOUNT WRONG OK BUTTON ============================================

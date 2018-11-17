@@ -320,9 +320,9 @@ public class LogInScreen extends javax.swing.JFrame {
             main.database = new Database();
 
             //Show next Screen
-            PurchaseViewerScreen BudgetScreen = new PurchaseViewerScreen();
+            PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
             dispose();
-            BudgetScreen.setVisible(true);
+            PurchaseViewerWindow.setVisible(true);
 
         } catch (Exception ex) {
             ex.printStackTrace();
