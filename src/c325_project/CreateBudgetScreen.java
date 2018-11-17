@@ -589,9 +589,9 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             main.database = new Database();
 
             //Go to next screen
-            BudgetScreen loggedBudgetScreen = new BudgetScreen();
+            PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
             this.dispose();
-            loggedBudgetScreen.setVisible(true);
+            PurchaseViewerWindow.setVisible(true);
         }
     }//GEN-LAST:event_btnNextActionPerformed
 

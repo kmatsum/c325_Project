@@ -323,9 +323,9 @@ public class MainScreen extends javax.swing.JFrame {
             main.database = new Database();
 
             //Show next Screen
-            BudgetScreen BudgetScreen = new BudgetScreen();
+            PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
             dispose();
-            BudgetScreen.setVisible(true);
+            PurchaseViewerWindow.setVisible(true);
 
         } catch (Exception ex) {
             ex.printStackTrace();

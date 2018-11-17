@@ -313,18 +313,18 @@ public class EnterPurchase extends javax.swing.JFrame {
         }
 
         //Go back to budget screen
-        BudgetScreen loggedBudgetScreen = new BudgetScreen();
-        this.dispose();
-        loggedBudgetScreen.setVisible(true);
+        PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
+        dispose();
+        PurchaseViewerWindow.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
 
     //CANCEL BUTTON ============================================================
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
         //Go back to budget screen
-        BudgetScreen loggedBudgetScreen = new BudgetScreen();
-        this.dispose();
-        loggedBudgetScreen.setVisible(true);
+        PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
+        dispose();
+        PurchaseViewerWindow.setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     //DIALOG AMOUNT WRONG OK BUTTON ============================================
