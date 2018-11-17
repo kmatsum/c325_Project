@@ -389,7 +389,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
             main.WriteObjectToFile(main.currentUser, main.currentUserFile);
 
             //Go to next screen
-            MainScreen MainScreen = new MainScreen();
+            LogInScreen MainScreen = new LogInScreen();
             this.dispose();
             MainScreen.setVisible(true);
         }
@@ -446,8 +446,8 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     //ENTER PURCHASE BUTTON ====================================================
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
-        //Open the EnterPurchase Window
-        EnterPurchase purchase = new EnterPurchase();
+        //Open the EnterPurchaseScreen Window
+        EnterPurchaseScreen purchase = new EnterPurchaseScreen();
         dispose();
         purchase.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed

@@ -98,7 +98,7 @@ public class main {
     public static void main(String[] args) {
 
         //OPENING FIRST FORM ===================================================
-        MainScreen MainScreenWindow = new MainScreen();
-        MainScreenWindow.setVisible(true);
+        LogInScreen LogInWindow = new LogInScreen();
+        LogInWindow.setVisible(true);
     }
 }
