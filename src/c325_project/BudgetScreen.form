@@ -475,6 +475,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Financial TIps"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTipsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLog">
       <Properties>

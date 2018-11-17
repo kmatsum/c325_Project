@@ -286,6 +286,11 @@ public class BudgetScreen extends javax.swing.JFrame {
         btnSend.setText("Send Email");
 
         btnTips.setText("Financial TIps");
+        btnTips.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTipsActionPerformed(evt);
+            }
+        });
 
         btnLog.setText("Log Out");
         btnLog.addActionListener(new java.awt.event.ActionListener() {
@@ -444,9 +449,17 @@ public class BudgetScreen extends javax.swing.JFrame {
 
         //Open the EnterPurchase Window
         EnterPurchase purchase = new EnterPurchase();
-        this.dispose();
+        dispose();
         purchase.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void btnTipsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipsActionPerformed
+
+        //Open the TwitteAPI Window
+        TwitterAPIForm TwitterForm =  new TwitterAPIForm();
+        dispose();
+        TwitterForm.setVisible(true);
+    }//GEN-LAST:event_btnTipsActionPerformed
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {
