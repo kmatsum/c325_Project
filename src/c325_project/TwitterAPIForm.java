@@ -26,17 +26,17 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        txtOutput = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane = new javax.swing.JScrollPane();
+        txtAreaOutput = new javax.swing.JTextArea();
         btnShowTweets = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTitle.setText("Financial Advice and Links:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        txtOutput.setViewportView(jTextArea1);
+        txtAreaOutput.setColumns(20);
+        txtAreaOutput.setRows(5);
+        jScrollPane.setViewportView(txtAreaOutput);
 
         btnShowTweets.setText("Show Tweets");
         btnShowTweets.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOutput)
+                    .addComponent(jScrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitle)
                         .addGap(35, 35, 35)
@@ -68,7 +68,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
                     .addComponent(lblTitle)
                     .addComponent(btnShowTweets))
                 .addGap(18, 18, 18)
-                .addComponent(txtOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -92,7 +92,8 @@ public class TwitterAPIForm extends javax.swing.JFrame {
             //Get Username and Tweet from Twitter
             List<Status> status = twitter.getHomeTimeline();
             for (Status st : status) {
-                jTextArea1.append(st.getUser().getName() + "------" + st.getText());
+                String tweetMessage = st.getUser().getName() + "\t------\t" + st.getText() + "\n\n";
+                txtAreaOutput.append(tweetMessage);
             }
         } catch (TwitterException ex) {
             Logger.getLogger(TwitterAPIForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -135,8 +136,8 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShowTweets;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JScrollPane txtOutput;
+    private javax.swing.JTextArea txtAreaOutput;
     // End of variables declaration//GEN-END:variables
 }
