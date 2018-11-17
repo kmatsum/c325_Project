@@ -22,64 +22,13 @@ public class Database {
             + "ENTERTAINMENT DECIMAL(2,2),\n"
             + "FINANCIAL DECIMAL(2,2));";
 
-    String tableHOME_EXP_PURCHASES = "create table IF NOT EXISTS HOME_EXP_PURCHASES (\n"
+    String tablePURCHASES = "create table IF NOT EXISTS PURCHASES (\n"
             + "AMOUNT DECIMAL(2),\n"
             + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
+            + "DATETIME VARCHAR2(30),\n" //CHANGE LATER BACK TO DATE
             + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "INDOOR NUMBER(1),\n"
-            + "TANGIBLE NUMBER(1));";
-
-    String tableCHARITY_PURCHASES = "create table IF NOT EXISTS CHARITY_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "GIFT NUMBER(1));";
-
-    String tableFINANCIAL_PURCHASES = "create table IF NOT EXISTS FINANCIAL_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "RECURRING NUMBER(1));";
-
-    String tableHEALTH_PURCHASES = "create table IF NOT EXISTS HEALTH_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "PLANNED NUMBER(1),\n"
-            + "APPOINTMENT NUMBER(1),\n"
-            + "TANGIBLE NUMBER(1));";
-
-    String tableENTERTAINMENT_PURCHASES = "create table IF NOT EXISTS ENTERTAINMENT_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "TANGIBLE NUMBER(1));";
-
-    String tableTRANSPORTATION_PURCHASES = "create table IF NOT EXISTS TRANSPORTATION_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "INVESTMENT NUMBER(1));";
-
-    String tableDAILY_LIVING_PURCHASES = "create table IF NOT EXISTS DAILY_LIVING_PURCHASES (\n"
-            + "AMOUNT DECIMAL(2),\n"
-            + "DESCRIPTION VARCHAR2(100),\n"
-            + "DATETIME DATE,\n"
-            + "NAME VARCHAR2(20),\n"
-            + "TYPE VARCHAR2(20),\n"
-            + "PERISHABLE NUMBER(1));";
+            + "BANK VARCHAR2(20),\n"
+            + "CATEGORY VARCHAR2(20));";
     // </editor-fold>
 
     //CONSTRUCTOR ==============================================================
@@ -99,13 +48,7 @@ public class Database {
             //Create all needed tables
             stmt.execute(tableBANK_ACCOUNTS);
             stmt.execute(tableBUDGET_PLANS);
-            stmt.execute(tableHOME_EXP_PURCHASES);
-            stmt.execute(tableCHARITY_PURCHASES);
-            stmt.execute(tableFINANCIAL_PURCHASES);
-            stmt.execute(tableHEALTH_PURCHASES);
-            stmt.execute(tableENTERTAINMENT_PURCHASES);
-            stmt.execute(tableTRANSPORTATION_PURCHASES);
-            stmt.execute(tableDAILY_LIVING_PURCHASES);
+            stmt.execute(tablePURCHASES);
 
             //Debug Code
             System.out.println("All tables already existed or were created.");

@@ -5,14 +5,14 @@ import java.io.*;
 public class CreateBudgetScreen extends javax.swing.JFrame {
 
     //VARIABLES =================================================================
-    int Total;
-    int HomeExpenses;
-    int Transportation;
-    int Health;
-    int Charity;
-    int DailyLiving;
-    int Entertainment;
-    int Financial;
+    double Total;
+    double HomeExpenses;
+    double Transportation;
+    double Health;
+    double Charity;
+    double DailyLiving;
+    double Entertainment;
+    double Financial;
 
     //CreateBudgetScreen CONSTRUCTOR ===========================================
     public CreateBudgetScreen() {
@@ -519,13 +519,13 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
             }
 
             //Parse Percentage Input
-            HomeExpenses = Integer.parseInt(txtHomeExpenses.getText());
-            Transportation = Integer.parseInt(txtTransportation.getText());
-            Health = Integer.parseInt(txtHealth.getText());
-            Charity = Integer.parseInt(txtCharity.getText());
-            DailyLiving = Integer.parseInt(txtDailyLiving.getText());
-            Entertainment = Integer.parseInt(txtEntertainment.getText());
-            Financial = Integer.parseInt(txtFinancial.getText());
+            HomeExpenses = Double.parseDouble(txtHomeExpenses.getText());
+            Transportation = Double.parseDouble(txtTransportation.getText());
+            Health = Double.parseDouble(txtHealth.getText());
+            Charity = Double.parseDouble(txtCharity.getText());
+            DailyLiving = Double.parseDouble(txtDailyLiving.getText());
+            Entertainment = Double.parseDouble(txtEntertainment.getText());
+            Financial = Double.parseDouble(txtFinancial.getText());
 
             Total = HomeExpenses + Transportation + Health + Charity + DailyLiving + Entertainment + Financial;
 
@@ -587,6 +587,16 @@ public class CreateBudgetScreen extends javax.swing.JFrame {
 
             //Instantiate Database (Creates Database in this case)
             main.database = new Database();
+
+            //Save budget plan to database
+            main.database.InsertStatement("BUDGET_PLANS", txtHomeExpenses.getText() + ", " + txtTransportation.getText()
+                    + ", " + txtHealth.getText() + ", " + txtCharity.getText() + ", "
+                    + txtDailyLiving.getText() + ", " + txtEntertainment.getText()
+                    + ", " + txtFinancial.getText());
+
+            //Save account balances to database
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + txtSavings.getText());
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + txtChecking.getText());
 
             //Go to next screen
             PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
