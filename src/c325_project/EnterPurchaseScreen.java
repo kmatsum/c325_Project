@@ -457,7 +457,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         });
     }
     
-    //METHOD FOR CONVERTING DATE 
+    //METHOD FOR CONVERTING DATE ===============================================
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
