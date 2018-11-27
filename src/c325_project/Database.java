@@ -5,7 +5,7 @@ import java.sql.*;
 public class Database {
 
     //DEFINE DATABASE FILE PATH ================================================
-    public static String DatabaseFilePath = "jdbc:sqlite:users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID()+ ".db";
+    public static String DatabaseFilePath = "jdbc:sqlite:users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID() + ".db";
 
     //DEFINE DATABASE ==========================================================
     // <editor-fold defaultstate="collapsed" desc=" Datebase Definition Code ">
@@ -82,5 +82,32 @@ public class Database {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
         }
+    }
+
+    //SELECT STATEMENT =========================================================
+    public String[] SelectStatement(String statement) {
+        
+        String Results[] = new String[0];
+        
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("statement");) {
+            
+            System.out.println("Statement executed successfully: " + statement);
+
+            Results = new String[rs.getFetchSize()];
+            int index = 0;
+            
+            // loop through the result set
+            while (rs.next()) {
+                Results[index] = rs.getString("DESCRIPTION");
+                index++;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("The following statement failed: " + statement);
+        }
+        
+        return Results;
     }
 }

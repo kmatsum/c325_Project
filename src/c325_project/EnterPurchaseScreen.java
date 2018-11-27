@@ -328,7 +328,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
 
         //Check date validity, if valid, then add to purchase, else return
         try {
-            Date purchaseDate = new SimpleDateFormat("yyyy-MM-dd").parse(txtDate.getText());
+            Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
             purchase.setDateTime(purchaseDate);
         } catch (ParseException e) {
             dialogDateWrong.setVisible(true);
@@ -457,7 +457,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         });
     }
     
-    //METHOD FOR CONVERTING DATE ===============================================
+    //METHOD FOR CONVERTING DATE ================================================
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
