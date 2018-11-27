@@ -24,6 +24,11 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnDateOK = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        dialogAmountNegative = new javax.swing.JDialog();
+        jLabel11 = new javax.swing.JLabel();
+        btnAmountNegativeOK = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
@@ -122,6 +127,56 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel10)))
                 .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        dialogAmountNegative.setMinimumSize(new java.awt.Dimension(350, 150));
+        dialogAmountNegative.setResizable(false);
+        dialogAmountNegative.setSize(new java.awt.Dimension(350, 150));
+        dialogAmountNegative.setType(java.awt.Window.Type.POPUP);
+
+        jLabel11.setText("You do not have enough money in your account.");
+
+        btnAmountNegativeOK.setText("OK");
+        btnAmountNegativeOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmountNegativeOKOKActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Enter a lower amount or cancel the purchase");
+
+        jLabel13.setText("and fix the account balance.");
+
+        javax.swing.GroupLayout dialogAmountNegativeLayout = new javax.swing.GroupLayout(dialogAmountNegative.getContentPane());
+        dialogAmountNegative.getContentPane().setLayout(dialogAmountNegativeLayout);
+        dialogAmountNegativeLayout.setHorizontalGroup(
+            dialogAmountNegativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAmountNegativeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogAmountNegativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogAmountNegativeLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAmountNegativeLayout.createSequentialGroup()
+                        .addGroup(dialogAmountNegativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(btnAmountNegativeOK)))
+                .addContainerGap())
+        );
+        dialogAmountNegativeLayout.setVerticalGroup(
+            dialogAmountNegativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAmountNegativeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAmountNegativeOK)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -264,7 +319,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         Purchase purchase = new Purchase();
         double newBalance;
 
-        //Validation Check ==========
+        //VALIDATION CHECKS ====================================================
         //Check amount validity
         if (main.doubleIsParsable(txtAmount.getText()) == false) {
             dialogAmountWrong.setVisible(true);
@@ -273,12 +328,43 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
 
         //Check date validity, if valid, then add to purchase, else return
         try {
-            Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
+            Date purchaseDate = new SimpleDateFormat("yyyy-MM-dd").parse(txtDate.getText());
             purchase.setDateTime(purchaseDate);
         } catch (ParseException e) {
             dialogDateWrong.setVisible(true);
             e.printStackTrace();
             return;
+        }
+
+        //Update balances of checking or savings
+        if (btnChecking.isSelected() == true) {
+            //Subtract entered amount from current balance to get new balance
+            newBalance = main.currentUser.getCheckingAccount().getBalance() - Double.parseDouble(txtAmount.getText());
+            //check new balance validity
+            if (newBalance < 0) {
+                dialogAmountNegative.setVisible(true);
+                return;
+            }
+            //Set new balance
+            main.currentUser.getCheckingAccount().setBalance(newBalance);
+            //Update database
+            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + newBalance);
+        }
+
+        if (btnSavings.isSelected() == true) {
+            //Subtract entered amount from current balance to get new balance
+            newBalance = main.currentUser.getSavingsAccount().getBalance() - Double.parseDouble(txtAmount.getText());
+            //check new balance validity
+            if (newBalance < 0) {
+                dialogAmountNegative.setVisible(true);
+                return;
+            }
+            //Set new balance
+            main.currentUser.getSavingsAccount().setBalance(newBalance);
+            //Update database
+            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
+            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + newBalance);
         }
 
         //Set the rest of the purchase variables
@@ -300,35 +386,13 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
 
         //Add purchase to database
         main.database.InsertStatement("PURCHASES", purchase.getAmount() + ", '" + purchase.getDescription() + "', "
-                + purchase.getDateTime() + ", '" + purchase.getName() + "', '" + purchase.getBank() + "', '" + purchase.getCategory() + "'");
-
-        //Update balances of checking or savings
-        if (btnChecking.isSelected() == true) {
-            //Subtract entered amount from current balance to get new balance
-            newBalance = main.currentUser.getCheckingAccount().getBalance() - Double.parseDouble(txtAmount.getText());
-            //Set new balance
-            main.currentUser.getCheckingAccount().setBalance(newBalance);
-
-            //Update database
-            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Checking'");
-            main.database.InsertStatement("BANK_ACCOUNTS", "'Checking', " + newBalance);
-        }
-
-        if (btnSavings.isSelected() == true) {
-            //Sbtract entered amount from current balance to get new balance
-            newBalance = main.currentUser.getSavingsAccount().getBalance() - Double.parseDouble(txtAmount.getText());
-            //Set new balance
-            main.currentUser.getSavingsAccount().setBalance(newBalance);
-            //Update database
-            main.database.GenericStatement("DELETE FROM BANK_ACCOUNTS WHERE ACCOUNT_NAME = 'Savings'");
-            main.database.InsertStatement("BANK_ACCOUNTS", "'Savings', " + newBalance);
-        }
+                + this.convertUtilToSql(purchase.getDateTime()) + ", '" + purchase.getName() + "', '" + purchase.getBank() + "', '" + purchase.getCategory() + "'");
 
         //Go back to budget screen
         PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
         dispose();
         PurchaseViewerWindow.setVisible(true);
-      
+
     }//GEN-LAST:event_btnEnterActionPerformed
 
     //CANCEL BUTTON ============================================================
@@ -353,6 +417,13 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         //Close the Dialog Window
         dialogDateWrong.dispose();
     }//GEN-LAST:event_btnDateOKActionPerformed
+
+    //DIALOG AMOUNT NEGATIVE OK BUTTON =========================================
+    private void btnAmountNegativeOKOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmountNegativeOKOKActionPerformed
+
+        //Close the Dialog Window
+        dialogAmountNegative.dispose();
+    }//GEN-LAST:event_btnAmountNegativeOKOKActionPerformed
 
     //MAIN METHOD FOR THIS CLASS ===============================================
     public static void main(String args[]) {
@@ -385,10 +456,18 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             }
         });
     }
+    
+    //METHOD FOR CONVERTING DATE 
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
+
 
     //JFRAME VARIABLES =========================================================
     //<editor-fold defaultstate="collapsed" desc=" JFrame Varables ">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAmountNegativeOK;
     private javax.swing.JButton btnAmountOK;
     private javax.swing.JButton btnCancel;
     private javax.swing.JRadioButton btnChecking;
@@ -397,10 +476,14 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnSavings;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cboxCategory;
+    private javax.swing.JDialog dialogAmountNegative;
     private javax.swing.JDialog dialogAmountWrong;
     private javax.swing.JDialog dialogDateWrong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
