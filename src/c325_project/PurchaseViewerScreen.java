@@ -367,9 +367,22 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //SEARCH BUTTOM ============================================================
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String statement = "SELECT * FROM PURCHASES WHERE NAME LIKE '%" + txtSearch.getText() + "%' UNION "
-                + "SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%'";
-        
+        String COLUMN;
+
+        if (cboxSort.getSelectedItem() == "Date") {
+            COLUMN = "DATETIME";
+        } else if (cboxSort.getSelectedItem() == "Price") {
+            COLUMN = "AMOUNT";
+        } else if (cboxSort.getSelectedItem() == "Date") {
+            COLUMN = "DATETIME";
+        } else {
+            COLUMN = "ERROR";
+        }
+
+        String statement = "SELECT * FROM PURCHASES WHERE NAME LIKE '%" + txtSearch.getText() + "%' GROUP BY "
+                + COLUMN + " UNION SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%' "
+                + "GROUP BY " + COLUMN;
+
         txtResults.setText("Amount \t Description \t Date \t Name \t Bank \t Category \n"
                 + "============================================================================== \n");
 
