@@ -1,5 +1,7 @@
 package c325_project;
 
+import java.util.ArrayList;
+
 public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //BudgetScreen CONSTRUCTOR =================================================
@@ -44,13 +46,13 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnSearch = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel7 = new javax.swing.JLabel();
         cboxSort = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblPurchases = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtResults = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         btnSend = new javax.swing.JButton();
         btnTips = new javax.swing.JButton();
@@ -223,23 +225,9 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
         cboxSort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Date", "Category", "Price" }));
 
-        tblPurchases.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Date", "Name", "Amount", "Category", "Description"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblPurchases);
+        txtResults.setColumns(20);
+        txtResults.setRows(5);
+        jScrollPane2.setViewportView(txtResults);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -255,13 +243,13 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -273,10 +261,10 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(cboxSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -312,33 +300,34 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnFix, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(cboxBankAccount, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLog, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnFix, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                    .addComponent(cboxBankAccount, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnTips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLog, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,7 +359,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                             .addComponent(btnTips))))
                 .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -378,7 +367,18 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //SEARCH BUTTOM ============================================================
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO Budget Screen Search Button
+        String statement = "SELECT * FROM PURCHASES WHERE NAME LIKE '%" + txtSearch.getText() + "%' UNION "
+                + "SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%'";
+        
+        txtResults.setText("Amount \t Description \t Date \t Name \t Bank \t Category \n"
+                + "============================================================================== \n");
+
+        ArrayList<String> Results = main.database.SelectStatement(statement);
+
+        for (String str : Results) {
+            txtResults.append(str + "\n");
+        }
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     //LOG OUT BUTTON ===========================================================
@@ -461,7 +461,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     private void btnTipsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipsActionPerformed
 
         //Open the TwitteAPI Window
-        TwitterAPIForm TwitterForm =  new TwitterAPIForm();
+        TwitterAPIForm TwitterForm = new TwitterAPIForm();
         dispose();
         TwitterForm.setVisible(true);
     }//GEN-LAST:event_btnTipsActionPerformed
@@ -526,16 +526,16 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblCheckingBalance;
     private javax.swing.JLabel lblSavingsBalance;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTable tblPurchases;
     private javax.swing.JTextField txtNewCheckingBalance;
     private javax.swing.JTextField txtNewSavingsBalance;
+    private javax.swing.JTextArea txtResults;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
 }

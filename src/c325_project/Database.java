@@ -1,11 +1,12 @@
 package c325_project;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
 
     //DEFINE DATABASE FILE PATH ================================================
-    public static String DatabaseFilePath = "jdbc:sqlite:users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID()+ ".db";
+    public static String DatabaseFilePath = "jdbc:sqlite:users/" + main.currentUser.getUserID() + "/" + main.currentUser.getUserID() + ".db";
 
     //DEFINE DATABASE ==========================================================
     // <editor-fold defaultstate="collapsed" desc=" Datebase Definition Code ">
@@ -82,5 +83,28 @@ public class Database {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
         }
+    }
+
+    //SELECT STATEMENT =========================================================
+    public ArrayList<String> SelectStatement(String statement) {
+        
+        ArrayList<String> Results = new ArrayList<String>();
+        
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(statement);) {
+            
+            System.out.println("Statement executed successfully: " + statement);
+
+            while (rs.next()) {
+                Results.add(rs.getDouble("AMOUNT") + "\t" + rs.getDate("DATETIME") + "\t" + rs.getString("DESCRIPTION") + 
+                        "\t" + rs.getString("NAME") + "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("The following statement failed: " + statement);
+        }
+        
+        return Results;
     }
 }
