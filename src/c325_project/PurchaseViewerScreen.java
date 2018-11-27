@@ -1,5 +1,7 @@
 package c325_project;
 
+import java.util.ArrayList;
+
 public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //BudgetScreen CONSTRUCTOR =================================================
@@ -365,13 +367,16 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //SEARCH BUTTOM ============================================================
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String statement = "SELECT * FROM PURCHASES WHERE NAME LIKE %" + txtSearch.getText() + "% UNION "
-                + "SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE %" + txtSearch.getText() + "%";
+        String statement = "SELECT * FROM PURCHASES WHERE NAME LIKE '%" + txtSearch.getText() + "%' UNION "
+                + "SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%'";
+        
+        txtResults.setText("Amount \t Description \t Date \t Name \t Bank \t Category \n"
+                + "============================================================================== \n");
 
-        String results[] = main.database.SelectStatement(statement);
+        ArrayList<String> Results = main.database.SelectStatement(statement);
 
-        for (int i = 0; i < results.length; i++) {
-            txtResults.setText(txtResults.getText() + results[i]);
+        for (String str : Results) {
+            txtResults.append(str + "\n");
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed

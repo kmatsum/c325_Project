@@ -1,6 +1,7 @@
 package c325_project;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
 
@@ -85,23 +86,19 @@ public class Database {
     }
 
     //SELECT STATEMENT =========================================================
-    public String[] SelectStatement(String statement) {
+    public ArrayList<String> SelectStatement(String statement) {
         
-        String Results[] = new String[0];
+        ArrayList<String> Results = new ArrayList<String>();
         
         try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("statement");) {
+                ResultSet rs = stmt.executeQuery(statement);) {
             
             System.out.println("Statement executed successfully: " + statement);
 
-            Results = new String[rs.getFetchSize()];
-            int index = 0;
-            
-            // loop through the result set
             while (rs.next()) {
-                Results[index] = rs.getString("DESCRIPTION");
-                index++;
+                Results.add(rs.getDouble("AMOUNT") + "\t" + rs.getDate("DATETIME") + "\t" + rs.getString("DESCRIPTION") + 
+                        "\t" + rs.getString("NAME") + "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
