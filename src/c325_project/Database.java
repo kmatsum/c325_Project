@@ -86,7 +86,7 @@ public class Database {
     }
 
     //SELECT STATEMENT =========================================================
-    public ArrayList<String> SelectStatement(String statement) {
+    public ArrayList<String> SelectPurchase(String statement) {
         
         ArrayList<String> Results = new ArrayList<String>();
         

@@ -383,10 +383,10 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                 + COLUMN + " UNION SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%' "
                 + "GROUP BY " + COLUMN;
 
-        txtResults.setText("Amount \t Description \t Date \t Name \t Bank \t Category \n"
+        txtResults.setText("Amount \t Date \t Description \t Name \t Bank \t Category \n"
                 + "============================================================================== \n");
 
-        ArrayList<String> Results = main.database.SelectStatement(statement);
+        ArrayList<String> Results = main.database.SelectPurchase(statement);
 
         for (String str : Results) {
             txtResults.append(str + "\n");
