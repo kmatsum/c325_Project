@@ -97,7 +97,7 @@ public class Database {
             System.out.println("Statement executed successfully: " + statement);
 
             while (rs.next()) {
-                Results.add(rs.getDouble("AMOUNT") + "\t" + rs.getDate("DATETIME") + "\t" + rs.getString("DESCRIPTION") + 
+                Results.add(rs.getDouble("AMOUNT") + "\t" + rs.getString("DATETIME") + "\t" + rs.getString("DESCRIPTION") + 
                         "\t" + rs.getString("NAME") + "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY"));
             }
         } catch (SQLException e) {

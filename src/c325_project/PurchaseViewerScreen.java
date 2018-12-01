@@ -373,8 +373,8 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
             COLUMN = "DATETIME";
         } else if (cboxSort.getSelectedItem() == "Price") {
             COLUMN = "AMOUNT";
-        } else if (cboxSort.getSelectedItem() == "Date") {
-            COLUMN = "DATETIME";
+        } else if (cboxSort.getSelectedItem() == "Category") {
+            COLUMN = "CATEGORY";
         } else {
             COLUMN = "ERROR";
         }
@@ -386,9 +386,9 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         txtResults.setText("Amount \t Date \t Description \t Name \t Bank \t Category \n"
                 + "============================================================================== \n");
 
-        ArrayList<String> Results = main.database.SelectPurchase(statement);
+        //ArrayList<String> Results = main.database.SelectPurchase(statement);
 
-        for (String str : Results) {
+        for (String str : main.database.SelectPurchase(statement)) {
             txtResults.append(str + "\n");
         }
 
