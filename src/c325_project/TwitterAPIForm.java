@@ -29,6 +29,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
         jScrollPane = new javax.swing.JScrollPane();
         txtAreaOutput = new javax.swing.JTextArea();
         btnShowTweets = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +46,13 @@ public class TwitterAPIForm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,7 +65,9 @@ public class TwitterAPIForm extends javax.swing.JFrame {
                         .addComponent(lblTitle)
                         .addGap(35, 35, 35)
                         .addComponent(btnShowTweets)
-                        .addGap(0, 121, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(0, 270, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -66,9 +76,10 @@ public class TwitterAPIForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle)
-                    .addComponent(btnShowTweets))
+                    .addComponent(btnShowTweets)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -99,6 +110,13 @@ public class TwitterAPIForm extends javax.swing.JFrame {
             Logger.getLogger(TwitterAPIForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnShowTweetsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Go back to previous form
+        CreateBudgetScreen BS = new CreateBudgetScreen();
+        dispose();
+        BS.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     //MAIN METHOD FOR DEBUG ====================================================
     public static void main(String args[]) throws TwitterException {
@@ -136,6 +154,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShowTweets;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextArea txtAreaOutput;
