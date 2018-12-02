@@ -86,7 +86,7 @@ public class Database {
     }
 
     //SELECT STATEMENT =========================================================
-    public ArrayList<String> SelectStatement(String statement) {
+    public ArrayList<String> SelectPurchase(String statement) {
         
         ArrayList<String> Results = new ArrayList<String>();
         
@@ -97,8 +97,8 @@ public class Database {
             System.out.println("Statement executed successfully: " + statement);
 
             while (rs.next()) {
-                Results.add(rs.getDouble("AMOUNT") + "\t" + rs.getDate("DATETIME") + "\t" + rs.getString("DESCRIPTION") + 
-                        "\t" + rs.getString("NAME") + "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY"));
+                Results.add(rs.getString("DATETIME") + "\t" + rs.getString("NAME") + "\t" + rs.getDouble("AMOUNT") + 
+                        "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY") + "\t" + rs.getString("DESCRIPTION"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

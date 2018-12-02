@@ -34,7 +34,6 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         txtAmount = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDate = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
@@ -46,6 +45,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         btnChecking = new javax.swing.JRadioButton();
         btnSavings = new javax.swing.JRadioButton();
+        txtDate = new javax.swing.JTextField();
 
         dialogAmountWrong.setResizable(false);
         dialogAmountWrong.setSize(new java.awt.Dimension(200, 100));
@@ -191,9 +191,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
 
         jLabel5.setText("Date");
 
-        txtDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
-        jLabel6.setText("MMM d, yyyy (Ex: Jan 1, 2000)");
+        jLabel6.setText("yyyy-MM-dd (Ex: 2018-12-01)");
 
         txtDescription.setColumns(20);
         txtDescription.setRows(5);
@@ -252,16 +250,16 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
                                 .addComponent(cboxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDate)
+                                    .addComponent(txtAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnChecking)
@@ -276,30 +274,32 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(cboxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(cboxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnChecking, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSavings)))
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnChecking, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSavings)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -327,8 +327,10 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         }
 
         //Check date validity, if valid, then add to purchase, else return
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         try {
-            Date purchaseDate = new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText());
+            Date purchaseDate = simpleDateFormat.parse(txtDate.getText());
             purchase.setDateTime(purchaseDate);
         } catch (ParseException e) {
             dialogDateWrong.setVisible(true);
@@ -385,8 +387,8 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
         main.currentUser.getPurchaseArrayList().add(purchase);
 
         //Add purchase to database
-        main.database.InsertStatement("PURCHASES", purchase.getAmount() + ", '" + purchase.getDescription() + "', "
-                + this.convertUtilToSql(purchase.getDateTime()) + ", '" + purchase.getName() + "', '" + purchase.getBank() + "', '" + purchase.getCategory() + "'");
+        main.database.InsertStatement("PURCHASES", purchase.getAmount() + ", '" + purchase.getDescription() + "', '"
+                + this.convertUtilToSql(purchase.getDateTime()) + "', '" + purchase.getName() + "', '" + purchase.getBank() + "', '" + purchase.getCategory() + "'");
 
         //Go back to budget screen
         PurchaseViewerScreen PurchaseViewerWindow = new PurchaseViewerScreen();
@@ -456,13 +458,12 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
             }
         });
     }
-    
+
     //METHOD FOR CONVERTING DATE ================================================
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
-
 
     //JFRAME VARIABLES =========================================================
     //<editor-fold defaultstate="collapsed" desc=" JFrame Varables ">
@@ -494,7 +495,7 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAmount;
-    private javax.swing.JFormattedTextField txtDate;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
