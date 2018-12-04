@@ -1,6 +1,8 @@
 package c325_project;
 
 import java.io.*;
+import javax.swing.JRootPane;
+import javax.swing.SwingUtilities;
 
 public class LogInScreen extends javax.swing.JFrame {
 
@@ -8,6 +10,12 @@ public class LogInScreen extends javax.swing.JFrame {
     public LogInScreen() {
         initComponents();
         txtUserIDLogin.requestFocus();
+
+        //Set Shortcuts
+        JRootPane rootPane = SwingUtilities.getRootPane(btnLogin);
+        rootPane.setDefaultButton(btnLogin);
+        btnNext.setMnemonic('N');
+        btnCancel.setMnemonic('C');
     }
 
     //GENERATED CODE ===========================================================
