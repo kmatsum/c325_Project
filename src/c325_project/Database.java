@@ -87,13 +87,13 @@ public class Database {
 
     //SELECT STATEMENT =========================================================
     public ArrayList<String> SelectPurchase(String statement) {
-        
+      
         ArrayList<String> Results = new ArrayList<String>();
-        
+
         try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(statement);) {
-            
+
             System.out.println("Statement executed successfully: " + statement);
 
             while (rs.next()) {
@@ -104,7 +104,41 @@ public class Database {
             System.out.println(e.getMessage());
             System.out.println("The following statement failed: " + statement);
         }
-        
+
         return Results;
+    }
+
+    //RETRIEVES AMMOUNT OF PURCHASES FOR SPECIFIC CATEGORIES ===================
+    public double SumTableCategories(String categoryName) {
+        double Result = 0;
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(AMOUNT) FROM PURCHASES WHERE CATEGORY= '" + categoryName + "';");) {
+
+            while (rs.next()) {
+                Result = rs.getDouble("SUM(AMOUNT)");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return Result;
+    }
+
+    //RETRIEVES TOTAL AMOUNT OF PURCHASES ======================================
+    public double SumTotal() {
+        double Result = 0;
+        try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(AMOUNT) FROM PURCHASES;");) {
+
+            while (rs.next()) {
+                Result = rs.getDouble("SUM(AMOUNT)");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return Result;
     }
 }
