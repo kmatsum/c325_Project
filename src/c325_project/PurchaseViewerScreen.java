@@ -271,6 +271,11 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         jLabel6.setText("Amount   $");
 
         btnSend.setText("Send Email");
+        btnSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendActionPerformed(evt);
+            }
+        });
 
         btnTips.setText("Financial TIps");
         btnTips.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +316,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnFix, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                    .addComponent(btnFix, javax.swing.GroupLayout.PREFERRED_SIZE, 97, Short.MAX_VALUE)
                                     .addComponent(cboxBankAccount, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
@@ -478,6 +483,12 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         dispose();
         TwitterForm.setVisible(true);
     }//GEN-LAST:event_btnTipsActionPerformed
+
+    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
+        EmailAPIForm EmailForm = new EmailAPIForm();
+        dispose();
+        EmailForm.setVisible(true);
+    }//GEN-LAST:event_btnSendActionPerformed
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {
