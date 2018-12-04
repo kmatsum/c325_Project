@@ -15,6 +15,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtemailAddress = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -24,6 +25,13 @@ public class EmailAPIForm extends javax.swing.JFrame {
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSendActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -40,6 +48,8 @@ public class EmailAPIForm extends javax.swing.JFrame {
                         .addComponent(txtemailAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSend)))
                 .addContainerGap())
         );
@@ -51,7 +61,9 @@ public class EmailAPIForm extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtemailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSend)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSend)
+                    .addComponent(btnBack))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,6 +106,12 @@ public class EmailAPIForm extends javax.swing.JFrame {
         Email.sendEmail(Recipient, Subject, Message);
     }//GEN-LAST:event_btnSendActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        PurchaseViewerScreen BS = new PurchaseViewerScreen();
+        dispose();
+        BS.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -127,6 +145,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSend;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtemailAddress;
