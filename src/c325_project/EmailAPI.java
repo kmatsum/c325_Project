@@ -44,6 +44,7 @@ public class EmailAPI {
             Sent = true;
             
         } catch (MessagingException e) {
+            System.out.println("FAILED");
             throw new RuntimeException(e);
         }
         return Sent;
