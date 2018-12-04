@@ -63,7 +63,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
         String Recipient = txtemailAddress.getText();
         String Subject = "Financial Tracker Budget Breakdown";
-        String Message;
+        String Message = "";
         //ArrayList<String> ArrayOfMessages = main.database.METHODNAME(statement)
         
         //for (String str : ArrayOfMessages){
