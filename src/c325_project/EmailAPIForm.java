@@ -1,7 +1,8 @@
 package c325_project;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.net.Socket;
+import java.util.*;
 
 public class EmailAPIForm extends javax.swing.JFrame {
 
@@ -23,6 +24,8 @@ public class EmailAPIForm extends javax.swing.JFrame {
         lblConfirmation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 130));
+        setResizable(false);
 
         jLabel1.setText("Email Address:");
 
@@ -116,6 +119,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
         //Make a new email object and send the email
         EmailAPI Email = new EmailAPI();
         if (Email.sendEmail(Recipient, Subject, Message)) {
+            lblConfirmation.setText("Email sent at: " + getTimestamp());
             lblConfirmation.setVisible(true);
         }
     }//GEN-LAST:event_btnSendActionPerformed
@@ -125,6 +129,35 @@ public class EmailAPIForm extends javax.swing.JFrame {
         dispose();
         BS.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    //METHOD TO RETRIEVE TIMESTAMP =============================================
+    public String getTimestamp() {
+        final String TimestampError = "[ERROR: Timestamp Not Recieved]   ";
+        String Timestamp = "";
+
+        try {
+            Socket s = new Socket("time-A.timefreq.bldrdoc.gov", 13);
+            try {
+                InputStream inStream = s.getInputStream();
+                Scanner in = new Scanner(inStream);
+
+                while (in.hasNextLine()) {
+                    String line = in.nextLine();
+                    Timestamp = line;
+                }
+                if (Timestamp.equals("")) {
+                    Timestamp = TimestampError;
+                } else {
+                    Timestamp = "[" + Timestamp.substring(6, 20) + " UTC]   ";
+                }
+            } finally {
+                s.close();
+            }
+        } catch (IOException ioexc) {
+            ioexc.printStackTrace();
+        }
+        return Timestamp;
+    }
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
