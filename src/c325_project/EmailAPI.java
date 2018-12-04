@@ -11,7 +11,8 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailAPI {
 
-    public static void sendEmail(String Recipient, String Subject, String emailMessage) {
+    public static boolean sendEmail(String Recipient, String Subject, String emailMessage) {
+        boolean Sent = false;
         //Sets up Port and Protocol to communicate with gmail Servers
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -40,9 +41,11 @@ public class EmailAPI {
             Transport.send(message);
 
             System.out.println("Email Sent");
-
+            Sent = true;
+            
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+        return Sent;
     }
 }
