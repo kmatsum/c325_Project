@@ -1,10 +1,14 @@
 package c325_project;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class EmailAPIForm extends javax.swing.JFrame {
 
     //CONSTRUCTOR===============================================================
     public EmailAPIForm() {
         initComponents();
+        lblConfirmation.setVisible(false);
     }
 
     //GENERATED CODE============================================================
@@ -16,6 +20,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
         txtemailAddress = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        lblConfirmation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,6 +40,8 @@ public class EmailAPIForm extends javax.swing.JFrame {
             }
         });
 
+        lblConfirmation.setText("Email Sent!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -47,7 +54,8 @@ public class EmailAPIForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtemailAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblConfirmation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSend)))
@@ -63,11 +71,13 @@ public class EmailAPIForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSend)
-                    .addComponent(btnBack))
+                    .addComponent(btnBack)
+                    .addComponent(lblConfirmation))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txtemailAddress.getAccessibleContext().setAccessibleName("");
+        lblConfirmation.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,15 +107,17 @@ public class EmailAPIForm extends javax.swing.JFrame {
         String Subject = "Financial Tracker Budget Breakdown";
 
         //Sets the String Message that is attached to the email
-        String Message = "As requested here is your budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
+        String Message = main.currentUser.getUserID() + " has sent you their budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
                 + "%\nTransportation: " + Double.toString(transportationPercentage) + "%\nHealth: "
                 + Double.toString(healthPercentage) + "%\nCharity: " + Double.toString(charityPercentage) + "%\nDaily Living: "
                 + Double.toString(dailyLivingPercentage) + "%\nEntertainment: " + Double.toString(entertainmentPercentage)
-                + "%\nFinancial: " + Double.toString(financialPercentage) + "%\nTotal Money Spent: " + Double.toString(Total);
+                + "%\nFinancial: " + Double.toString(financialPercentage) + "%\nTotal Money Spent: $" + Double.toString(Total);
 
         //Make a new email object and send the email
         EmailAPI Email = new EmailAPI();
-        Email.sendEmail(Recipient, Subject, Message);
+        if (Email.sendEmail(Recipient, Subject, Message)) {
+            lblConfirmation.setVisible(true);
+        }
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -151,6 +163,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSend;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblConfirmation;
     private javax.swing.JTextField txtemailAddress;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
