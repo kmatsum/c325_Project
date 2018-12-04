@@ -83,12 +83,13 @@ public class EmailAPIForm extends javax.swing.JFrame {
         //Sets up Paramaters, Instantiates EmailAPI and sends Email to User
         String Recipient = txtemailAddress.getText();
         String Subject = "Financial Tracker Budget Breakdown";
+      
         String Message = "As requested here is your budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
                 + "%\nTransportation: " + Double.toString(transportationPercentage) + "%\nHealth: "
                 + Double.toString(healthPercentage) + "%\nCharity: " + Double.toString(charityPercentage) + "%\nDaily Living: "
                 + Double.toString(dailyLivingPercentage) + "%\nEntertainment: " + Double.toString(entertainmentPercentage)
                 + "%\nFinancial: " + Double.toString(financialPercentage) + "%\nTotal Money Spent: " + Double.toString(Total);
-
+      
         EmailAPI Email = new EmailAPI();
         Email.sendEmail(Recipient, Subject, Message);
     }//GEN-LAST:event_btnSendActionPerformed

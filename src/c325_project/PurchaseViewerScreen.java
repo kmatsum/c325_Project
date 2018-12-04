@@ -48,7 +48,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnViewAll = new javax.swing.JToggleButton();
         jLabel7 = new javax.swing.JLabel();
         cboxSort = new javax.swing.JComboBox();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -219,7 +219,12 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Search");
 
-        jToggleButton1.setText("View All");
+        btnViewAll.setText("View All");
+        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Sort by");
 
@@ -241,7 +246,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cboxSort, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton1)
+                .addComponent(btnViewAll)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -260,7 +265,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
                     .addComponent(cboxSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1)
+                    .addComponent(btnViewAll)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
                 .addGap(18, 18, 18)
@@ -378,8 +383,8 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
             COLUMN = "DATETIME";
         } else if (cboxSort.getSelectedItem() == "Price") {
             COLUMN = "AMOUNT";
-        } else if (cboxSort.getSelectedItem() == "Date") {
-            COLUMN = "DATETIME";
+        } else if (cboxSort.getSelectedItem() == "Category") {
+            COLUMN = "CATEGORY";
         } else {
             COLUMN = "ERROR";
         }
@@ -388,12 +393,11 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                 + COLUMN + " UNION SELECT * FROM PURCHASES WHERE DESCRIPTION LIKE '%" + txtSearch.getText() + "%' "
                 + "GROUP BY " + COLUMN;
 
-        txtResults.setText("Amount \t Description \t Date \t Name \t Bank \t Category \n"
-                + "============================================================================== \n");
+        txtResults.setText("Date \t Name \t Amount \t Bank \t Category \t Description \n"
+                + "==================================================================================================== \n");
 
-        ArrayList<String> Results = main.database.SelectStatement(statement);
-
-        for (String str : Results) {
+        //ArrayList<String> Results = main.database.SelectPurchase(statement);
+        for (String str : main.database.SelectPurchase(statement)) {
             txtResults.append(str + "\n");
         }
 
@@ -490,6 +494,31 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         EmailForm.setVisible(true);
     }//GEN-LAST:event_btnSendActionPerformed
 
+    //VIEW ALL BUTTON ==========================================================
+    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
+        String COLUMN;
+
+        if (cboxSort.getSelectedItem() == "Date") {
+            COLUMN = "DATETIME";
+        } else if (cboxSort.getSelectedItem() == "Price") {
+            COLUMN = "AMOUNT";
+        } else if (cboxSort.getSelectedItem() == "Category") {
+            COLUMN = "CATEGORY";
+        } else {
+            COLUMN = "ERROR";
+        }
+
+        String statement = "SELECT * FROM PURCHASES GROUP BY " + COLUMN;
+
+        txtResults.setText("Date \t Name \t Amount \t Bank \t Category \t Description \n"
+                + "==================================================================================================== \n");
+
+        //ArrayList<String> Results = main.database.SelectPurchase(statement);
+        for (String str : main.database.SelectPurchase(statement)) {
+            txtResults.append(str + "\n");
+        }
+    }//GEN-LAST:event_btnViewAllActionPerformed
+
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -533,6 +562,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSend;
     private javax.swing.JButton btnTips;
+    private javax.swing.JToggleButton btnViewAll;
     private javax.swing.JComboBox cboxBankAccount;
     private javax.swing.JComboBox cboxSort;
     private javax.swing.JDialog dialogChecking;
@@ -551,7 +581,6 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblCheckingBalance;
     private javax.swing.JLabel lblSavingsBalance;
