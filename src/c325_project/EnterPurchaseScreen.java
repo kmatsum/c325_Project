@@ -371,7 +371,11 @@ public class EnterPurchaseScreen extends javax.swing.JFrame {
 
         //Set the rest of the purchase variables
         purchase.setAmount(Double.parseDouble(txtAmount.getText()));
-        purchase.setCategory(cboxCategory.getSelectedItem().toString());
+        if (cboxCategory.getSelectedItem().toString().equals("Home Expenses")) {
+            purchase.setCategory("Home Exp");
+        } else {
+            purchase.setCategory(cboxCategory.getSelectedItem().toString());
+        }
         purchase.setDescription(txtDescription.getText());
         purchase.setName(txtName.getText());
 

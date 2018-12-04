@@ -508,7 +508,7 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
             COLUMN = "ERROR";
         }
 
-        String statement = "SELECT * FROM PURCHASES GROUP BY " + COLUMN;
+        String statement = "SELECT * FROM PURCHASES ORDER BY " + COLUMN;
 
         txtResults.setText("Date \t Name \t Amount \t Bank \t Category \t Description \n"
                 + "==================================================================================================== \n");
