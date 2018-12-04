@@ -113,9 +113,9 @@ public class TwitterAPIForm extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // Go back to previous form
-        CreateBudgetScreen BS = new CreateBudgetScreen();
+        PurchaseViewerScreen PS = new PurchaseViewerScreen();
         dispose();
-        BS.setVisible(true);
+        PS.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     //MAIN METHOD FOR DEBUG ====================================================
