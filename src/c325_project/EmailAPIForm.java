@@ -107,7 +107,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
         String Subject = "Financial Tracker Budget Breakdown";
 
         //Sets the String Message that is attached to the email
-        String Message = main.currentUser.getUserID() + " has sent you their budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
+        String Message = main.currentUser.getFirstName() + " " + main.currentUser.getLastName() + " has sent you their budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
                 + "%\nTransportation: " + Double.toString(transportationPercentage) + "%\nHealth: "
                 + Double.toString(healthPercentage) + "%\nCharity: " + Double.toString(charityPercentage) + "%\nDaily Living: "
                 + Double.toString(dailyLivingPercentage) + "%\nEntertainment: " + Double.toString(entertainmentPercentage)
