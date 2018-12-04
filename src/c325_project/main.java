@@ -9,8 +9,6 @@ public class main {
     public static File currentUserFile;
     public static Database database;
 
-    //TODO Add Formatting Implementation
-    //public static NumberFormat formatter = NumberFormat.getCurrencyInstance();
 //GLOBAL METHODS ===============================================================
     //CHECK USER INPUT - DOUBLE ================================================
     public static boolean doubleIsParsable(String input) {

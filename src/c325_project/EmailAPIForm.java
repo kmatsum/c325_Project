@@ -95,13 +95,15 @@ public class EmailAPIForm extends javax.swing.JFrame {
         //Sets up Paramaters, Instantiates EmailAPI and sends Email to User
         String Recipient = txtemailAddress.getText();
         String Subject = "Financial Tracker Budget Breakdown";
-      
+
+        //Sets the String Message that is attached to the email
         String Message = "As requested here is your budget breakdown:\nHome Expenses: " + Double.toString(homeExpensePercentage)
                 + "%\nTransportation: " + Double.toString(transportationPercentage) + "%\nHealth: "
                 + Double.toString(healthPercentage) + "%\nCharity: " + Double.toString(charityPercentage) + "%\nDaily Living: "
                 + Double.toString(dailyLivingPercentage) + "%\nEntertainment: " + Double.toString(entertainmentPercentage)
                 + "%\nFinancial: " + Double.toString(financialPercentage) + "%\nTotal Money Spent: " + Double.toString(Total);
-      
+
+        //Make a new email object and send the email
         EmailAPI Email = new EmailAPI();
         Email.sendEmail(Recipient, Subject, Message);
     }//GEN-LAST:event_btnSendActionPerformed
@@ -113,7 +115,6 @@ public class EmailAPIForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -136,7 +137,7 @@ public class EmailAPIForm extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        //Display the Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EmailAPIForm().setVisible(true);
@@ -144,10 +145,13 @@ public class EmailAPIForm extends javax.swing.JFrame {
         });
     }
 
+    //JFRAME VARIABLES =========================================================
+    // <editor-fold defaultstate="collapsed" desc=" JFrame Variables ">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSend;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtemailAddress;
     // End of variables declaration//GEN-END:variables
+    // </editor-fold>
 }
