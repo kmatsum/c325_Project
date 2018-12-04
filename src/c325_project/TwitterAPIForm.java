@@ -13,7 +13,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     //VARIABLES ================================================================
     String[] TwitterAPIOutput = new String[50];
     int count = 0;
-    
+
     //CONSTRUCTOR ==============================================================
     public TwitterAPIForm() {
         initComponents();
@@ -151,7 +151,7 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     }
 
     //JFRAME VARIABLES =========================================================
-    
+    //<editor-fold defaultstate="collapsed" desc=" JFrame Varables ">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnShowTweets;
@@ -159,4 +159,5 @@ public class TwitterAPIForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextArea txtAreaOutput;
     // End of variables declaration//GEN-END:variables
+    // </editor-fold>
 }

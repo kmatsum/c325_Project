@@ -87,18 +87,22 @@ public class Database {
 
     //SELECT STATEMENT =========================================================
     public ArrayList<String> SelectPurchase(String statement) {
-      
+
+        //Set the result String Arrray List Variable
         ArrayList<String> Results = new ArrayList<String>();
 
+        //Connect to the database and inject the SQL Statement
         try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(statement);) {
 
+            //Debug
             System.out.println("Statement executed successfully: " + statement);
 
+            //Iterate through the Result Set and add to the String Array List
             while (rs.next()) {
-                Results.add(rs.getString("DATETIME") + "\t" + rs.getString("NAME") + "\t" + rs.getDouble("AMOUNT") + 
-                        "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY") + "\t" + rs.getString("DESCRIPTION"));
+                Results.add(rs.getString("DATETIME") + "\t" + rs.getString("NAME") + "\t" + rs.getDouble("AMOUNT")
+                        + "\t" + rs.getString("BANK") + "\t" + rs.getString("CATEGORY") + "\t" + rs.getString("DESCRIPTION"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -110,11 +114,15 @@ public class Database {
 
     //RETRIEVES AMMOUNT OF PURCHASES FOR SPECIFIC CATEGORIES ===================
     public double SumTableCategories(String categoryName) {
+        //Set variables
         double Result = 0;
+
+        //Connect to the Database and inject the SQL Statement with the categoryName parameter
         try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT SUM(AMOUNT) FROM PURCHASES WHERE CATEGORY= '" + categoryName + "';");) {
 
+            //Loop through the Result Set
             while (rs.next()) {
                 Result = rs.getDouble("SUM(AMOUNT)");
             }
@@ -127,11 +135,16 @@ public class Database {
 
     //RETRIEVES TOTAL AMOUNT OF PURCHASES ======================================
     public double SumTotal() {
+
+        //Set variables
         double Result = 0;
+
+        //Connect to the Database
         try (Connection conn = DriverManager.getConnection(Database.DatabaseFilePath);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT SUM(AMOUNT) FROM PURCHASES;");) {
 
+            //Loop through the Result Set
             while (rs.next()) {
                 Result = rs.getDouble("SUM(AMOUNT)");
             }
