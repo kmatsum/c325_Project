@@ -7,6 +7,7 @@ public class LogInScreen extends javax.swing.JFrame {
     //MainScreen CONSTRUCTOR ===================================================
     public LogInScreen() {
         initComponents();
+        txtUserIDLogin.requestFocus();
     }
 
     //GENERATED CODE ===========================================================
