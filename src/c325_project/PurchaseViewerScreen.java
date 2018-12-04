@@ -1,7 +1,5 @@
 package c325_project;
 
-import java.util.ArrayList;
-
 public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //BudgetScreen CONSTRUCTOR =================================================
@@ -17,6 +15,15 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         for (int index = 0; index < main.currentUser.getPurchaseArrayList().size(); index++) {
             System.out.println(main.currentUser.getPurchaseArrayList().get(index).getName());
         }
+
+        //Set Shortcuts
+        btnLog.setMnemonic('L');
+        btnViewAll.setMnemonic('A');
+        btnSearch.setMnemonic('S');
+        btnEnter.setMnemonic('P');
+        btnSend.setMnemonic('E');
+        btnFix.setMnemonic('F');
+        btnTips.setMnemonic('T');
     }
 
     //GENERATED CODE ===========================================================
