@@ -14,6 +14,7 @@ public class LogInScreen extends javax.swing.JFrame {
         //Set Shortcuts
         JRootPane rootPane = SwingUtilities.getRootPane(btnLogin);
         rootPane.setDefaultButton(btnLogin);
+
         btnNext.setMnemonic('N');
         btnCancel.setMnemonic('C');
     }
@@ -264,16 +265,22 @@ public class LogInScreen extends javax.swing.JFrame {
                 dialogCreateAccountError.setVisible(true);
                 lblCreateAccountError.setText("Please Enter your First Name!");
                 System.out.println("First Name Textbox Empty");
+                JRootPane dialog = SwingUtilities.getRootPane(btnOK_dialogCreateAccountError);
+                dialog.setDefaultButton(btnOK_dialogCreateAccountError);
                 return;
             } else if (txtLastName.getText().equals("")) {
                 dialogCreateAccountError.setVisible(true);
                 lblCreateAccountError.setText("Please Enter your Last Name!");
                 System.out.println("Last Name Textbox Empty");
+                JRootPane dialog = SwingUtilities.getRootPane(btnOK_dialogCreateAccountError);
+                dialog.setDefaultButton(btnOK_dialogCreateAccountError);
                 return;
             } else if (txtUserIDCreate.getText().equals("")) {
                 dialogCreateAccountError.setVisible(true);
                 lblCreateAccountError.setText("Please Enter a username!");
                 System.out.println("Username Textbox Empty");
+                JRootPane dialog = SwingUtilities.getRootPane(btnOK_dialogCreateAccountError);
+                dialog.setDefaultButton(btnOK_dialogCreateAccountError);
                 return;
             }
 
@@ -284,6 +291,8 @@ public class LogInScreen extends javax.swing.JFrame {
                 dialogCreateAccountError.setVisible(true);
                 lblCreateAccountError.setText("That username already exists!");
                 System.out.println("Username already exists");
+                JRootPane dialog = SwingUtilities.getRootPane(btnOK_dialogCreateAccountError);
+                dialog.setDefaultButton(btnOK_dialogCreateAccountError);
                 return;
             }
 
@@ -291,7 +300,7 @@ public class LogInScreen extends javax.swing.JFrame {
             main.currentUser.setFirstName(txtFirstName.getText());
             main.currentUser.setLastName(txtLastName.getText());
             main.currentUser.setUserID(txtUserIDCreate.getText());
-            
+
             //Dispose this current window and move on to the next Window
             CreateBudgetScreen CreateBudgetScreen = new CreateBudgetScreen();
             dispose();
@@ -319,6 +328,8 @@ public class LogInScreen extends javax.swing.JFrame {
             //Checking the null of temp object
             if (tempObj == null) {
                 dialogFileNotFoundLoginError.setVisible(true);
+                JRootPane dialog = SwingUtilities.getRootPane(btnOK_dialogFileNotFoundLoginError);
+                dialog.setDefaultButton(btnOK_dialogFileNotFoundLoginError);
                 return;
             }
 
