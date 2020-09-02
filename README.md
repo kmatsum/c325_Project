@@ -18,8 +18,8 @@ These emails are formatted to make the data very easy to read for the reciever.<
 
 ### Links
 
-- The project specification document can be found [here] (https://docs.google.com/document/d/1scPLugmx-DD76lU7trWnyQiYlFmNTmzF5daHJ_Zal9Q/edit?usp=sharing)
-- Video Demos of this application can be found [here] (https://drive.google.com/drive/folders/1lV2tPyflZ4hbTfKN3EPPupFr5RzcLxur?usp=sharing)
+- The project specification document can be found [here](https://docs.google.com/document/d/1scPLugmx-DD76lU7trWnyQiYlFmNTmzF5daHJ_Zal9Q/edit?usp=sharing)
+- Video Demos of this application can be found [here](https://drive.google.com/drive/folders/1lV2tPyflZ4hbTfKN3EPPupFr5RzcLxur?usp=sharing)
 
 ### Technologies Used
 - Git / GitHub (Version Control)
